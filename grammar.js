@@ -25,38 +25,89 @@ module.exports = grammar({
     ),
 
     assign_statement: $ => seq(
-      $.identifier,
+      field('name', $.identifier),
       '=',
-      $.expression,
+      field('value', $.expression),
     ),
 
     block_statement: $ => seq(
-      '{',
-      repeat($.statement),
-      '}',
+      field('statements', repeat($.statement)),
     ),
 
     break_if_statement: $ => seq(
       '@breakIf(',
-      $.expression,
+      field('condition', $.expression),
+      ')',
+    ),
+
+    continue_if_statement: $ => seq(
+      '@continueIf(',
+      field('condition', $.expression),
       ')',
     ),
 
     break_statement: _ => '@break',
+    continue_statement: _ => '@continue',
 
-    call_expression: $ => seq(
+    dot_expression: $ => seq(
       $.identifier,
       '.(',
       optional($.arguments),
       ')',
     ),
 
+    arguments: $ => seq(
+      $.argument,
+      optional(repeat(seq(',', $.argument))),
+    ),
+
+    component_statement: $ => seq(
+      '@component(',
+      field('name', $.string_literal),
+      optional(seq(',', $.argument)),
+      ')',
+    ),
+
+    dump_statement: $ => seq(
+      '@dump(',
+      $.arguments,
+      ')',
+    ),
+
+    each_statement: $ => seq(
+      '@each(',
+      field('var', $.identifier),
+      ' in ',
+      field('array', $.expression),
+      ')',
+      $.block_statement,
+
+      optional(
+        seq(
+          '@else',
+          field('alternative', $.block_statement),
+        ),
+      ),
+
+      '@end',
+    ),
+
+    identifier: _ => /[a-z_]+/,
+
+    string_literal: _ => choice(
+      seq('"', /[^"]*/, '"'),
+      seq("'", /[^']*/, "'"),
+    ),
+
+    // TODO: check below =============================
     expression: $ => choice(
       $.identifier,
       $.number_int,
       $.number_float,
       $.binary_expression,
     ),
+
+    argument: $ => $.expression,
 
     binary_expression: $ => choice(
       seq($._expression, '+', $._expression),
@@ -66,7 +117,6 @@ module.exports = grammar({
       seq($._expression, '%', $._expression),
     ),
 
-    identifier: $ => /[a-z]+/,
     number_int: $ => /\d+/,
     number_float: $ => /\d+\.\d+/,
   }
