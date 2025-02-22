@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.2",
+    "typescript": "^5.7.3"
+  }
+}

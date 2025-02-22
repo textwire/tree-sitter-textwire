@@ -1,0 +1,37 @@
+{
+  "grammars": [
+    {
+      "name": "textwire",
+      "camelcase": "Textwire",
+      "scope": "source.textwire",
+      "file-types": [
+        "tw",
+        "tw.html"
+      ],
+      "injection-regex": "^textwire$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Dynamic templating and scripting language for Go. Ideal for embedding dynamic content with Go applications",
+    "authors": [
+      {
+        "name": "Serhii Cho",
+        "email": "serhiicho@protonmail.com",
+        "url": "https://serhii.io/about-me"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/textwire/textwire"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
