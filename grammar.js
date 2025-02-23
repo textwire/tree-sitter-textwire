@@ -1,4 +1,4 @@
-/**
+/*
  * @file Dynamic templating and scripting language for Go. Ideal for embedding dynamic content with Go applications
  * @author Serhii Cho <serhiicho@protonmail.com>
  * @license MIT
@@ -10,16 +10,6 @@
 module.exports = grammar({
   name: "textwire",
 
-  // an array of tokens that may appear anywhere in the language.
-  // This is often used for whitespace and comments.
-  // The default value of extras is to accept whitespace.
-  // To control whitespace explicitly, specify extras:
-  // $ => [] in your grammar.
-  extras: $ => {
-    return [
-      $.html_interpolation,
-    ]
-  },
 
   // the name of a token that will match keywords to the
   // keyword extraction optimization
@@ -33,7 +23,7 @@ module.exports = grammar({
       $.dump_statement,
       $.component_statement,
       $.each_statement,
-      $.html,
+      //$.html,
     ),
 
     brace_statement: $ => seq(
@@ -46,12 +36,6 @@ module.exports = grammar({
       token(prec(-1, /</)),
       token(prec(1, /[^\s<][^<]*/)),
     )),
-
-    html_interpolation: $ => seq(
-      $.close_braces,
-      optional($.html),
-      $.open_braces,
-    ),
 
     statement: $ => choice(
       $.assign_statement,

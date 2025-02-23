@@ -9,9 +9,9 @@
 #define LANGUAGE_VERSION 15
 #define STATE_COUNT 44
 #define LARGE_STATE_COUNT 2
-#define SYMBOL_COUNT 32
+#define SYMBOL_COUNT 33
 #define ALIAS_COUNT 0
-#define TOKEN_COUNT 18
+#define TOKEN_COUNT 19
 #define EXTERNAL_TOKEN_COUNT 0
 #define FIELD_COUNT 5
 #define MAX_ALIAS_SEQUENCE_LENGTH 9
@@ -20,41 +20,43 @@
 #define SUPERTYPE_COUNT 0
 
 enum ts_symbol_identifiers {
-  anon_sym_EQ = 1,
-  anon_sym_COMMA = 2,
-  anon_sym_ATcomponent_LPAREN = 3,
-  anon_sym_RPAREN = 4,
-  anon_sym_ATdump_LPAREN = 5,
-  anon_sym_ATeach_LPAREN = 6,
-  anon_sym_in = 7,
-  anon_sym_ATelse = 8,
-  anon_sym_ATend = 9,
-  sym_identifier = 10,
-  anon_sym_DQUOTE = 11,
-  aux_sym_string_literal_token1 = 12,
-  anon_sym_SQUOTE = 13,
-  aux_sym_string_literal_token2 = 14,
-  sym_open_braces = 15,
-  sym_close_braces = 16,
-  sym_number_int = 17,
-  sym_program = 18,
-  sym_definition = 19,
-  sym_brace_statement = 20,
-  sym_statement = 21,
-  sym_assign_statement = 22,
-  sym_block_statement = 23,
-  sym_argument_list = 24,
-  sym_component_statement = 25,
-  sym_dump_statement = 26,
-  sym_each_statement = 27,
-  sym_string_literal = 28,
-  sym_expression = 29,
-  aux_sym_program_repeat1 = 30,
-  aux_sym_argument_list_repeat1 = 31,
+  sym_name = 1,
+  anon_sym_EQ = 2,
+  anon_sym_COMMA = 3,
+  anon_sym_ATcomponent_LPAREN = 4,
+  anon_sym_RPAREN = 5,
+  anon_sym_ATdump_LPAREN = 6,
+  anon_sym_ATeach_LPAREN = 7,
+  anon_sym_in = 8,
+  anon_sym_ATelse = 9,
+  anon_sym_ATend = 10,
+  sym_identifier = 11,
+  anon_sym_DQUOTE = 12,
+  aux_sym_string_literal_token1 = 13,
+  anon_sym_SQUOTE = 14,
+  aux_sym_string_literal_token2 = 15,
+  sym_open_braces = 16,
+  sym_close_braces = 17,
+  sym_number_int = 18,
+  sym_program = 19,
+  sym_definition = 20,
+  sym_brace_statement = 21,
+  sym_statement = 22,
+  sym_assign_statement = 23,
+  sym_block_statement = 24,
+  sym_argument_list = 25,
+  sym_component_statement = 26,
+  sym_dump_statement = 27,
+  sym_each_statement = 28,
+  sym_string_literal = 29,
+  sym_expression = 30,
+  aux_sym_program_repeat1 = 31,
+  aux_sym_argument_list_repeat1 = 32,
 };
 
 static const char * const ts_symbol_names[] = {
   [ts_builtin_sym_end] = "end",
+  [sym_name] = "name",
   [anon_sym_EQ] = "=",
   [anon_sym_COMMA] = ",",
   [anon_sym_ATcomponent_LPAREN] = "@component(",
@@ -90,6 +92,7 @@ static const char * const ts_symbol_names[] = {
 
 static const TSSymbol ts_symbol_map[] = {
   [ts_builtin_sym_end] = ts_builtin_sym_end,
+  [sym_name] = sym_name,
   [anon_sym_EQ] = anon_sym_EQ,
   [anon_sym_COMMA] = anon_sym_COMMA,
   [anon_sym_ATcomponent_LPAREN] = anon_sym_ATcomponent_LPAREN,
@@ -126,6 +129,10 @@ static const TSSymbol ts_symbol_map[] = {
 static const TSSymbolMetadata ts_symbol_metadata[] = {
   [ts_builtin_sym_end] = {
     .visible = false,
+    .named = true,
+  },
+  [sym_name] = {
+    .visible = true,
     .named = true,
   },
   [anon_sym_EQ] = {
@@ -348,6 +355,11 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [43] = 43,
 };
 
+const TSCharacterRange sym_name_character_set_1[] = {
+  {'0', '9'}, {'A', 'Z'}, {'_', '_'}, {'a', 'z'}, {0x80, 0x9f}, {0xa1, 0x200a}, {0x200c, 0x205f}, {0x2061, 0xfefe},
+  {0xff00, 0xffff},
+};
+
 static bool ts_lex(TSLexer *lexer, TSStateId state) {
   START_LEXER();
   eof = lexer->eof(lexer);
@@ -355,8 +367,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 0:
       if (eof) ADVANCE(28);
       ADVANCE_MAP(
-        '"', 39,
-        '\'', 42,
+        '"', 38,
+        '\'', 41,
         ')', 32,
         ',', 30,
         '=', 29,
@@ -367,8 +379,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(0);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(47);
-      if (lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(38);
+      if (set_contains(sym_name_character_set_1, 9, lookahead)) ADVANCE(44);
       END_STATE();
     case 1:
       if (lookahead == ' ') ADVANCE(1);
@@ -489,39 +500,38 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_ATend);
       END_STATE();
     case 38:
-      ACCEPT_TOKEN(sym_identifier);
-      if (lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(38);
+      ACCEPT_TOKEN(anon_sym_DQUOTE);
       END_STATE();
     case 39:
-      ACCEPT_TOKEN(anon_sym_DQUOTE);
+      ACCEPT_TOKEN(aux_sym_string_literal_token1);
+      if (('\t' <= lookahead && lookahead <= '\r') ||
+          lookahead == ' ') ADVANCE(39);
+      if (lookahead != 0 &&
+          lookahead != '"') ADVANCE(40);
       END_STATE();
     case 40:
       ACCEPT_TOKEN(aux_sym_string_literal_token1);
-      if (('\t' <= lookahead && lookahead <= '\r') ||
-          lookahead == ' ') ADVANCE(40);
       if (lookahead != 0 &&
-          lookahead != '"') ADVANCE(41);
+          lookahead != '"') ADVANCE(40);
       END_STATE();
     case 41:
-      ACCEPT_TOKEN(aux_sym_string_literal_token1);
-      if (lookahead != 0 &&
-          lookahead != '"') ADVANCE(41);
+      ACCEPT_TOKEN(anon_sym_SQUOTE);
       END_STATE();
     case 42:
-      ACCEPT_TOKEN(anon_sym_SQUOTE);
+      ACCEPT_TOKEN(aux_sym_string_literal_token2);
+      if (('\t' <= lookahead && lookahead <= '\r') ||
+          lookahead == ' ') ADVANCE(42);
+      if (lookahead != 0 &&
+          lookahead != '\'') ADVANCE(43);
       END_STATE();
     case 43:
       ACCEPT_TOKEN(aux_sym_string_literal_token2);
-      if (('\t' <= lookahead && lookahead <= '\r') ||
-          lookahead == ' ') ADVANCE(43);
       if (lookahead != 0 &&
-          lookahead != '\'') ADVANCE(44);
+          lookahead != '\'') ADVANCE(43);
       END_STATE();
     case 44:
-      ACCEPT_TOKEN(aux_sym_string_literal_token2);
-      if (lookahead != 0 &&
-          lookahead != '\'') ADVANCE(44);
+      ACCEPT_TOKEN(sym_name);
+      if (set_contains(sym_name_character_set_1, 9, lookahead)) ADVANCE(44);
       END_STATE();
     case 45:
       ACCEPT_TOKEN(sym_open_braces);
@@ -532,6 +542,26 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 47:
       ACCEPT_TOKEN(sym_number_int);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(47);
+      END_STATE();
+    default:
+      return false;
+  }
+}
+
+static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
+  START_LEXER();
+  eof = lexer->eof(lexer);
+  switch (state) {
+    case 0:
+      if (('\t' <= lookahead && lookahead <= '\r') ||
+          lookahead == ' ') SKIP(0);
+      if (lookahead == '_' ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(1);
+      END_STATE();
+    case 1:
+      ACCEPT_TOKEN(sym_identifier);
+      if (lookahead == '_' ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(1);
       END_STATE();
     default:
       return false;
@@ -570,7 +600,7 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [28] = {.lex_state = 0},
   [29] = {.lex_state = 0},
   [30] = {.lex_state = 0},
-  [31] = {.lex_state = 40},
+  [31] = {.lex_state = 39},
   [32] = {.lex_state = 0},
   [33] = {.lex_state = 2},
   [34] = {.lex_state = 0},
@@ -580,7 +610,7 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
   [38] = {.lex_state = 0},
   [39] = {.lex_state = 0},
   [40] = {.lex_state = 0},
-  [41] = {.lex_state = 43},
+  [41] = {.lex_state = 42},
   [42] = {.lex_state = 0},
   [43] = {.lex_state = 0},
 };
@@ -588,6 +618,7 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
 static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [STATE(0)] = {
     [ts_builtin_sym_end] = ACTIONS(1),
+    [sym_name] = ACTIONS(1),
     [anon_sym_EQ] = ACTIONS(1),
     [anon_sym_COMMA] = ACTIONS(1),
     [anon_sym_ATcomponent_LPAREN] = ACTIONS(1),
@@ -1053,6 +1084,8 @@ TS_PUBLIC const TSLanguage *tree_sitter_textwire(void) {
     .alias_sequences = &ts_alias_sequences[0][0],
     .lex_modes = (const void*)ts_lex_modes,
     .lex_fn = ts_lex,
+    .keyword_lex_fn = ts_lex_keywords,
+    .keyword_capture_token = sym_name,
     .primary_state_ids = ts_primary_state_ids,
     .name = "textwire",
     .max_reserved_word_set_size = 0,

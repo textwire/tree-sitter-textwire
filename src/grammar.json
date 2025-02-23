@@ -28,10 +28,6 @@
         {
           "type": "SYMBOL",
           "name": "each_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "html"
         }
       ]
     },
@@ -81,31 +77,6 @@
           }
         ]
       }
-    },
-    "html_interpolation": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "close_braces"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "html"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "open_braces"
-        }
-      ]
     },
     "statement": {
       "type": "CHOICE",
@@ -551,8 +522,8 @@
   },
   "extras": [
     {
-      "type": "SYMBOL",
-      "name": "html_interpolation"
+      "type": "PATTERN",
+      "value": "\\s"
     }
   ],
   "conflicts": [],
