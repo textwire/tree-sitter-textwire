@@ -1,0 +1,23 @@
+==================
+Dump statement
+==================
+@dump(1)
+---
+
+(program 
+    (definition
+        (dump_statement
+            (argument_list
+                (expression
+                    (number_int))))))
+
+==================
+Simple component statement
+==================
+@component('user')
+---
+
+(program 
+    (definition
+        (component_statement
+            (string_literal))))

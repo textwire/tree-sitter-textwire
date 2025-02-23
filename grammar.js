@@ -10,13 +10,47 @@
 module.exports = grammar({
   name: "textwire",
 
-  rules: {
-    source_file: $ => repeat($.injection),
+  // an array of tokens that may appear anywhere in the language.
+  // This is often used for whitespace and comments.
+  // The default value of extras is to accept whitespace.
+  // To control whitespace explicitly, specify extras:
+  // $ => [] in your grammar.
+  extras: $ => {
+    return [
+      $.html_interpolation,
+    ]
+  },
 
-    injection: $ => seq(
-      '{{',
+  // the name of a token that will match keywords to the
+  // keyword extraction optimization
+  word: $ => $.name,
+
+  rules: {
+    program: $ => repeat($.definition),
+
+    definition: $ => choice(
+      $.brace_statement,
+      $.dump_statement,
+      $.component_statement,
+      $.each_statement,
+      $.html,
+    ),
+
+    brace_statement: $ => seq(
+      $.open_braces,
       $.statement,
-      '}}',
+      $.close_braces,
+    ),
+
+    html: _ => repeat1(choice(
+      token(prec(-1, /</)),
+      token(prec(1, /[^\s<][^<]*/)),
+    )),
+
+    html_interpolation: $ => seq(
+      $.close_braces,
+      optional($.html),
+      $.open_braces,
     ),
 
     statement: $ => choice(
@@ -30,9 +64,7 @@ module.exports = grammar({
       field('value', $.expression),
     ),
 
-    block_statement: $ => seq(
-      field('statements', repeat($.statement)),
-    ),
+    block_statement: $ => $.definition,
 
     break_if_statement: $ => seq(
       '@breakIf(',
@@ -52,25 +84,25 @@ module.exports = grammar({
     dot_expression: $ => seq(
       $.identifier,
       '.(',
-      optional($.arguments),
+      optional($.argument_list),
       ')',
     ),
 
-    arguments: $ => seq(
-      $.argument,
-      optional(repeat(seq(',', $.argument))),
+    argument_list: $ => seq(
+      $.expression,
+      optional(repeat(seq(',', $.expression))),
     ),
 
     component_statement: $ => seq(
       '@component(',
       field('name', $.string_literal),
-      optional(seq(',', $.argument)),
+      optional(seq(',', $.expression)),
       ')',
     ),
 
     dump_statement: $ => seq(
       '@dump(',
-      $.arguments,
+      $.argument_list,
       ')',
     ),
 
@@ -99,26 +131,33 @@ module.exports = grammar({
       seq("'", /[^']*/, "'"),
     ),
 
+    name: _ => {
+      // We need to side step around the whitespace characters in the extras array.
+      const range = String.raw`\u0080-\u009f\u00a1-\u200a\u200c-\u205f\u2061-\ufefe\uff00-\uffff`;
+      return new RegExp(`[_a-zA-Z${range}][_a-zA-Z${range}\\d]*`);
+    },
+
     // TODO: check below =============================
     expression: $ => choice(
-      $.identifier,
+      //$.identifier,
       $.number_int,
-      $.number_float,
-      $.binary_expression,
+      //$.number_float,
+      //$.binary_expression,
     ),
-
-    argument: $ => $.expression,
 
     binary_expression: $ => choice(
-      seq($._expression, '+', $._expression),
-      seq($._expression, '-', $._expression),
-      seq($._expression, '*', $._expression),
-      seq($._expression, '/', $._expression),
-      seq($._expression, '%', $._expression),
+      seq($.expression, '+', $.expression),
+      seq($.expression, '-', $.expression),
+      seq($.expression, '*', $.expression),
+      seq($.expression, '/', $.expression),
+      seq($.expression, '%', $.expression),
     ),
 
-    number_int: $ => /\d+/,
-    number_float: $ => /\d+\.\d+/,
+    open_braces: _ => '{{',
+    close_braces: _ => '}}',
+
+    number_int: _ => /\d+/,
+    number_float: _ => /\d+\.\d+/,
   }
 });
 
