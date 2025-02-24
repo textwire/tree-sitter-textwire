@@ -2,10 +2,6 @@ ifeq ($(OS),Windows_NT)
 $(error Windows is not supported)
 endif
 
-.PHONY: generate
-generate:
-	@tree-sitter generate
-
 LANGUAGE_NAME := tree-sitter-textwire
 HOMEPAGE_URL := https://github.com/textwire/textwire
 VERSION := 0.1.0
@@ -72,6 +68,7 @@ $(LANGUAGE_NAME).pc: bindings/c/$(LANGUAGE_NAME).pc.in
 $(PARSER): $(SRC_DIR)/grammar.json
 	$(TS) generate $^
 
+.PHONY: install
 install: all
 	install -d '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter '$(DESTDIR)$(PCLIBDIR)' '$(DESTDIR)$(LIBDIR)'
 	install -m644 bindings/c/$(LANGUAGE_NAME).h '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter/$(LANGUAGE_NAME).h
@@ -81,6 +78,7 @@ install: all
 	ln -sf lib$(LANGUAGE_NAME).$(SOEXTVER) '$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).$(SOEXTVER_MAJOR)
 	ln -sf lib$(LANGUAGE_NAME).$(SOEXTVER_MAJOR) '$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).$(SOEXT)
 
+.PHONY: uninstall
 uninstall:
 	$(RM) '$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).a \
 		'$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).$(SOEXTVER) \
@@ -93,8 +91,18 @@ uninstall:
 clean:
 	$(RM) $(OBJS) $(LANGUAGE_NAME).pc lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT)
 
+.PHONY: generate
+generate:
+	@tree-sitter generate
+
 .PHONY: test
 test: generate
 	$(TS) test
 
+.PHONY: parse
+parse:
+	$(TS) parse textwire.tw
+
 .PHONY: all install uninstall clean test
+
+.DEFAULT_GOAL := test

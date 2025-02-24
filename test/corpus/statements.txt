@@ -8,3 +8,4 @@ Simple string statement without HTML
     (brace_statement
         (statement
             (string_literal))))
+

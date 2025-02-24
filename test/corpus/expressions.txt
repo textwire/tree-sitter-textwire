@@ -1,0 +1,14 @@
+==================
+Infix expression with 2 integers
+==================
+{{ 1 + 2 }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (infix_expression
+                    (plus 
+                        (number_int)
+                        (number_int)))))))

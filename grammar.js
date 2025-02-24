@@ -40,7 +40,10 @@ module.exports = grammar({
       $.assign_statement,
       $.block_statement,
       $.string_literal,
+      $.expression_statement,
     ),
+
+    expression_statement: $ => $._expression,
 
     assign_statement: $ => seq(
       field('name', $.identifier),
@@ -135,7 +138,23 @@ module.exports = grammar({
       prec.left(5, seq($._expression, '%', $._expression)),
       prec.left(5, seq($._expression, '/', $._expression)),
       prec.left(4, seq($._expression, '-', $._expression)),
-      prec.left(4, seq($._expression, '+', $._expression)),
+      $.plus,
+    ),
+
+    plus: $ => prec.left(
+      4, seq(
+        $._expression,
+        '+',
+        $._expression,
+      ),
+    ),
+
+    operator: $ => choice(
+      '+',
+      '-',
+      '*',
+      '/',
+      '%',
     ),
 
     number_int: _ => /\d+/,
