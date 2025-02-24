@@ -10,10 +10,9 @@
 module.exports = grammar({
   name: "textwire",
 
-
   // the name of a token that will match keywords to the
   // keyword extraction optimization
-  word: $ => $.name,
+  word: $ => $.identifier,
 
   rules: {
     program: $ => repeat($._definition),
@@ -93,7 +92,7 @@ module.exports = grammar({
     each_statement: $ => seq(
       '@each(',
       field('var', $.identifier),
-      ' in ',
+      'in',
       field('array', $.expression),
       ')',
       $.block_statement,
@@ -108,18 +107,12 @@ module.exports = grammar({
       '@end',
     ),
 
-    identifier: _ => /[a-z_]+/,
+    identifier: _ => /[A-Za-z_][A-Za-z_0-9]*/,
 
     string_literal: _ => choice(
       seq('"', /[^"]*/, '"'),
       seq("'", /[^']*/, "'"),
     ),
-
-    name: _ => {
-      // We need to side step around the whitespace characters in the extras array.
-      const range = String.raw`\u0080-\u009f\u00a1-\u200a\u200c-\u205f\u2061-\ufefe\uff00-\uffff`;
-      return new RegExp(`[_a-zA-Z${range}][_a-zA-Z${range}\\d]*`);
-    },
 
     expression: $ => choice(
       $.identifier,
