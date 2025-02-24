@@ -12,3 +12,36 @@ Infix expression with 2 integers
                     (plus 
                         (number_int)
                         (number_int)))))))
+
+==================
+Prefix expression
+==================
+{{ !true }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (prefix_expression
+                    (prefix_not
+                        (boolean_literal)))))))
+
+
+==================
+Prefix and infix expressions
+==================
+{{ -10 + 5 }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (infix_expression
+                    (plus
+                        (prefix_expression
+                            (prefix_minus
+                                (number_int)))
+                        (number_int)))))))
+

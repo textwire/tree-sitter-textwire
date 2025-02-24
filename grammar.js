@@ -121,6 +121,8 @@ module.exports = grammar({
     _expression: $ => choice(
       $.identifier,
       $.number_int,
+      $.number_int,
+      $.boolean_literal,
       $.prefix_expression,
       $.infix_expression,
     ),
@@ -128,37 +130,70 @@ module.exports = grammar({
     prefix_expression: $ => prec(
       7,
       choice(
-        seq("-", $._expression),
-        seq("!", $._expression),
+        $.prefix_minus,
+        $.prefix_not,
       ),
     ),
 
+    prefix_minus: $ => prec(8, seq("-", $._expression)),
+    prefix_not: $ => prec(8, seq("!", $._expression)),
+
     infix_expression: $ => choice(
-      prec.left(5, seq($._expression, '*', $._expression)),
-      prec.left(5, seq($._expression, '%', $._expression)),
-      prec.left(5, seq($._expression, '/', $._expression)),
-      prec.left(4, seq($._expression, '-', $._expression)),
+      $.multiply,
+      $.modulo,
+      $.divide,
+      $.minus,
       $.plus,
     ),
 
+    multiply: $ => prec.left(
+      6,
+      seq(
+        $._expression,
+        '*',
+        $._expression,
+      ),
+    ),
+
+    modulo: $ => prec.left(
+      6,
+      seq(
+        $._expression,
+        '%',
+        $._expression,
+      ),
+    ),
+
+    divide: $ => prec.left(
+      6,
+      seq(
+        $._expression,
+        '/',
+        $._expression,
+      ),
+    ),
+
+    minus: $ => prec.left(
+      5,
+      seq(
+        $._expression,
+        '-',
+        $._expression,
+      ),
+    ),
+
     plus: $ => prec.left(
-      4, seq(
+      5,
+      seq(
         $._expression,
         '+',
         $._expression,
       ),
     ),
 
-    operator: $ => choice(
-      '+',
-      '-',
-      '*',
-      '/',
-      '%',
-    ),
-
     number_int: _ => /\d+/,
     number_float: _ => /\d+\.\d+/,
+    boolean_literal: _ => choice('true', 'false'),
   }
 });
 
