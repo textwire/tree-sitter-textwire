@@ -1,0 +1,10 @@
+==================
+Simple string statement without HTML
+==================
+{{ 'Hello, world!' }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (string_literal))))

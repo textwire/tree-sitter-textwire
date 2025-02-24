@@ -7,8 +7,7 @@ Dump statement
 (program 
     (dump_statement
         (argument_list
-            (expression
-                (number_int)))))
+            (number_int))))
 
 ==================
 Simple component statement
@@ -19,3 +18,4 @@ Simple component statement
 (program 
     (component_statement
         (string_literal)))
+

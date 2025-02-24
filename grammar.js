@@ -26,9 +26,9 @@ module.exports = grammar({
     ),
 
     brace_statement: $ => seq(
-      $.open_braces,
+      '{{',
       $.statement,
-      $.close_braces,
+      '}}',
     ),
 
     html: _ => repeat1(choice(
@@ -39,25 +39,26 @@ module.exports = grammar({
     statement: $ => choice(
       $.assign_statement,
       $.block_statement,
+      $.string_literal,
     ),
 
     assign_statement: $ => seq(
       field('name', $.identifier),
       '=',
-      field('value', $.expression),
+      field('value', $._expression),
     ),
 
     block_statement: $ => $._definition,
 
     break_if_statement: $ => seq(
       '@breakIf(',
-      field('condition', $.expression),
+      field('condition', $._expression),
       ')',
     ),
 
     continue_if_statement: $ => seq(
       '@continueIf(',
-      field('condition', $.expression),
+      field('condition', $._expression),
       ')',
     ),
 
@@ -72,14 +73,14 @@ module.exports = grammar({
     ),
 
     argument_list: $ => seq(
-      $.expression,
-      optional(repeat(seq(',', $.expression))),
+      $._expression,
+      optional(repeat(seq(',', $._expression))),
     ),
 
     component_statement: $ => seq(
       '@component(',
       field('name', $.string_literal),
-      optional(seq(',', $.expression)),
+      optional(seq(',', $._expression)),
       ')',
     ),
 
@@ -93,7 +94,7 @@ module.exports = grammar({
       '@each(',
       field('var', $.identifier),
       'in',
-      field('array', $.expression),
+      field('array', $._expression),
       ')',
       $.block_statement,
 
@@ -114,7 +115,7 @@ module.exports = grammar({
       seq("'", /[^']*/, "'"),
     ),
 
-    expression: $ => choice(
+    _expression: $ => choice(
       $.identifier,
       $.number_int,
       $.prefix_expression,
@@ -124,21 +125,18 @@ module.exports = grammar({
     prefix_expression: $ => prec(
       7,
       choice(
-        seq("-", $.expression),
-        seq("!", $.expression),
+        seq("-", $._expression),
+        seq("!", $._expression),
       ),
     ),
 
     infix_expression: $ => choice(
-      prec.left(5, seq($.expression, '*', $.expression)),
-      prec.left(5, seq($.expression, '%', $.expression)),
-      prec.left(5, seq($.expression, '/', $.expression)),
-      prec.left(4, seq($.expression, '-', $.expression)),
-      prec.left(4, seq($.expression, '+', $.expression)),
+      prec.left(5, seq($._expression, '*', $._expression)),
+      prec.left(5, seq($._expression, '%', $._expression)),
+      prec.left(5, seq($._expression, '/', $._expression)),
+      prec.left(4, seq($._expression, '-', $._expression)),
+      prec.left(4, seq($._expression, '+', $._expression)),
     ),
-
-    open_braces: _ => '{{',
-    close_braces: _ => '}}',
 
     number_int: _ => /\d+/,
     number_float: _ => /\d+\.\d+/,

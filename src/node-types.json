@@ -8,7 +8,19 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "number_int",
+          "named": true
+        },
+        {
+          "type": "prefix_expression",
           "named": true
         }
       ]
@@ -33,7 +45,19 @@
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
             "named": true
           }
         ]
@@ -72,17 +96,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "close_braces",
-          "named": true
-        },
-        {
-          "type": "open_braces",
-          "named": true
-        },
         {
           "type": "statement",
           "named": true
@@ -110,7 +126,19 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "number_int",
+          "named": true
+        },
+        {
+          "type": "prefix_expression",
           "named": true
         }
       ]
@@ -150,7 +178,19 @@
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
             "named": true
           }
         ]
@@ -178,11 +218,11 @@
     }
   },
   {
-    "type": "expression",
+    "type": "infix_expression",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -205,21 +245,6 @@
     }
   },
   {
-    "type": "infix_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "prefix_expression",
     "named": true,
     "fields": {},
@@ -228,7 +253,19 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "number_int",
+          "named": true
+        },
+        {
+          "type": "prefix_expression",
           "named": true
         }
       ]
@@ -277,6 +314,10 @@
         {
           "type": "block_statement",
           "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
         }
       ]
     }
@@ -285,10 +326,6 @@
     "type": "string_literal",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": " in ",
-    "named": false
   },
   {
     "type": "!",
@@ -355,19 +392,23 @@
     "named": false
   },
   {
-    "type": "close_braces",
+    "type": "identifier",
     "named": true
   },
   {
-    "type": "identifier",
-    "named": true
+    "type": "in",
+    "named": false
   },
   {
     "type": "number_int",
     "named": true
   },
   {
-    "type": "open_braces",
-    "named": true
+    "type": "{{",
+    "named": false
+  },
+  {
+    "type": "}}",
+    "named": false
   }
 ]

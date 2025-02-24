@@ -1,9 +1,0 @@
-==================
-HTML text
-==================
-<h1>Hello World!</h1>
----
-
-(program 
-    (definition
-        (html)))
