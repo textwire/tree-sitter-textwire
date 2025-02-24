@@ -2,6 +2,10 @@ ifeq ($(OS),Windows_NT)
 $(error Windows is not supported)
 endif
 
+.PHONY: generate
+generate:
+	@tree-sitter generate
+
 LANGUAGE_NAME := tree-sitter-textwire
 HOMEPAGE_URL := https://github.com/textwire/textwire
 VERSION := 0.1.0

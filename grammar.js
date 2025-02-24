@@ -16,9 +16,9 @@ module.exports = grammar({
   word: $ => $.name,
 
   rules: {
-    program: $ => repeat($.definition),
+    program: $ => repeat($._definition),
 
-    definition: $ => choice(
+    _definition: $ => choice(
       $.brace_statement,
       $.dump_statement,
       $.component_statement,
@@ -48,7 +48,7 @@ module.exports = grammar({
       field('value', $.expression),
     ),
 
-    block_statement: $ => $.definition,
+    block_statement: $ => $._definition,
 
     break_if_statement: $ => seq(
       '@breakIf(',
@@ -121,20 +121,27 @@ module.exports = grammar({
       return new RegExp(`[_a-zA-Z${range}][_a-zA-Z${range}\\d]*`);
     },
 
-    // TODO: check below =============================
     expression: $ => choice(
-      //$.identifier,
+      $.identifier,
       $.number_int,
-      //$.number_float,
-      //$.binary_expression,
+      $.prefix_expression,
+      $.infix_expression,
     ),
 
-    binary_expression: $ => choice(
-      seq($.expression, '+', $.expression),
-      seq($.expression, '-', $.expression),
-      seq($.expression, '*', $.expression),
-      seq($.expression, '/', $.expression),
-      seq($.expression, '%', $.expression),
+    prefix_expression: $ => prec(
+      7,
+      choice(
+        seq("-", $.expression),
+        seq("!", $.expression),
+      ),
+    ),
+
+    infix_expression: $ => choice(
+      prec.left(5, seq($.expression, '*', $.expression)),
+      prec.left(5, seq($.expression, '%', $.expression)),
+      prec.left(5, seq($.expression, '/', $.expression)),
+      prec.left(4, seq($.expression, '-', $.expression)),
+      prec.left(4, seq($.expression, '+', $.expression)),
     ),
 
     open_braces: _ => '{{',

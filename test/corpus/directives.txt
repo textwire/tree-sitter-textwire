@@ -5,11 +5,10 @@ Dump statement
 ---
 
 (program 
-    (definition
-        (dump_statement
-            (argument_list
-                (expression
-                    (number_int))))))
+    (dump_statement
+        (argument_list
+            (expression
+                (number_int)))))
 
 ==================
 Simple component statement
@@ -18,6 +17,5 @@ Simple component statement
 ---
 
 (program 
-    (definition
-        (component_statement
-            (string_literal))))
+    (component_statement
+        (string_literal)))
