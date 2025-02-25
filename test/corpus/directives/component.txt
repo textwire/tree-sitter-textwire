@@ -1,0 +1,10 @@
+==================
+Inline simple component statement
+==================
+@component('user')
+---
+
+(program 
+    (component_statement
+        (string_literal)))
+

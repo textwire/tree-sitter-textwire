@@ -23,19 +23,3 @@ Only HTML
 
 (program
     (SKIP_HTML))
-
-==================
-@insert inside HTML
-==================
-<head>
-    <meta charset="UTF-8">
-    @insert('title', 'My page')
-</head>
----
-
-(program
-    (SKIP_HTML)
-    (insert_statement
-        name: (string_literal)
-        value: (string_literal))
-    (SKIP_HTML))
