@@ -10,8 +10,8 @@ Infix expression with 2 integers
             (expression_statement
                 (infix_expression
                     (plus 
-                        (number_int)
-                        (number_int)))))))
+                        left: (number_int)
+                        right: (number_int)))))))
 
 ==================
 Prefix expression

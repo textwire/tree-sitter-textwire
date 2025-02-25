@@ -1,0 +1,14 @@
+==================
+HTML with @dump directive
+==================
+<div><h1>Hello Textwire</h1></div>
+
+@dump('nice')
+---
+
+(program
+    (SKIP_HTML)
+
+    (dump_statement
+        (argument_list
+            (string_literal))))

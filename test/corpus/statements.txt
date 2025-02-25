@@ -7,5 +7,7 @@ Simple string statement without HTML
 (program 
     (brace_statement
         (statement
-            (string_literal))))
+            (expression_statement
+                (string_literal)))))
+            
 

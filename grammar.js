@@ -14,6 +14,10 @@ module.exports = grammar({
   // keyword extraction optimization
   word: $ => $.identifier,
 
+  externals: $ => [
+    $.SKIP_HTML,
+  ],
+
   rules: {
     program: $ => repeat($._definition),
 
@@ -22,7 +26,6 @@ module.exports = grammar({
       $.dump_statement,
       $.component_statement,
       $.each_statement,
-      //$.html,
     ),
 
     brace_statement: $ => seq(
@@ -31,15 +34,9 @@ module.exports = grammar({
       '}}',
     ),
 
-    html: _ => repeat1(choice(
-      token(prec(-1, /</)),
-      token(prec(1, /[^\s<][^<]*/)),
-    )),
-
     statement: $ => choice(
       $.assign_statement,
       $.block_statement,
-      $.string_literal,
       $.expression_statement,
     ),
 
@@ -125,6 +122,7 @@ module.exports = grammar({
       $.boolean_literal,
       $.prefix_expression,
       $.infix_expression,
+      $.string_literal,
     ),
 
     prefix_expression: $ => prec(
@@ -149,45 +147,45 @@ module.exports = grammar({
     multiply: $ => prec.left(
       6,
       seq(
-        $._expression,
-        '*',
-        $._expression,
+        field('left', $._expression),
+        field('operator', '*'),
+        field('right', $._expression),
       ),
     ),
 
     modulo: $ => prec.left(
       6,
       seq(
-        $._expression,
-        '%',
-        $._expression,
+        field('left', $._expression),
+        field('operator', '%'),
+        field('right', $._expression),
       ),
     ),
 
     divide: $ => prec.left(
       6,
       seq(
-        $._expression,
-        '/',
-        $._expression,
+        field('left', $._expression),
+        field('operator', '/'),
+        field('right', $._expression),
       ),
     ),
 
     minus: $ => prec.left(
       5,
       seq(
-        $._expression,
-        '-',
-        $._expression,
+        field('left', $._expression),
+        field('operator', '-'),
+        field('right', $._expression),
       ),
     ),
 
     plus: $ => prec.left(
       5,
       seq(
-        $._expression,
-        '+',
-        $._expression,
+        field('left', $._expression),
+        field('operator', '+'),
+        field('right', $._expression),
       ),
     ),
 
