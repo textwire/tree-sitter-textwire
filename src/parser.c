@@ -46,7 +46,7 @@ enum ts_symbol_identifiers {
   sym_number_int = 24,
   anon_sym_true = 25,
   anon_sym_false = 26,
-  sym_SKIP_HTML = 27,
+  sym_html_code = 27,
   sym_program = 28,
   sym__definition = 29,
   sym_brace_statement = 30,
@@ -103,7 +103,7 @@ static const char * const ts_symbol_names[] = {
   [sym_number_int] = "number_int",
   [anon_sym_true] = "true",
   [anon_sym_false] = "false",
-  [sym_SKIP_HTML] = "SKIP_HTML",
+  [sym_html_code] = "html_code",
   [sym_program] = "program",
   [sym__definition] = "_definition",
   [sym_brace_statement] = "brace_statement",
@@ -160,7 +160,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_number_int] = sym_number_int,
   [anon_sym_true] = anon_sym_true,
   [anon_sym_false] = anon_sym_false,
-  [sym_SKIP_HTML] = sym_SKIP_HTML,
+  [sym_html_code] = sym_html_code,
   [sym_program] = sym_program,
   [sym__definition] = sym__definition,
   [sym_brace_statement] = sym_brace_statement,
@@ -298,7 +298,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [sym_SKIP_HTML] = {
+  [sym_html_code] = {
     .visible = true,
     .named = true,
   },
@@ -962,7 +962,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_number_int] = ACTIONS(1),
     [anon_sym_true] = ACTIONS(1),
     [anon_sym_false] = ACTIONS(1),
-    [sym_SKIP_HTML] = ACTIONS(1),
+    [sym_html_code] = ACTIONS(1),
   },
   [STATE(1)] = {
     [sym_program] = STATE(83),
@@ -979,7 +979,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_ATinsert_LPAREN] = ACTIONS(9),
     [anon_sym_ATdump_LPAREN] = ACTIONS(11),
     [anon_sym_ATeach_LPAREN] = ACTIONS(13),
-    [sym_SKIP_HTML] = ACTIONS(15),
+    [sym_html_code] = ACTIONS(15),
   },
   [STATE(2)] = {
     [sym__definition] = STATE(73),
@@ -1727,7 +1727,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(135), 1,
       anon_sym_ATeach_LPAREN,
     ACTIONS(138), 1,
-      sym_SKIP_HTML,
+      sym_html_code,
     STATE(25), 7,
       sym__definition,
       sym_brace_statement,
@@ -1750,7 +1750,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(141), 1,
       ts_builtin_sym_end,
     ACTIONS(143), 1,
-      sym_SKIP_HTML,
+      sym_html_code,
     STATE(25), 7,
       sym__definition,
       sym_brace_statement,
@@ -1974,7 +1974,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_PLUS,
   [1195] = 1,
     ACTIONS(181), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -1993,7 +1993,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_PLUS,
   [1217] = 1,
     ACTIONS(187), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -2002,7 +2002,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_ATeach_LPAREN,
   [1227] = 1,
     ACTIONS(189), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -2025,7 +2025,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RPAREN,
   [1257] = 1,
     ACTIONS(193), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -2034,7 +2034,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_ATeach_LPAREN,
   [1267] = 1,
     ACTIONS(195), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -2073,7 +2073,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RPAREN,
   [1321] = 1,
     ACTIONS(205), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -2082,7 +2082,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_ATeach_LPAREN,
   [1331] = 1,
     ACTIONS(207), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -2121,7 +2121,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_RPAREN,
   [1385] = 1,
     ACTIONS(217), 7,
-      sym_SKIP_HTML,
+      sym_html_code,
       ts_builtin_sym_end,
       anon_sym_LBRACE_LBRACE,
       anon_sym_ATcomponent_LPAREN,
@@ -2585,16 +2585,16 @@ static const TSParseActionEntry ts_parse_actions[] = {
 };
 
 enum ts_external_scanner_symbol_identifiers {
-  ts_external_token_SKIP_HTML = 0,
+  ts_external_token_html_code = 0,
 };
 
 static const TSSymbol ts_external_scanner_symbol_map[EXTERNAL_TOKEN_COUNT] = {
-  [ts_external_token_SKIP_HTML] = sym_SKIP_HTML,
+  [ts_external_token_html_code] = sym_html_code,
 };
 
 static const bool ts_external_scanner_states[2][EXTERNAL_TOKEN_COUNT] = {
   [1] = {
-    [ts_external_token_SKIP_HTML] = true,
+    [ts_external_token_html_code] = true,
   },
 };
 

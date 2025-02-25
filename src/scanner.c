@@ -3,7 +3,7 @@
 #include <wctype.h>
 
 enum TokenType {
-  SKIP_HTML,
+  html_code,
 };
 
 void *tree_sitter_textwire_external_scanner_create() {
@@ -37,7 +37,7 @@ static bool is_double_brace(TSLexer *lexer) {
 static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     if (consumed_anything) {
         lexer->mark_end(lexer);
-        lexer->result_symbol = SKIP_HTML;
+        lexer->result_symbol = html_code;
         return true;
     }
     // No text consumed—return false so parser can match '{{'
@@ -45,7 +45,7 @@ static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
 }
 
 static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
-    if (!valid_symbols[SKIP_HTML]) {
+    if (!valid_symbols[html_code]) {
         return false;
     }
 
@@ -58,7 +58,7 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
         if (ch == '@') {
             if (consumed_anything) {
                 lexer->mark_end(lexer);
-                lexer->result_symbol = SKIP_HTML;
+                lexer->result_symbol = html_code;
             }
 
             return consumed_anything;
@@ -75,9 +75,9 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
         consumed_anything = true;
     }
 
-    // At EOF, emit SKIP_HTML if anything was consumed
+    // At EOF, emit html_code if anything was consumed
     if (consumed_anything) {
-        lexer->result_symbol = SKIP_HTML;
+        lexer->result_symbol = html_code;
     }
 
     return consumed_anything;

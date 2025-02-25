@@ -15,11 +15,11 @@ module.exports = grammar({
   word: $ => $.identifier,
 
   externals: $ => [
-    $.SKIP_HTML,
+    $.html_code,
   ],
 
   rules: {
-    program: $ => repeat(choice($.SKIP_HTML, $._definition)),
+    program: $ => repeat(choice($.html_code, $._definition)),
 
     _definition: $ => choice(
       $.brace_statement,

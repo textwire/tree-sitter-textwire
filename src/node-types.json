@@ -893,10 +893,6 @@
       "required": false,
       "types": [
         {
-          "type": "SKIP_HTML",
-          "named": true
-        },
-        {
           "type": "brace_statement",
           "named": true
         },
@@ -910,6 +906,10 @@
         },
         {
           "type": "each_statement",
+          "named": true
+        },
+        {
+          "type": "html_code",
           "named": true
         },
         {
@@ -1016,12 +1016,12 @@
     "named": false
   },
   {
-    "type": "SKIP_HTML",
-    "named": true
-  },
-  {
     "type": "false",
     "named": false
+  },
+  {
+    "type": "html_code",
+    "named": true
   },
   {
     "type": "identifier",
