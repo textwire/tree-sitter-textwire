@@ -103,6 +103,10 @@
         {
           "type": "each_statement",
           "named": true
+        },
+        {
+          "type": "insert_statement",
+          "named": true
         }
       ]
     }
@@ -135,6 +139,26 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
           {
             "type": "string_literal",
             "named": true
@@ -394,6 +418,76 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "insert_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -799,6 +893,10 @@
       "required": false,
       "types": [
         {
+          "type": "SKIP_HTML",
+          "named": true
+        },
+        {
           "type": "brace_statement",
           "named": true
         },
@@ -812,6 +910,10 @@
         },
         {
           "type": "each_statement",
+          "named": true
+        },
+        {
+          "type": "insert_statement",
           "named": true
         }
       ]
@@ -908,6 +1010,14 @@
   {
     "type": "@end",
     "named": false
+  },
+  {
+    "type": "@insert(",
+    "named": false
+  },
+  {
+    "type": "SKIP_HTML",
+    "named": true
   },
   {
     "type": "false",

@@ -29,39 +29,58 @@ void tree_sitter_textwire_external_scanner_deserialize(
     //
 }
 
-bool skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
-    char last_char = 0;
+static bool is_double_brace(TSLexer *lexer) {
+    lexer->advance(lexer, false);
+    return lexer->lookahead == '{';
+}
 
-    while (!lexer->eof(lexer)) {
-        char c = lexer->lookahead;
-        bool is_escaped = (last_char == '\\');
-
-        // Stop at '@' if not escaped
-        if (c == '@' && !is_escaped && valid_symbols[SKIP_HTML]) {
-          lexer->mark_end(lexer);
-          lexer->result_symbol = SKIP_HTML;
-          return true;
-        }
-
-        // Stop at '{{' if not escaped
-        if (c == '{' && !is_escaped) {
-          lexer->advance(lexer, false);
-          if (lexer->lookahead == '{') {
-            lexer->mark_end(lexer);
-            lexer->result_symbol = SKIP_HTML;
-            return true;
-          }
-
-          continue;
-        }
-
-        // Advance and remember this char
-        last_char = c;
-        lexer->advance(lexer, false);
+static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
+    if (consumed_anything) {
         lexer->mark_end(lexer);
+        lexer->result_symbol = SKIP_HTML;
+        return true;
+    }
+    // No text consumed—return false so parser can match '{{'
+    return false;
+}
+
+static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
+    if (!valid_symbols[SKIP_HTML]) {
+        return false;
     }
 
-    return false;
+    bool consumed_anything = false;
+
+    while (!lexer->eof(lexer)) {
+        char ch = lexer->lookahead;
+
+        // Stop at '@'
+        if (ch == '@') {
+            if (consumed_anything) {
+                lexer->mark_end(lexer);
+                lexer->result_symbol = SKIP_HTML;
+            }
+
+            return consumed_anything;
+        }
+
+        // Stop at '{{'
+        if (ch == '{' && is_double_brace(lexer)) {
+            return handle_double_brace(lexer, consumed_anything);
+        }
+
+        // Otherwise, keep consuming HTML
+        lexer->advance(lexer, false);
+        lexer->mark_end(lexer);
+        consumed_anything = true;
+    }
+
+    // At EOF, emit SKIP_HTML if anything was consumed
+    if (consumed_anything) {
+        lexer->result_symbol = SKIP_HTML;
+    }
+
+    return consumed_anything;
 }
 
 bool tree_sitter_textwire_external_scanner_scan(
@@ -69,5 +88,5 @@ bool tree_sitter_textwire_external_scanner_scan(
     TSLexer *lexer,
     const bool *valid_symbols
 ) {
-    return skip_over_html(lexer, valid_symbols);
+    return _skip_over_html(lexer, valid_symbols);
 }

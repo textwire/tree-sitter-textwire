@@ -19,12 +19,13 @@ module.exports = grammar({
   ],
 
   rules: {
-    program: $ => repeat($._definition),
+    program: $ => repeat(choice($.SKIP_HTML, $._definition)),
 
     _definition: $ => choice(
       $.brace_statement,
       $.dump_statement,
       $.component_statement,
+      $.insert_statement,
       $.each_statement,
     ),
 
@@ -79,8 +80,15 @@ module.exports = grammar({
 
     component_statement: $ => seq(
       '@component(',
-      field('name', $.string_literal),
+      field('name', $._expression),
       optional(seq(',', $._expression)),
+      ')',
+    ),
+
+    insert_statement: $ => seq(
+      '@insert(',
+      field('name', $._expression),
+      optional(field('value', seq(',', $._expression))),
       ')',
     ),
 

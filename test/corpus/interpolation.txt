@@ -1,14 +1,41 @@
 ==================
-HTML with @dump directive
+Text with the @dump directive
 ==================
-<div><h1>Hello Textwire</h1></div>
+text
 
 @dump('nice')
 ---
 
 (program
     (SKIP_HTML)
-
     (dump_statement
         (argument_list
             (string_literal))))
+
+==================
+Only HTML
+==================
+<ul>
+  <li>Serhii</li>
+  <li>Anna</li>
+</ul>
+---
+
+(program
+    (SKIP_HTML))
+
+==================
+@insert inside HTML
+==================
+<head>
+    <meta charset="UTF-8">
+    @insert('title', 'My page')
+</head>
+---
+
+(program
+    (SKIP_HTML)
+    (insert_statement
+        name: (string_literal)
+        value: (string_literal))
+    (SKIP_HTML))
