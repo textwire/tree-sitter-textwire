@@ -1,7 +1,6 @@
 #include <tree_sitter/parser.h>
 #include <string.h>
 #include <wctype.h>
-#include <stdio.h>
 
 enum TokenType {
   html_code,
@@ -59,8 +58,6 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
 
         // Stop at '@' unless it's escaped
         if (ch == '@' && prev_ch != '\\') {
-            printf("was %c, now %c\n", prev_ch, ch);
-
             if (consumed_anything) {
                 lexer->mark_end(lexer);
                 lexer->result_symbol = html_code;

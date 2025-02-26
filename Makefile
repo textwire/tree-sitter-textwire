@@ -9,7 +9,7 @@ VERSION := 0.1.0
 # repository
 SRC_DIR := src
 
-TS ?= tree-sitter
+TS ?= npm run tree-sitter
 
 # install directory layout
 PREFIX ?= /usr/local
@@ -93,7 +93,7 @@ clean:
 
 .PHONY: generate
 generate:
-	@tree-sitter generate
+	$(TS) generate
 
 .PHONY: test
 test: generate
