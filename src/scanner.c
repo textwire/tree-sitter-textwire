@@ -1,6 +1,7 @@
 #include <tree_sitter/parser.h>
 #include <string.h>
 #include <wctype.h>
+#include <stdio.h>
 
 enum TokenType {
   html_code,
@@ -29,17 +30,18 @@ void tree_sitter_textwire_external_scanner_deserialize(
     //
 }
 
-static bool is_double_brace(TSLexer *lexer) {
+static bool _is_double_brace(char ch, TSLexer *lexer) {
     lexer->advance(lexer, false);
-    return lexer->lookahead == '{';
+    return ch == '{' && lexer->lookahead == '{';
 }
 
-static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
+static bool _handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     if (consumed_anything) {
         lexer->mark_end(lexer);
         lexer->result_symbol = html_code;
         return true;
     }
+
     // No text consumed—return false so parser can match '{{'
     return false;
 }
@@ -50,26 +52,30 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
     }
 
     bool consumed_anything = false;
+    char prev_ch = 0;
 
     while (!lexer->eof(lexer)) {
         char ch = lexer->lookahead;
 
-        // Stop at '@'
-        if (ch == '@') {
+        // Stop at '@' unless it's escaped
+        if (ch == '@' && prev_ch != '\\') {
+            printf("was %c, now %c\n", prev_ch, ch);
+
             if (consumed_anything) {
                 lexer->mark_end(lexer);
                 lexer->result_symbol = html_code;
+                return true;
             }
 
-            return consumed_anything;
+            return false;
         }
 
-        // Stop at '{{'
-        if (ch == '{' && is_double_brace(lexer)) {
-            return handle_double_brace(lexer, consumed_anything);
+        if (_is_double_brace(ch, lexer) && prev_ch != '\\') {
+            return _handle_double_brace(lexer, consumed_anything);
         }
 
         // Otherwise, keep consuming HTML
+        prev_ch = ch;
         lexer->advance(lexer, false);
         lexer->mark_end(lexer);
         consumed_anything = true;

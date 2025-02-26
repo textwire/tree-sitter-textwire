@@ -23,3 +23,15 @@ Only HTML
 
 (program
     (html_code))
+
+==================
+Escape Textwire code
+==================
+<ul>
+  <li>\\@dump(cool)</li>
+  <li>\\{{ 1 + 2 }}</li>
+</ul>
+---
+
+(program
+    (html_code))
