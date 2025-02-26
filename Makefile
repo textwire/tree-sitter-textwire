@@ -104,3 +104,5 @@ parse:
 	$(TS) parse textwire.tw
 
 .PHONY: all install uninstall clean test
+
+.DEFAULT_GOAL := test
