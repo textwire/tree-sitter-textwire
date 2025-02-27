@@ -1,16 +1,19 @@
 ==================
 Text with the @dump directive
 ==================
-text
+Header is here
 
 @dump('nice')
+
+Footer is here
 ---
 
 (program
-    (html_code)
+    (HTML)
     (dump_statement
         (argument_list
-            (string_literal))))
+            (string_literal)))
+    (HTML))
 
 ==================
 Only HTML
@@ -22,7 +25,7 @@ Only HTML
 ---
 
 (program
-    (html_code))
+    (HTML))
 
 ==================
 Escape Textwire code
@@ -34,4 +37,13 @@ Escape Textwire code
 ---
 
 (program
-    (html_code))
+    (HTML))
+
+==================
+HTML with an email address
+==================
+<span>anna@protonmail.com
+---
+
+(program
+    (HTML))

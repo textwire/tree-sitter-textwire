@@ -10,7 +10,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "html_code"
+            "name": "HTML"
           },
           {
             "type": "SYMBOL",
@@ -41,6 +41,10 @@
         {
           "type": "SYMBOL",
           "name": "each_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_statement"
         }
       ]
     },
@@ -133,7 +137,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "@breakIf("
+          "value": "@breakIf"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "FIELD",
@@ -154,7 +162,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "@continueIf("
+          "value": "@continueIf"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "FIELD",
@@ -245,7 +257,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "@component("
+          "value": "@component"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "FIELD",
@@ -287,7 +303,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "@insert("
+          "value": "@insert"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "FIELD",
@@ -333,7 +353,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "@dump("
+          "value": "@dump"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "SYMBOL",
@@ -350,7 +374,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "@each("
+          "value": "@each"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "FIELD",
@@ -379,6 +407,68 @@
         {
           "type": "SYMBOL",
           "name": "block_statement"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "@else"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "alternative",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "block_statement"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "@end"
+        }
+      ]
+    },
+    "if_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@if"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "condition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "consequence",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block_statement"
+          }
         },
         {
           "type": "CHOICE",
@@ -811,7 +901,7 @@
   "externals": [
     {
       "type": "SYMBOL",
-      "name": "html_code"
+      "name": "HTML"
     }
   ],
   "inline": [],

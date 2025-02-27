@@ -1,3 +1,3 @@
 (
-  (html_code) @html
+  (HTML) @html
 )

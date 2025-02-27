@@ -1,9 +1,30 @@
 #include <tree_sitter/parser.h>
 #include <string.h>
 #include <wctype.h>
+#include <stdio.h>
 
 enum TokenType {
-  html_code,
+    HTML,
+};
+
+static const char *directives[] = {
+    "if",
+    "else",
+    "elseif",
+    "end",
+    "for",
+    "use",
+    "each",
+    "breakIf",
+    "continueIf",
+    "insert",
+    "reserve",
+    "break",
+    "continue",
+    "component",
+    "slot",
+    "dump",
+    NULL,
 };
 
 void *tree_sitter_textwire_external_scanner_create() {
@@ -29,6 +50,63 @@ void tree_sitter_textwire_external_scanner_deserialize(
     //
 }
 
+static int _the_longest_directory() {
+    int longest = 0;
+
+    for (int i = 0; directives[i]; i++) {
+        if (!directives[i]) {
+            continue;
+        }
+
+        int len = strlen(directives[i]);
+
+        if (len > longest) {
+            longest = len;
+        }
+    }
+
+    return longest;
+}
+
+static bool _is_directory_end(char ch) {
+    return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '(';
+}
+
+static bool _is_directive(char ch, TSLexer *lexer) {
+    if (ch != '@') {
+        return false;
+    }
+
+    lexer->advance(lexer, false); // skip "@"
+
+    int longest = _the_longest_directory();
+
+    char buffer[longest];
+    int i = 0;
+
+    while (!lexer->eof(lexer) && i < longest) {
+        char ch = lexer->lookahead;
+
+        if (_is_directory_end(ch)) {
+            break;
+        }
+
+        buffer[i++] = ch;
+        lexer->advance(lexer, false);
+    }
+
+    buffer[i] = '\0'; // Null-terminate
+
+    // Compare against defined directives
+    for (int j = 0; directives[j] != NULL; j++) {
+        if (strcmp(buffer, directives[j]) == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 static bool _is_double_brace(char ch, TSLexer *lexer) {
     lexer->advance(lexer, false);
     return ch == '{' && lexer->lookahead == '{';
@@ -37,7 +115,7 @@ static bool _is_double_brace(char ch, TSLexer *lexer) {
 static bool _handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     if (consumed_anything) {
         lexer->mark_end(lexer);
-        lexer->result_symbol = html_code;
+        lexer->result_symbol = HTML;
         return true;
     }
 
@@ -46,7 +124,7 @@ static bool _handle_double_brace(TSLexer *lexer, bool consumed_anything) {
 }
 
 static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
-    if (!valid_symbols[html_code]) {
+    if (!valid_symbols[HTML]) {
         return false;
     }
 
@@ -57,10 +135,10 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
         char ch = lexer->lookahead;
 
         // Stop at '@' unless it's escaped
-        if (ch == '@' && prev_ch != '\\') {
+        if (_is_directive(ch, lexer) && prev_ch != '\\') {
             if (consumed_anything) {
                 lexer->mark_end(lexer);
-                lexer->result_symbol = html_code;
+                lexer->result_symbol = HTML;
                 return true;
             }
 
@@ -78,9 +156,9 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
         consumed_anything = true;
     }
 
-    // At EOF, emit html_code if anything was consumed
+    // At EOF, emit HTML if anything was consumed
     if (consumed_anything) {
-        lexer->result_symbol = html_code;
+        lexer->result_symbol = HTML;
     }
 
     return consumed_anything;

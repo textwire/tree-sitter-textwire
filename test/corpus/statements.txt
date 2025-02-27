@@ -1,0 +1,27 @@
+==================
+Assign statement
+==================
+{{ name = "Anna" }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (assign_statement
+                name: (identifier)
+                value: (string_literal)))))
+
+==================
+If statement
+:skip
+==================
+@if(true)
+    <span>Hello</span>
+@end
+---
+
+(program
+    (if_statement
+        condition: (boolean_literal)
+        consequence: (block_statement
+            (HTML))))

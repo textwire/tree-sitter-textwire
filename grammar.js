@@ -15,11 +15,11 @@ module.exports = grammar({
   word: $ => $.identifier,
 
   externals: $ => [
-    $.html_code,
+    $.HTML,
   ],
 
   rules: {
-    program: $ => repeat(choice($.html_code, $._definition)),
+    program: $ => repeat(choice($.HTML, $._definition)),
 
     _definition: $ => choice(
       $.brace_statement,
@@ -27,6 +27,7 @@ module.exports = grammar({
       $.component_statement,
       $.insert_statement,
       $.each_statement,
+      $.if_statement,
     ),
 
     brace_statement: $ => seq(
@@ -52,13 +53,15 @@ module.exports = grammar({
     block_statement: $ => $._definition,
 
     break_if_statement: $ => seq(
-      '@breakIf(',
+      '@breakIf',
+      '(',
       field('condition', $._expression),
       ')',
     ),
 
     continue_if_statement: $ => seq(
-      '@continueIf(',
+      '@continueIf',
+      '(',
       field('condition', $._expression),
       ')',
     ),
@@ -79,27 +82,31 @@ module.exports = grammar({
     ),
 
     component_statement: $ => seq(
-      '@component(',
+      '@component',
+      '(',
       field('name', $._expression),
       optional(seq(',', $._expression)),
       ')',
     ),
 
     insert_statement: $ => seq(
-      '@insert(',
+      '@insert',
+      '(',
       field('name', $._expression),
       optional(field('value', seq(',', $._expression))),
       ')',
     ),
 
     dump_statement: $ => seq(
-      '@dump(',
+      '@dump',
+      '(',
       $.argument_list,
       ')',
     ),
 
     each_statement: $ => seq(
-      '@each(',
+      '@each',
+      '(',
       field('var', $.identifier),
       'in',
       field('array', $._expression),
@@ -113,6 +120,21 @@ module.exports = grammar({
         ),
       ),
 
+      '@end',
+    ),
+
+    if_statement: $ => seq(
+      '@if',
+      '(',
+      field('condition', $._expression),
+      ')',
+      field('consequence', $.block_statement),
+      optional(
+        seq(
+          '@else',
+          field('alternative', $.block_statement),
+        ),
+      ),
       '@end',
     ),
 
