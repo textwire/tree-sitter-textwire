@@ -32,12 +32,12 @@ module.exports = grammar({
     brace_statement: $ => seq(
       '{{',
       $.statement,
+      optional(seq(';', $.statement)),
       '}}',
     ),
 
     statement: $ => choice(
       $.assign_statement,
-      $.block_statement,
       $.expression_statement,
     ),
 
@@ -131,6 +131,7 @@ module.exports = grammar({
       $.prefix_expression,
       $.infix_expression,
       $.string_literal,
+      $.array_literal,
     ),
 
     prefix_expression: $ => prec(
@@ -200,6 +201,12 @@ module.exports = grammar({
     number_int: _ => /\d+/,
     number_float: _ => /\d+\.\d+/,
     boolean_literal: _ => choice('true', 'false'),
+
+    array_literal: $ => seq(
+      '[',
+      optional(seq($._expression, repeat(seq(',', $._expression)))),
+      ']',
+    ),
   }
 });
 

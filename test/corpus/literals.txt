@@ -1,0 +1,43 @@
+==================
+Boolean literals
+==================
+{{ true; false }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (boolean_literal)))
+        (statement
+            (expression_statement
+                (boolean_literal)))))
+
+==================
+Array literal
+==================
+{{ [1, "two", false] }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (array_literal
+                    (number_int)
+                    (string_literal)
+                    (boolean_literal))))))
+
+==================
+Simple string expression
+==================
+{{ 'Hello, world!' }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (string_literal)))))
+            
+
