@@ -9,11 +9,11 @@ Footer is here
 ---
 
 (program
-    (HTML)
+    (html)
     (dump_statement
         (argument_list
             (string_literal)))
-    (HTML))
+    (html))
 
 ==================
 Only HTML
@@ -25,7 +25,7 @@ Only HTML
 ---
 
 (program
-    (HTML))
+    (html))
 
 ==================
 Escape Textwire code
@@ -37,7 +37,7 @@ Escape Textwire code
 ---
 
 (program
-    (HTML))
+    (html))
 
 ==================
 HTML with an email address
@@ -46,4 +46,4 @@ HTML with an email address
 ---
 
 (program
-    (HTML))
+    (html))

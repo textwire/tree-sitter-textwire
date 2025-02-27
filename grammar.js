@@ -7,6 +7,37 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+const TERNARY = 1 // a ? b = c
+const EQ = 2 // ==
+const LESS_GREATER = 3 // > or <
+const SUM = 4 // +
+const PRODUCT = 5 // *
+const MEMBER_ACCESS = 6 // <expr>.<ident>
+const PREFIX = 7 // -X or !X
+const CALL = 8 // myFunction(X)
+const INDEX = 9 // array[index]
+const POSTFIX = 10 // X++ or X--
+
+const PREC = {
+  QUESTION: TERNARY,
+  EQ: EQ,
+  NOT_EQ: EQ,
+  LTHAN: LESS_GREATER,
+  GTHAN: LESS_GREATER,
+  LTHAN_EQ: LESS_GREATER,
+  GTHAN_EQ: LESS_GREATER,
+  ADD: SUM,
+  SUB: SUM,
+  DIV: PRODUCT,
+  MOD: PRODUCT,
+  MUL: PRODUCT,
+  LPAREN: CALL,
+  DOT: MEMBER_ACCESS,
+  LBRACKET: INDEX,
+  INC: POSTFIX,
+  DEC: POSTFIX,
+}
+
 module.exports = grammar({
   name: "textwire",
 
@@ -15,11 +46,11 @@ module.exports = grammar({
   word: $ => $.identifier,
 
   externals: $ => [
-    $.HTML,
+    $.html,
   ],
 
   rules: {
-    program: $ => repeat(choice($.HTML, $._definition)),
+    program: $ => repeat(choice($.html, $._definition)),
 
     _definition: $ => choice(
       $.brace_statement,
@@ -68,13 +99,6 @@ module.exports = grammar({
 
     break_statement: _ => '@break',
     continue_statement: _ => '@continue',
-
-    dot_expression: $ => seq(
-      $.identifier,
-      '.(',
-      optional($.argument_list),
-      ')',
-    ),
 
     argument_list: $ => seq(
       $._expression,
@@ -157,15 +181,15 @@ module.exports = grammar({
     ),
 
     prefix_expression: $ => prec(
-      7,
+      PREFIX,
       choice(
         $.prefix_minus,
         $.prefix_not,
       ),
     ),
 
-    prefix_minus: $ => prec(8, seq("-", $._expression)),
-    prefix_not: $ => prec(8, seq("!", $._expression)),
+    prefix_minus: $ => prec(PREFIX + 1, seq("-", $._expression)),
+    prefix_not: $ => prec(PREFIX + 1, seq("!", $._expression)),
 
     infix_expression: $ => choice(
       $.multiply,
@@ -176,7 +200,7 @@ module.exports = grammar({
     ),
 
     multiply: $ => prec.left(
-      6,
+      PREC.MUL,
       seq(
         field('left', $._expression),
         field('operator', '*'),
@@ -185,7 +209,7 @@ module.exports = grammar({
     ),
 
     modulo: $ => prec.left(
-      6,
+      PREC.MOD,
       seq(
         field('left', $._expression),
         field('operator', '%'),
@@ -194,7 +218,7 @@ module.exports = grammar({
     ),
 
     divide: $ => prec.left(
-      6,
+      PREC.DIV,
       seq(
         field('left', $._expression),
         field('operator', '/'),
@@ -203,7 +227,7 @@ module.exports = grammar({
     ),
 
     minus: $ => prec.left(
-      5,
+      PREC.SUB,
       seq(
         field('left', $._expression),
         field('operator', '-'),
@@ -212,7 +236,7 @@ module.exports = grammar({
     ),
 
     plus: $ => prec.left(
-      5,
+      PREC.ADD,
       seq(
         field('left', $._expression),
         field('operator', '+'),

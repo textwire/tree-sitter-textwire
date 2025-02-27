@@ -50,7 +50,7 @@ void tree_sitter_textwire_external_scanner_deserialize(
     //
 }
 
-static int _the_longest_directory() {
+static int the_longest_directory() {
     int longest = 0;
 
     for (int i = 0; directives[i]; i++) {
@@ -68,18 +68,18 @@ static int _the_longest_directory() {
     return longest;
 }
 
-static bool _is_directory_end(char ch) {
+static bool is_directory_end(char ch) {
     return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '(';
 }
 
-static bool _is_directive(char ch, TSLexer *lexer) {
+static bool is_directive(char ch, TSLexer *lexer) {
     if (ch != '@') {
         return false;
     }
 
     lexer->advance(lexer, false); // skip "@"
 
-    int longest = _the_longest_directory();
+    int longest = the_longest_directory();
 
     char buffer[longest];
     int i = 0;
@@ -87,7 +87,7 @@ static bool _is_directive(char ch, TSLexer *lexer) {
     while (!lexer->eof(lexer) && i < longest) {
         char ch = lexer->lookahead;
 
-        if (_is_directory_end(ch)) {
+        if (is_directory_end(ch)) {
             break;
         }
 
@@ -107,12 +107,12 @@ static bool _is_directive(char ch, TSLexer *lexer) {
     return false;
 }
 
-static bool _is_double_brace(char ch, TSLexer *lexer) {
+static bool is_double_brace(char ch, TSLexer *lexer) {
     lexer->advance(lexer, false);
     return ch == '{' && lexer->lookahead == '{';
 }
 
-static bool _handle_double_brace(TSLexer *lexer, bool consumed_anything) {
+static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     if (consumed_anything) {
         lexer->mark_end(lexer);
         lexer->result_symbol = HTML;
@@ -123,7 +123,7 @@ static bool _handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     return false;
 }
 
-static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
+static bool skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
     if (!valid_symbols[HTML]) {
         return false;
     }
@@ -135,7 +135,7 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
         char ch = lexer->lookahead;
 
         // Stop at '@' unless it's escaped
-        if (_is_directive(ch, lexer) && prev_ch != '\\') {
+        if (is_directive(ch, lexer) && prev_ch != '\\') {
             if (consumed_anything) {
                 lexer->mark_end(lexer);
                 lexer->result_symbol = HTML;
@@ -145,8 +145,8 @@ static bool _skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
             return false;
         }
 
-        if (_is_double_brace(ch, lexer) && prev_ch != '\\') {
-            return _handle_double_brace(lexer, consumed_anything);
+        if (is_double_brace(ch, lexer) && prev_ch != '\\') {
+            return handle_double_brace(lexer, consumed_anything);
         }
 
         // Otherwise, keep consuming HTML
@@ -169,5 +169,5 @@ bool tree_sitter_textwire_external_scanner_scan(
     TSLexer *lexer,
     const bool *valid_symbols
 ) {
-    return _skip_over_html(lexer, valid_symbols);
+    return skip_over_html(lexer, valid_symbols);
 }

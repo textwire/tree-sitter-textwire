@@ -10,7 +10,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "HTML"
+            "name": "html"
           },
           {
             "type": "SYMBOL",
@@ -189,35 +189,6 @@
     "continue_statement": {
       "type": "STRING",
       "value": "@continue"
-    },
-    "dot_expression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "STRING",
-          "value": ".("
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "argument_list"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
     },
     "argument_list": {
       "type": "SEQ",
@@ -659,7 +630,7 @@
     },
     "multiply": {
       "type": "PREC_LEFT",
-      "value": 6,
+      "value": 5,
       "content": {
         "type": "SEQ",
         "members": [
@@ -692,7 +663,7 @@
     },
     "modulo": {
       "type": "PREC_LEFT",
-      "value": 6,
+      "value": 5,
       "content": {
         "type": "SEQ",
         "members": [
@@ -725,7 +696,7 @@
     },
     "divide": {
       "type": "PREC_LEFT",
-      "value": 6,
+      "value": 5,
       "content": {
         "type": "SEQ",
         "members": [
@@ -758,7 +729,7 @@
     },
     "minus": {
       "type": "PREC_LEFT",
-      "value": 5,
+      "value": 4,
       "content": {
         "type": "SEQ",
         "members": [
@@ -791,7 +762,7 @@
     },
     "plus": {
       "type": "PREC_LEFT",
-      "value": 5,
+      "value": 4,
       "content": {
         "type": "SEQ",
         "members": [
@@ -901,7 +872,7 @@
   "externals": [
     {
       "type": "SYMBOL",
-      "name": "HTML"
+      "name": "html"
     }
   ],
   "inline": [],

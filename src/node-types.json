@@ -1076,10 +1076,6 @@
       "required": false,
       "types": [
         {
-          "type": "HTML",
-          "named": true
-        },
-        {
           "type": "brace_statement",
           "named": true
         },
@@ -1093,6 +1089,10 @@
         },
         {
           "type": "each_statement",
+          "named": true
+        },
+        {
+          "type": "html",
           "named": true
         },
         {
@@ -1211,10 +1211,6 @@
     "named": false
   },
   {
-    "type": "HTML",
-    "named": true
-  },
-  {
     "type": "[",
     "named": false
   },
@@ -1225,6 +1221,10 @@
   {
     "type": "false",
     "named": false
+  },
+  {
+    "type": "html",
+    "named": true
   },
   {
     "type": "identifier",

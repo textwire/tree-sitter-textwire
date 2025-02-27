@@ -8,8 +8,8 @@ Inlined @insert inside HTML
 ---
 
 (program
-    (HTML)
+    (html)
     (insert_statement
         name: (string_literal)
         value: (string_literal))
-    (HTML))
+    (html))
