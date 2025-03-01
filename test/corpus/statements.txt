@@ -13,7 +13,6 @@ Assign statement
 
 ==================
 If statement
-:skip
 ==================
 @if(true)
     <span>Hello</span>
@@ -24,4 +23,4 @@ If statement
     (if_statement
         condition: (boolean_literal)
         consequence: (block_statement
-            (html))))
+            (text))))

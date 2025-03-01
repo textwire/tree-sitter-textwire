@@ -1276,15 +1276,15 @@
           "named": true
         },
         {
-          "type": "html",
-          "named": true
-        },
-        {
           "type": "if_statement",
           "named": true
         },
         {
           "type": "insert_statement",
+          "named": true
+        },
+        {
+          "type": "text",
           "named": true
         }
       ]
@@ -1411,10 +1411,6 @@
     "named": false
   },
   {
-    "type": "html",
-    "named": true
-  },
-  {
     "type": "identifier",
     "named": true
   },
@@ -1424,6 +1420,10 @@
   },
   {
     "type": "number_int",
+    "named": true
+  },
+  {
+    "type": "text",
     "named": true
   },
   {

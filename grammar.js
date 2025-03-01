@@ -45,10 +45,10 @@ module.exports = grammar({
   // keyword extraction optimization
   word: $ => $.identifier,
 
-  externals: $ => [$.html],
+  externals: $ => [$.text],
 
   rules: {
-    program: $ => repeat(choice($.html, $._definition)),
+    program: $ => repeat(choice($.text, $._definition)),
 
     _definition: $ =>
       choice(

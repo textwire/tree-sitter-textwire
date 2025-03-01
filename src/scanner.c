@@ -1,13 +1,13 @@
-/**
- * Tree Sitter Documentation:
- * https://tree-sitter.github.io/tree-sitter/creating-parsers/4-external-scanners.html
- */
+/*
+Tree Sitter Documentation:
+https://tree-sitter.github.io/tree-sitter/creating-parsers/4-external-scanners.html
+*/
 
 #include "tree_sitter/parser.h"
 #include <string.h>
 
 enum TokenType {
-    HTML,
+    TEXT,
 };
 
 static const char *directives[] = {
@@ -113,7 +113,7 @@ static bool is_double_brace(char ch, TSLexer *lexer) {
 
 static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     if (consumed_anything) {
-        lexer->result_symbol = HTML;
+        lexer->result_symbol = TEXT;
         return true;
     }
 
@@ -121,7 +121,7 @@ static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     return false;
 }
 
-static bool skip_over_html(TSLexer *lexer) {
+static bool skip_over_text(TSLexer *lexer) {
     bool consumed_anything = false;
     char prev_ch = 0;
 
@@ -131,7 +131,7 @@ static bool skip_over_html(TSLexer *lexer) {
         // Stop at '@' unless it's escaped
         if (is_directive(ch, lexer) && prev_ch != '\\') {
             if (consumed_anything) {
-                lexer->result_symbol = HTML;
+                lexer->result_symbol = TEXT;
                 return true;
             }
 
@@ -142,16 +142,16 @@ static bool skip_over_html(TSLexer *lexer) {
             return handle_double_brace(lexer, consumed_anything);
         }
 
-        // Otherwise, keep consuming HTML
+        // Otherwise, keep consuming TEXT
         prev_ch = ch;
         lexer->advance(lexer, false);
         lexer->mark_end(lexer);
         consumed_anything = true;
     }
 
-    // At EOF, emit HTML if anything was consumed
+    // At EOF, emit TEXT if anything was consumed
     if (consumed_anything) {
-        lexer->result_symbol = HTML;
+        lexer->result_symbol = TEXT;
     }
 
     return consumed_anything;
@@ -162,8 +162,8 @@ bool tree_sitter_textwire_external_scanner_scan(
     TSLexer *lexer,
     const bool *valid_symbols
 ) {
-    if (valid_symbols[HTML]) {
-        return skip_over_html(lexer);
+    if (valid_symbols[TEXT]) {
+        return skip_over_text(lexer);
     }
 
     return false;

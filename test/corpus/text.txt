@@ -9,14 +9,14 @@ Footer is here
 ---
 
 (program
-    (html)
+    (text)
     (dump_statement
         (argument_list
             (string_literal)))
-    (html))
+    (text))
 
 ==================
-Only HTML
+Only text
 ==================
 <ul>
   <li>Serhii</li>
@@ -24,7 +24,7 @@ Only HTML
 </ul>
 ---
 
-(program (html))
+(program (text))
 
 ==================
 Escape Textwire code
@@ -35,15 +35,15 @@ Escape Textwire code
 </ul>
 ---
 
-(program (html))
+(program (text))
 
 ==================
-HTML with an email address
+Text with an email address
 ==================
 <span>anna@protonmail.com</span>
 ---
 
-(program (html))
+(program (text))
 
 ==================
 Unknown directive
@@ -53,4 +53,4 @@ Unknown directive
 </div>
 ---
 
-(program (html))
+(program (text))
