@@ -1,3 +1,8 @@
+/**
+ * Tree Sitter Documentation:
+ * https://tree-sitter.github.io/tree-sitter/creating-parsers/4-external-scanners.html
+ */
+
 #include "tree_sitter/parser.h"
 #include <string.h>
 
@@ -108,7 +113,6 @@ static bool is_double_brace(char ch, TSLexer *lexer) {
 
 static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     if (consumed_anything) {
-        lexer->mark_end(lexer);
         lexer->result_symbol = HTML;
         return true;
     }
@@ -117,11 +121,7 @@ static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     return false;
 }
 
-static bool skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
-    if (!valid_symbols[HTML]) {
-        return false;
-    }
-
+static bool skip_over_html(TSLexer *lexer) {
     bool consumed_anything = false;
     char prev_ch = 0;
 
@@ -162,5 +162,9 @@ bool tree_sitter_textwire_external_scanner_scan(
     TSLexer *lexer,
     const bool *valid_symbols
 ) {
-    return skip_over_html(lexer, valid_symbols);
+    if (valid_symbols[HTML]) {
+        return skip_over_html(lexer);
+    }
+
+    return false;
 }
