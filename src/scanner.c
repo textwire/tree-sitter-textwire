@@ -135,7 +135,6 @@ static bool skip_over_html(TSLexer *lexer, const bool *valid_symbols) {
         // Stop at '@' unless it's escaped
         if (is_directive(ch, lexer) && prev_ch != '\\') {
             if (consumed_anything) {
-                lexer->mark_end(lexer);
                 lexer->result_symbol = HTML;
                 return true;
             }
