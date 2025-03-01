@@ -48,14 +48,10 @@ void tree_sitter_textwire_external_scanner_deserialize(
     //
 }
 
-static int the_longest_directory() {
+static int the_longest_directive() {
     int longest = 0;
 
     for (int i = 0; directives[i]; i++) {
-        if (!directives[i]) {
-            continue;
-        }
-
         int len = strlen(directives[i]);
 
         if (len > longest) {
@@ -66,7 +62,7 @@ static int the_longest_directory() {
     return longest;
 }
 
-static bool is_directory_end(char ch) {
+static bool is_directive_end(char ch) {
     return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '(';
 }
 
@@ -77,15 +73,15 @@ static bool is_directive(char ch, TSLexer *lexer) {
 
     lexer->advance(lexer, false); // skip "@"
 
-    int longest = the_longest_directory();
+    int longest = the_longest_directive();
 
-    char buffer[longest];
+    char buffer[longest + 1]; // +1 for null-terminator
     int i = 0;
 
     while (!lexer->eof(lexer) && i < longest) {
         char ch = lexer->lookahead;
 
-        if (is_directory_end(ch)) {
+        if (is_directive_end(ch)) {
             break;
         }
 

@@ -39,220 +39,175 @@ const PREC = {
 }
 
 module.exports = grammar({
-  name: "textwire",
+  name: 'textwire',
 
   // the name of a token that will match keywords to the
   // keyword extraction optimization
   word: $ => $.identifier,
 
-  externals: $ => [
-    $.html,
-  ],
+  externals: $ => [$.html],
 
   rules: {
     program: $ => repeat(choice($.html, $._definition)),
 
-    _definition: $ => choice(
-      $.brace_statement,
-      $.dump_statement,
-      $.component_statement,
-      $.insert_statement,
-      $.each_statement,
-      $.if_statement,
-    ),
+    _definition: $ =>
+      choice(
+        $.brace_statement,
+        $.dump_statement,
+        $.component_statement,
+        $.insert_statement,
+        $.each_statement,
+        $.if_statement,
+      ),
 
-    brace_statement: $ => seq(
-      '{{',
-      $.statement,
-      optional(seq(';', $.statement)),
-      '}}',
-    ),
+    brace_statement: $ =>
+      seq('{{', $.statement, optional(seq(';', $.statement)), '}}'),
 
-    statement: $ => choice(
-      $.assign_statement,
-      $.expression_statement,
-    ),
+    statement: $ => choice($.assign_statement, $.expression_statement),
 
     expression_statement: $ => $._expression,
 
-    assign_statement: $ => seq(
-      field('name', $.identifier),
-      '=',
-      field('value', $._expression),
-    ),
+    assign_statement: $ =>
+      seq(field('name', $.identifier), '=', field('value', $._expression)),
 
     block_statement: $ => $._definition,
 
-    break_if_statement: $ => seq(
-      '@breakIf',
-      '(',
-      field('condition', $._expression),
-      ')',
-    ),
+    break_if_statement: $ =>
+      seq('@breakIf', '(', field('condition', $._expression), ')'),
 
-    continue_if_statement: $ => seq(
-      '@continueIf',
-      '(',
-      field('condition', $._expression),
-      ')',
-    ),
+    continue_if_statement: $ =>
+      seq('@continueIf', '(', field('condition', $._expression), ')'),
 
     break_statement: _ => '@break',
     continue_statement: _ => '@continue',
 
-    argument_list: $ => seq(
-      $._expression,
-      optional(repeat(seq(',', $._expression))),
-    ),
+    argument_list: $ =>
+      seq($._expression, optional(repeat(seq(',', $._expression)))),
 
-    component_statement: $ => seq(
-      '@component',
-      '(',
-      field('name', $._expression),
-      optional(seq(',', $._expression)),
-      ')',
-    ),
-
-    insert_statement: $ => seq(
-      '@insert',
-      '(',
-      field('name', $._expression),
-      optional(field('value', seq(',', $._expression))),
-      ')',
-    ),
-
-    dump_statement: $ => seq(
-      '@dump',
-      '(',
-      $.argument_list,
-      ')',
-    ),
-
-    each_statement: $ => seq(
-      '@each',
-      '(',
-      field('var', $.identifier),
-      'in',
-      field('array', $._expression),
-      ')',
-      $.block_statement,
-
-      optional(
-        seq(
-          '@else',
-          field('alternative', $.block_statement),
-        ),
+    component_statement: $ =>
+      seq(
+        '@component',
+        '(',
+        field('name', $._expression),
+        optional(seq(',', $._expression)),
+        ')',
       ),
 
-      '@end',
-    ),
-
-    if_statement: $ => seq(
-      '@if',
-      '(',
-      field('condition', $._expression),
-      ')',
-      field('consequence', $.block_statement),
-      optional(
-        seq(
-          '@else',
-          field('alternative', $.block_statement),
-        ),
+    insert_statement: $ =>
+      seq(
+        '@insert',
+        '(',
+        field('name', $._expression),
+        optional(field('value', seq(',', $._expression))),
+        ')',
       ),
-      '@end',
-    ),
+
+    dump_statement: $ => seq('@dump', '(', $.argument_list, ')'),
+
+    each_statement: $ =>
+      seq(
+        '@each',
+        '(',
+        field('var', $.identifier),
+        'in',
+        field('array', $._expression),
+        ')',
+        $.block_statement,
+
+        optional(seq('@else', field('alternative', $.block_statement))),
+
+        '@end',
+      ),
+
+    if_statement: $ =>
+      seq(
+        '@if',
+        '(',
+        field('condition', $._expression),
+        ')',
+        field('consequence', $.block_statement),
+        optional(seq('@else', field('alternative', $.block_statement))),
+        '@end',
+      ),
 
     identifier: _ => /[A-Za-z_][A-Za-z_0-9]*/,
 
-    string_literal: _ => choice(
-      seq('"', /[^"]*/, '"'),
-      seq("'", /[^']*/, "'"),
-    ),
+    string_literal: _ => choice(seq('"', /[^"]*/, '"'), seq("'", /[^']*/, "'")),
 
-    _expression: $ => choice(
-      $.identifier,
-      $.number_int,
-      $.number_int,
-      $.boolean_literal,
-      $.prefix_expression,
-      $.infix_expression,
-      $.string_literal,
-      $.array_literal,
-    ),
-
-    prefix_expression: $ => prec(
-      PREFIX,
+    _expression: $ =>
       choice(
-        $.prefix_minus,
-        $.prefix_not,
+        $.identifier,
+        $.number_int,
+        $.number_int,
+        $.boolean_literal,
+        $.prefix_expression,
+        $.infix_expression,
+        $.string_literal,
+        $.array_literal,
       ),
-    ),
 
-    prefix_minus: $ => prec(PREFIX + 1, seq("-", $._expression)),
-    prefix_not: $ => prec(PREFIX + 1, seq("!", $._expression)),
+    prefix_expression: $ => prec(PREFIX, choice($.prefix_minus, $.prefix_not)),
 
-    infix_expression: $ => choice(
-      $.multiply,
-      $.modulo,
-      $.divide,
-      $.minus,
-      $.plus,
-    ),
+    prefix_minus: $ => prec(PREFIX + 1, seq('-', $._expression)),
+    prefix_not: $ => prec(PREFIX + 1, seq('!', $._expression)),
 
-    multiply: $ => prec.left(
-      PREC.MUL,
-      seq(
-        field('left', $._expression),
-        field('operator', '*'),
-        field('right', $._expression),
+    infix_expression: $ => choice($.multiply, $.modulo, $.divide, $.minus, $.plus),
+
+    multiply: $ =>
+      prec.left(
+        PREC.MUL,
+        seq(
+          field('left', $._expression),
+          field('operator', '*'),
+          field('right', $._expression),
+        ),
       ),
-    ),
 
-    modulo: $ => prec.left(
-      PREC.MOD,
-      seq(
-        field('left', $._expression),
-        field('operator', '%'),
-        field('right', $._expression),
+    modulo: $ =>
+      prec.left(
+        PREC.MOD,
+        seq(
+          field('left', $._expression),
+          field('operator', '%'),
+          field('right', $._expression),
+        ),
       ),
-    ),
 
-    divide: $ => prec.left(
-      PREC.DIV,
-      seq(
-        field('left', $._expression),
-        field('operator', '/'),
-        field('right', $._expression),
+    divide: $ =>
+      prec.left(
+        PREC.DIV,
+        seq(
+          field('left', $._expression),
+          field('operator', '/'),
+          field('right', $._expression),
+        ),
       ),
-    ),
 
-    minus: $ => prec.left(
-      PREC.SUB,
-      seq(
-        field('left', $._expression),
-        field('operator', '-'),
-        field('right', $._expression),
+    minus: $ =>
+      prec.left(
+        PREC.SUB,
+        seq(
+          field('left', $._expression),
+          field('operator', '-'),
+          field('right', $._expression),
+        ),
       ),
-    ),
 
-    plus: $ => prec.left(
-      PREC.ADD,
-      seq(
-        field('left', $._expression),
-        field('operator', '+'),
-        field('right', $._expression),
+    plus: $ =>
+      prec.left(
+        PREC.ADD,
+        seq(
+          field('left', $._expression),
+          field('operator', '+'),
+          field('right', $._expression),
+        ),
       ),
-    ),
 
     number_int: _ => /\d+/,
     number_float: _ => /\d+\.\d+/,
     boolean_literal: _ => choice('true', 'false'),
 
-    array_literal: $ => seq(
-      '[',
-      optional(seq($._expression, repeat(seq(',', $._expression)))),
-      ']',
-    ),
-  }
-});
-
+    array_literal: $ =>
+      seq('[', optional(seq($._expression, repeat(seq(',', $._expression)))), ']'),
+  },
+})
