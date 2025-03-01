@@ -144,6 +144,7 @@ module.exports = grammar({
         $.infix_expression,
         $.string_literal,
         $.array_literal,
+        $.call_expression,
       ),
 
     prefix_expression: $ => prec(PREFIX, choice($.prefix_minus, $.prefix_not)),
@@ -151,7 +152,8 @@ module.exports = grammar({
     prefix_minus: $ => prec(PREFIX + 1, seq('-', $._expression)),
     prefix_not: $ => prec(PREFIX + 1, seq('!', $._expression)),
 
-    infix_expression: $ => choice($.multiply, $.modulo, $.divide, $.minus, $.plus),
+    infix_expression: $ =>
+      choice($.multiply, $.modulo, $.divide, $.minus, $.plus),
 
     multiply: $ =>
       prec.left(
@@ -203,11 +205,28 @@ module.exports = grammar({
         ),
       ),
 
+    call_expression: $ =>
+      prec(
+        PREC.DOT,
+        seq(
+          field('receiver', $._expression),
+          '.',
+          field('function', $.identifier),
+          '(',
+          optional(field('arguments', repeat(seq(',', $._expression)))),
+          ')',
+        ),
+      ),
+
     number_int: _ => /\d+/,
     number_float: _ => /\d+\.\d+/,
     boolean_literal: _ => choice('true', 'false'),
 
     array_literal: $ =>
-      seq('[', optional(seq($._expression, repeat(seq(',', $._expression)))), ']'),
+      seq(
+        '[',
+        optional(seq($._expression, repeat(seq(',', $._expression)))),
+        ']',
+      ),
   },
 })

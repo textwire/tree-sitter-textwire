@@ -24,8 +24,7 @@ Only HTML
 </ul>
 ---
 
-(program
-    (html))
+(program (html))
 
 ==================
 Escape Textwire code
@@ -36,14 +35,22 @@ Escape Textwire code
 </ul>
 ---
 
-(program
-    (html))
+(program (html))
 
 ==================
 HTML with an email address
 ==================
-<span>anna@protonmail.com
+<span>anna@protonmail.com</span>
 ---
 
-(program
-    (html))
+(program (html))
+
+==================
+Unknown directive
+==================
+<div>
+    @unknown('nice')
+</div>
+---
+
+(program (html))

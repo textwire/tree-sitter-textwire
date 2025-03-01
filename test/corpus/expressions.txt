@@ -45,3 +45,17 @@ Prefix and infix expressions
                                 (number_int)))
                         (number_int)))))))
 
+==================
+Prefix and infix expressions
+==================
+{{ "nice".upper() }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (call_expression
+                    receiver: (string_literal)
+                    function: (identifier))))))
+
