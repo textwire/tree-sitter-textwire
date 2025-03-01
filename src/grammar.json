@@ -6,17 +6,8 @@
     "program": {
       "type": "REPEAT",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "text"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_definition"
-          }
-        ]
+        "type": "SYMBOL",
+        "name": "_definition"
       }
     },
     "_definition": {
@@ -24,27 +15,36 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "brace_statement"
+          "name": "text"
         },
         {
-          "type": "SYMBOL",
-          "name": "dump_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "component_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "insert_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "each_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "if_statement"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "brace_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dump_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "component_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "insert_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "each_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "if_statement"
+            }
+          ]
         }
       ]
     },

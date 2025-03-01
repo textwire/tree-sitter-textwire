@@ -48,16 +48,19 @@ module.exports = grammar({
   externals: $ => [$.text],
 
   rules: {
-    program: $ => repeat(choice($.text, $._definition)),
+    program: $ => repeat($._definition),
 
     _definition: $ =>
       choice(
-        $.brace_statement,
-        $.dump_statement,
-        $.component_statement,
-        $.insert_statement,
-        $.each_statement,
-        $.if_statement,
+        $.text,
+        choice(
+          $.brace_statement,
+          $.dump_statement,
+          $.component_statement,
+          $.insert_statement,
+          $.each_statement,
+          $.if_statement,
+        ),
       ),
 
     brace_statement: $ =>
@@ -113,9 +116,7 @@ module.exports = grammar({
         field('array', $._expression),
         ')',
         $.block_statement,
-
         optional(seq('@else', field('alternative', $.block_statement))),
-
         '@end',
       ),
 

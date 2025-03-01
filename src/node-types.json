@@ -170,6 +170,10 @@
         {
           "type": "insert_statement",
           "named": true
+        },
+        {
+          "type": "text",
+          "named": true
         }
       ]
     }
