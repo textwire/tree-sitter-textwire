@@ -1,0 +1,10 @@
+==================
+Simple each statement without any block
+==================
+@each(name in names)@end
+---
+
+(program 
+    (each_statement
+        var: (identifier)
+        array: (identifier)))

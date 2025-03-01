@@ -64,7 +64,7 @@ module.exports = grammar({
     assign_statement: $ =>
       seq(field('name', $.identifier), '=', field('value', $._expression)),
 
-    block_statement: $ => $._definition,
+    block_statement: $ => repeat1($._definition),
 
     break_if_statement: $ =>
       seq('@breakIf', '(', field('condition', $._expression), ')'),
@@ -106,7 +106,7 @@ module.exports = grammar({
         'in',
         field('array', $._expression),
         ')',
-        $.block_statement,
+        optional(field('block', $.block_statement)),
         optional(seq('@else', field('alternative', $.block_statement))),
         '@end',
       ),
@@ -117,7 +117,7 @@ module.exports = grammar({
         '(',
         field('condition', $._expression),
         ')',
-        field('consequence', $.block_statement),
+        optional(field('consequence', $.block_statement)),
         optional(seq('@else', field('alternative', $.block_statement))),
         '@end',
       ),
