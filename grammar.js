@@ -7,35 +7,25 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
-const TERNARY = 1 // a ? b = c
-const EQ = 2 // ==
-const LESS_GREATER = 3 // > or <
-const SUM = 4 // +
-const PRODUCT = 5 // *
-const MEMBER_ACCESS = 6 // <expr>.<ident>
-const PREFIX = 7 // -X or !X
-const CALL = 8 // myFunction(X)
-const INDEX = 9 // array[index]
-const POSTFIX = 10 // X++ or X--
-
 const PREC = {
-  QUESTION: TERNARY,
-  EQ: EQ,
-  NOT_EQ: EQ,
-  LTHAN: LESS_GREATER,
-  GTHAN: LESS_GREATER,
-  LTHAN_EQ: LESS_GREATER,
-  GTHAN_EQ: LESS_GREATER,
-  ADD: SUM,
-  SUB: SUM,
-  DIV: PRODUCT,
-  MOD: PRODUCT,
-  MUL: PRODUCT,
-  LPAREN: CALL,
-  DOT: MEMBER_ACCESS,
-  LBRACKET: INDEX,
-  INC: POSTFIX,
-  DEC: POSTFIX,
+  QUESTION: 1,
+  EQ: 2,
+  NOT_EQ: 2,
+  LTHAN: 3,
+  GTHAN: 3,
+  LTHAN_EQ: 3,
+  GTHAN_EQ: 3,
+  ADD: 4,
+  SUB: 4,
+  DIV: 4,
+  MOD: 5,
+  MUL: 5,
+  DOT: 6,
+  PREFIX: 7,
+  LPAREN: 8,
+  LBRACKET: 9,
+  INC: 10,
+  DEC: 10,
 }
 
 module.exports = grammar({
@@ -148,10 +138,11 @@ module.exports = grammar({
         $.call_expression,
       ),
 
-    prefix_expression: $ => prec(PREFIX, choice($.prefix_minus, $.prefix_not)),
+    prefix_expression: $ =>
+      prec(PREC.PREFIX, choice($.prefix_minus, $.prefix_not)),
 
-    prefix_minus: $ => prec(PREFIX + 1, seq('-', $._expression)),
-    prefix_not: $ => prec(PREFIX + 1, seq('!', $._expression)),
+    prefix_minus: $ => prec(PREC.PREFIX + 1, seq('-', $._expression)),
+    prefix_not: $ => prec(PREC.PREFIX + 1, seq('!', $._expression)),
 
     infix_expression: $ =>
       choice($.multiply, $.modulo, $.divide, $.minus, $.plus),

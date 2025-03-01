@@ -700,7 +700,7 @@
     },
     "divide": {
       "type": "PREC_LEFT",
-      "value": 5,
+      "value": 4,
       "content": {
         "type": "SEQ",
         "members": [
