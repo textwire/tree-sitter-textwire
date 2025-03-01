@@ -553,12 +553,16 @@
         {
           "type": "SYMBOL",
           "name": "call_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dot_expression"
         }
       ]
     },
     "prefix_expression": {
       "type": "PREC",
-      "value": 7,
+      "value": 8,
       "content": {
         "type": "CHOICE",
         "members": [
@@ -575,7 +579,7 @@
     },
     "prefix_minus": {
       "type": "PREC",
-      "value": 8,
+      "value": 9,
       "content": {
         "type": "SEQ",
         "members": [
@@ -592,7 +596,7 @@
     },
     "prefix_not": {
       "type": "PREC",
-      "value": 8,
+      "value": 9,
       "content": {
         "type": "SEQ",
         "members": [
@@ -799,7 +803,7 @@
     },
     "call_expression": {
       "type": "PREC",
-      "value": 6,
+      "value": 7,
       "content": {
         "type": "SEQ",
         "members": [
@@ -858,6 +862,35 @@
           {
             "type": "STRING",
             "value": ")"
+          }
+        ]
+      }
+    },
+    "dot_expression": {
+      "type": "PREC",
+      "value": 6,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "FIELD",
+            "name": "key",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
           }
         ]
       }

@@ -21,11 +21,12 @@ const PREC = {
   MOD: 5,
   MUL: 5,
   DOT: 6,
-  PREFIX: 7,
-  LPAREN: 8,
-  LBRACKET: 9,
-  INC: 10,
-  DEC: 10,
+  CALL: 7,
+  PREFIX: 8,
+  LPAREN: 9,
+  LBRACKET: 10,
+  INC: 11,
+  DEC: 11,
 }
 
 module.exports = grammar({
@@ -136,6 +137,7 @@ module.exports = grammar({
         $.string_literal,
         $.array_literal,
         $.call_expression,
+        $.dot_expression,
       ),
 
     prefix_expression: $ =>
@@ -199,7 +201,7 @@ module.exports = grammar({
 
     call_expression: $ =>
       prec(
-        PREC.DOT,
+        PREC.CALL,
         seq(
           field('receiver', $._expression),
           '.',
@@ -208,6 +210,12 @@ module.exports = grammar({
           optional(field('arguments', repeat(seq(',', $._expression)))),
           ')',
         ),
+      ),
+
+    dot_expression: $ =>
+      prec(
+        PREC.DOT,
+        seq(field('left', $._expression), '.', field('key', $._expression)),
       ),
 
     number_int: _ => /\d+/,

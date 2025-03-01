@@ -46,16 +46,16 @@ Prefix and infix expressions
                         (number_int)))))))
 
 ==================
-Prefix and infix expressions
+Dot expression
 ==================
-{{ "nice".upper() }}
+{{ user.name }}
 ---
 
 (program 
     (brace_statement
         (statement
             (expression_statement
-                (call_expression
-                    receiver: (string_literal)
-                    function: (identifier))))))
+                (dot_expression
+                    left: (identifier)
+                    key: (identifier))))))
 
