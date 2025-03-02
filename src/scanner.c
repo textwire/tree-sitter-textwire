@@ -121,7 +121,7 @@ static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
     return false;
 }
 
-static bool skip_over_text(TSLexer *lexer) {
+static bool read_text_token(TSLexer *lexer) {
     bool consumed_anything = false;
     char prev_ch = 0;
 
@@ -163,7 +163,7 @@ bool tree_sitter_textwire_external_scanner_scan(
     const bool *valid_symbols
 ) {
     if (valid_symbols[TEXT]) {
-        return skip_over_text(lexer);
+        return read_text_token(lexer);
     }
 
     return false;

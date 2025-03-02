@@ -1,5 +1,5 @@
 ==================
-Simple each statement without any block
+Each statement without any block
 ==================
 @each(name in names)@end
 ---
@@ -8,3 +8,15 @@ Simple each statement without any block
     (each_statement
         var: (identifier)
         array: (identifier)))
+
+==================
+Each statement with 1 HTML statement (inline)
+==================
+@each(name in names)<span>Nice</span>@end
+---
+
+(program 
+    (each_statement
+        var: (identifier)
+        array: (identifier)
+        body: (text)))
