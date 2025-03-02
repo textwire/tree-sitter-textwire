@@ -30,8 +30,8 @@ Only text
 Escape Textwire code
 ==================
 <ul>
-  <li>\\@dump(cool)</li>
-  <li>\\{{ 1 + 2 }}</li>
+  <li>\@dump(cool)</li>
+  <li>\{{ 1 + 2 }}</li>
 </ul>
 ---
 
