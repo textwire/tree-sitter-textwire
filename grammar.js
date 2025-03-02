@@ -38,6 +38,8 @@ module.exports = grammar({
 
   externals: $ => [$.text],
 
+  extras: $ => [/\s/, $.comment],
+
   rules: {
     program: $ => repeat($._definition),
 
@@ -66,14 +68,25 @@ module.exports = grammar({
 
     block_statement: $ => repeat1($._definition),
 
+    control_flow_block_statement: $ =>
+      repeat1(
+        choice(
+          $.break_statement,
+          $.continue_statement,
+          $.break_if_statement,
+          $.continue_if_statement,
+          $._definition,
+        ),
+      ),
+
     break_if_statement: $ =>
       seq('@breakIf', '(', field('condition', $._expression), ')'),
 
     continue_if_statement: $ =>
       seq('@continueIf', '(', field('condition', $._expression), ')'),
 
-    break_statement: _ => '@break',
-    continue_statement: _ => '@continue',
+    break_statement: _ => token('@break'),
+    continue_statement: _ => token('@continue'),
 
     argument_list: $ =>
       seq($._expression, optional(repeat(seq(',', $._expression)))),
@@ -106,8 +119,10 @@ module.exports = grammar({
         'in',
         field('array', $._expression),
         ')',
-        optional(field('block', $.block_statement)),
-        optional(seq('@else', field('alternative', $.block_statement))),
+        optional(field('block', $.control_flow_block_statement)),
+        optional(
+          seq('@else', field('alternative', $.control_flow_block_statement)),
+        ),
         '@end',
       ),
 
@@ -228,5 +243,7 @@ module.exports = grammar({
         optional(seq($._expression, repeat(seq(',', $._expression)))),
         ']',
       ),
+
+    comment: _ => token(choice(seq('//', /.*/))),
   },
 })

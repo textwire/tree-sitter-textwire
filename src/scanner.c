@@ -68,13 +68,22 @@ static int the_longest_directive() {
     return longest;
 }
 
-static bool is_directive_end(char ch) {
-    return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r'
-        || ch == '(' || ch == '@';
+static bool is_letter(char ch) {
+    return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'));
 }
 
-static bool is_directive(char ch, TSLexer *lexer) {
-    if (ch != '@') {
+static bool matches_directive_name(char *buffer) {
+    for (int i = 0; directives[i] != NULL; i++) {
+        if (strcmp(buffer, directives[i]) == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+static bool is_directive(char ch, char prev_ch, TSLexer *lexer) {
+    if (ch != '@' || prev_ch == '\\') {
         return false;
     }
 
@@ -88,7 +97,7 @@ static bool is_directive(char ch, TSLexer *lexer) {
     while (!lexer->eof(lexer) && i < longest) {
         char ch = lexer->lookahead;
 
-        if (is_directive_end(ch)) {
+        if (!is_letter(ch)) {
             break;
         }
 
@@ -97,66 +106,69 @@ static bool is_directive(char ch, TSLexer *lexer) {
     }
 
     buffer[i] = '\0'; // Null-terminate
-    printf("buffer: %s\n", buffer);
 
-    // Compare against defined directives
-    for (int j = 0; directives[j] != NULL; j++) {
-        if (strcmp(buffer, directives[j]) == 0) {
-            return true;
-        }
-    }
-
-    return false;
+    return matches_directive_name(buffer);
 }
 
-static bool is_double_brace(char ch, TSLexer *lexer) {
+static bool is_double_brace(char ch, char prev_ch, TSLexer *lexer) {
+    if (prev_ch == '\\') {
+        return false;
+    }
+
     lexer->advance(lexer, false);
     return ch == '{' && lexer->lookahead == '{';
 }
 
-static bool handle_double_brace(TSLexer *lexer, bool consumed_anything) {
-    if (consumed_anything) {
+// Returns boolean if the text was consumed or not
+static bool handle_directive(TSLexer *lexer, bool text_consumed) {
+    if (text_consumed) {
         lexer->result_symbol = TEXT;
         return true;
     }
 
-    // No text consumed—return false so parser can match '{{'
     return false;
 }
 
+// Returns boolean if the text was consumed or not
+static bool handle_double_brace(TSLexer *lexer, bool text_consumed) {
+    if (text_consumed) {
+        lexer->result_symbol = TEXT;
+        return true;
+    }
+
+    return false;
+}
+
+// Returns boolean if the text was consumed or not
 static bool read_text_token(TSLexer *lexer) {
-    bool consumed_anything = false;
+    bool text_consumed = false;
     char prev_ch = 0;
 
     while (!lexer->eof(lexer)) {
         char ch = lexer->lookahead;
 
-        // Stop at '@' unless it's escaped
-        if (is_directive(ch, lexer) && prev_ch != '\\') {
-            if (consumed_anything) {
-                lexer->result_symbol = TEXT;
-                return true;
-            }
+        printf("char: %c | col: %d\n", ch, lexer->get_column(lexer));
 
-            return false;
+        if (is_directive(ch, prev_ch, lexer)) {
+            return handle_directive(lexer, text_consumed);
         }
 
-        if (is_double_brace(ch, lexer) && prev_ch != '\\') {
-            return handle_double_brace(lexer, consumed_anything);
+        if (is_double_brace(ch, prev_ch, lexer)) {
+            return handle_double_brace(lexer, text_consumed);
         }
 
         // keep consuming TEXT
-        consumed_anything = true;
+        text_consumed = true;
         prev_ch = ch;
         lexer->mark_end(lexer);
     }
 
     // At EOF, emit TEXT if anything was consumed
-    if (consumed_anything) {
+    if (text_consumed) {
         lexer->result_symbol = TEXT;
     }
 
-    return consumed_anything;
+    return text_consumed;
 }
 
 bool tree_sitter_textwire_external_scanner_scan(

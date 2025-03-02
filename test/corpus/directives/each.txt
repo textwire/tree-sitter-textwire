@@ -19,7 +19,7 @@ Inline each statement with 1 HTML statement
     (each_statement
         var: (identifier)
         array: (array_literal)
-        block: (block_statement
+        block: (control_flow_block_statement
             (text))))
 
 ==================
@@ -34,10 +34,24 @@ Multiline each statement with expression
     (each_statement
         var: (identifier)
         array: (identifier)
-        block: (block_statement
+        block: (control_flow_block_statement
             (text)
             (brace_statement
                 (statement
                     (expression_statement
                         (identifier))))
+            (text))))
+
+==================
+Each statement with escaped break
+:skip
+==================
+@each(name in names)\@break@end
+---
+
+(program 
+    (each_statement
+        var: (identifier)
+        array: (identifier)
+        block: (control_flow_block_statement
             (text))))
