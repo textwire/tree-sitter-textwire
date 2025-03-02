@@ -1,0 +1,13 @@
+==================
+If statement
+==================
+@if(true)
+    <span>Hello</span>
+@end
+---
+
+(program
+    (if_statement
+        condition: (boolean_literal)
+        consequence: (block_statement
+            (text))))

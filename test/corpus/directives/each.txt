@@ -10,13 +10,34 @@ Each statement without any block
         array: (identifier)))
 
 ==================
-Each statement with 1 HTML statement (inline)
+Inline each statement with 1 HTML statement
 ==================
-@each(name in names)<span>Nice</span>@end
+@each(name in [])<span>Nice</span>@end
+---
+
+(program 
+    (each_statement
+        var: (identifier)
+        array: (array_literal)
+        block: (block_statement
+            (text))))
+
+==================
+Multiline each statement with expression
+==================
+@each(name in names)
+    <span>{{ value }}</span>
+@end
 ---
 
 (program 
     (each_statement
         var: (identifier)
         array: (identifier)
-        body: (text)))
+        block: (block_statement
+            (text)
+            (brace_statement
+                (statement
+                    (expression_statement
+                        (identifier))))
+            (text))))

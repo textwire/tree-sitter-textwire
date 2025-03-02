@@ -142,11 +142,10 @@ static bool read_text_token(TSLexer *lexer) {
             return handle_double_brace(lexer, consumed_anything);
         }
 
-        // Otherwise, keep consuming TEXT
-        prev_ch = ch;
-        lexer->advance(lexer, false);
-        lexer->mark_end(lexer);
+        // keep consuming TEXT
         consumed_anything = true;
+        prev_ch = ch;
+        lexer->mark_end(lexer);
     }
 
     // At EOF, emit TEXT if anything was consumed
