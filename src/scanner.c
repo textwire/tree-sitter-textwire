@@ -4,6 +4,7 @@ https://tree-sitter.github.io/tree-sitter/creating-parsers/4-external-scanners.h
 */
 
 #include "tree_sitter/parser.h"
+#include <stdio.h>
 #include <string.h>
 
 enum TokenType {
@@ -68,7 +69,8 @@ static int the_longest_directive() {
 }
 
 static bool is_directive_end(char ch) {
-    return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '(';
+    return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r'
+        || ch == '(' || ch == '@';
 }
 
 static bool is_directive(char ch, TSLexer *lexer) {
@@ -95,6 +97,7 @@ static bool is_directive(char ch, TSLexer *lexer) {
     }
 
     buffer[i] = '\0'; // Null-terminate
+    printf("buffer: %s\n", buffer);
 
     // Compare against defined directives
     for (int j = 0; directives[j] != NULL; j++) {
