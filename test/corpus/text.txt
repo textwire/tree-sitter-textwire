@@ -1,21 +1,4 @@
 ==================
-Text with the @dump directive
-==================
-Header is here
-
-@dump('nice')
-
-Footer is here
----
-
-(program
-    (text)
-    (dump_statement
-        (argument_list
-            (string_literal)))
-    (text))
-
-==================
 Only text
 ==================
 <ul>
