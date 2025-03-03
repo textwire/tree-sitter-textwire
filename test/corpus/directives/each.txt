@@ -44,7 +44,6 @@ Multiline each statement with expression
 
 ==================
 Each statement with escaped break
-:skip
 ==================
 @each(name in names)\@break@end
 ---
@@ -54,4 +53,22 @@ Each statement with escaped break
         var: (identifier)
         array: (identifier)
         block: (control_flow_block_statement
+            (text))))
+
+==================
+Each statement with multiline block
+==================
+@each(name in names)
+    Hello
+    @break
+@end
+---
+
+(program 
+    (each_statement
+        var: (identifier)
+        array: (identifier)
+        block: (control_flow_block_statement
+            (text)
+            (break_statement)
             (text))))

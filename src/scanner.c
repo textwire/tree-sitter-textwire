@@ -82,8 +82,8 @@ static bool matches_directive_name(char *buffer) {
     return false;
 }
 
-static bool is_directive(char ch, char prev_ch, TSLexer *lexer) {
-    if (ch != '@' || prev_ch == '\\') {
+static bool is_directive(char ch, TSLexer *lexer) {
+    if (ch != '@') {
         return false;
     }
 
@@ -110,12 +110,7 @@ static bool is_directive(char ch, char prev_ch, TSLexer *lexer) {
     return matches_directive_name(buffer);
 }
 
-static bool is_double_brace(char ch, char prev_ch, TSLexer *lexer) {
-    if (prev_ch == '\\') {
-        return false;
-    }
-
-    lexer->advance(lexer, false);
+static bool is_double_brace(char ch, TSLexer *lexer) {
     return ch == '{' && lexer->lookahead == '{';
 }
 
@@ -129,14 +124,12 @@ static bool handle_directive(TSLexer *lexer, bool text_consumed) {
     return false;
 }
 
-// Returns boolean if the text was consumed or not
-static bool handle_double_brace(TSLexer *lexer, bool text_consumed) {
+static bool handle_braces_statement(TSLexer *lexer, bool text_consumed) {
     if (text_consumed) {
         lexer->result_symbol = TEXT;
-        return true;
     }
 
-    return false;
+    return text_consumed;
 }
 
 // Returns boolean if the text was consumed or not
@@ -146,20 +139,29 @@ static bool read_text_token(TSLexer *lexer) {
 
     while (!lexer->eof(lexer)) {
         char ch = lexer->lookahead;
+        bool advanced = false;
 
-        printf("char: %c | col: %d\n", ch, lexer->get_column(lexer));
-
-        if (is_directive(ch, prev_ch, lexer)) {
+        if (prev_ch != '\\' && is_directive(ch, lexer)) {
             return handle_directive(lexer, text_consumed);
         }
 
-        if (is_double_brace(ch, prev_ch, lexer)) {
-            return handle_double_brace(lexer, text_consumed);
+        if (prev_ch != '\\' && ch == '{') {
+            lexer->advance(lexer, false);
+
+            if (lexer->lookahead == '{') {
+                return handle_braces_statement(lexer, text_consumed);
+            }
         }
 
         // keep consuming TEXT
         text_consumed = true;
         prev_ch = ch;
+
+        if (!advanced) {
+            advanced = true;
+            lexer->advance(lexer, false);
+        }
+
         lexer->mark_end(lexer);
     }
 
