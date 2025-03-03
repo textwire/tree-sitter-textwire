@@ -59,3 +59,33 @@ Dot expression
                     left: (identifier)
                     key: (identifier))))))
 
+==================
+Call expression with no arguments
+==================
+{{ "Hello World!".upper() }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (call_expression
+                    receiver: (string_literal)
+                    function: (identifier))))))
+
+==================
+Call expression with arguments
+==================
+{{ 'hello world'.split(' ') }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (call_expression
+                    receiver: (string_literal)
+                    function: (identifier)
+                    arguments: (argument_list
+                        (string_literal)))))))
+

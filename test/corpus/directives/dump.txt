@@ -6,7 +6,7 @@
 
 (program 
     (dump_statement
-        (argument_list
+        arguments: (argument_list
             (number_int))))
 
 ==================
@@ -20,7 +20,7 @@
 (program 
     (text)
     (dump_statement
-        (argument_list
+        arguments: (argument_list
             (number_int)))
     (text))
 
@@ -32,8 +32,8 @@ Multiple @dump
 
 (program 
     (dump_statement
-        (argument_list
+        arguments: (argument_list
             (number_int)))
     (dump_statement
-        (argument_list
+        arguments: (argument_list
             (string_literal))))

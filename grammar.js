@@ -109,7 +109,8 @@ module.exports = grammar({
         ')',
       ),
 
-    dump_statement: $ => seq('@dump', '(', $.argument_list, ')'),
+    dump_statement: $ =>
+      seq('@dump', '(', field('arguments', $.argument_list), ')'),
 
     each_statement: $ =>
       seq(
@@ -222,7 +223,7 @@ module.exports = grammar({
           '.',
           field('function', $.identifier),
           '(',
-          optional(field('arguments', repeat(seq(',', $._expression)))),
+          optional(field('arguments', $.argument_list)),
           ')',
         ),
       ),

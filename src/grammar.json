@@ -368,8 +368,12 @@
           "value": "("
         },
         {
-          "type": "SYMBOL",
-          "name": "argument_list"
+          "type": "FIELD",
+          "name": "arguments",
+          "content": {
+            "type": "SYMBOL",
+            "name": "argument_list"
+          }
         },
         {
           "type": "STRING",
@@ -895,20 +899,8 @@
                 "type": "FIELD",
                 "name": "arguments",
                 "content": {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": ","
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "_expression"
-                      }
-                    ]
-                  }
+                  "type": "SYMBOL",
+                  "name": "argument_list"
                 }
               },
               {
