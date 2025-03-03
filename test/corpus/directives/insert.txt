@@ -1,5 +1,5 @@
 ==================
-Inlined @insert inside HTML
+Inline @insert inside HTML
 ==================
 <head>
     <meta charset="UTF-8">

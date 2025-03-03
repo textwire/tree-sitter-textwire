@@ -1,0 +1,39 @@
+==================
+@dump without text
+==================
+@dump(1)
+---
+
+(program 
+    (dump_statement
+        (argument_list
+            (number_int))))
+
+==================
+@dump inside HTML
+==================
+<ul>
+    @dump(1)
+</ul>
+---
+
+(program 
+    (text)
+    (dump_statement
+        (argument_list
+            (number_int)))
+    (text))
+
+==================
+Multiple @dump
+==================
+@dump(1)@dump("nice")
+---
+
+(program 
+    (dump_statement
+        (argument_list
+            (number_int)))
+    (dump_statement
+        (argument_list
+            (string_literal))))

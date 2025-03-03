@@ -1,5 +1,5 @@
 ==================
-Inline simple component statement
+Inline @component without text
 ==================
 @component('user')
 ---
