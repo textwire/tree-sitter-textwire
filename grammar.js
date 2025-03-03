@@ -96,7 +96,7 @@ module.exports = grammar({
         '@component',
         '(',
         field('name', $._expression),
-        optional(seq(',', $._expression)),
+        optional(seq(',', field('argument', $.object_literal))),
         ')',
       ),
 
@@ -105,7 +105,7 @@ module.exports = grammar({
         '@insert',
         '(',
         field('name', $._expression),
-        optional(field('value', seq(',', $._expression))),
+        optional(seq(',', field('value', $._expression))),
         ')',
       ),
 
@@ -154,6 +154,8 @@ module.exports = grammar({
         $.array_literal,
         $.call_expression,
         $.dot_expression,
+        $.object_literal,
+        $.array_literal,
       ),
 
     prefix_expression: $ =>
@@ -244,6 +246,16 @@ module.exports = grammar({
         optional(seq($._expression, repeat(seq(',', $._expression)))),
         ']',
       ),
+
+    pair: $ =>
+      choice(
+        seq(field('key', $.string_literal), ':', field('value', $._expression)),
+        field('key', $.identifier),
+      ),
+
+    pairs: $ => seq($.pair, optional(repeat(seq(',', $.pair)))),
+
+    object_literal: $ => seq('{', optional($.pairs), '}'),
 
     comment: _ => token(choice(seq('//', /.*/))),
   },

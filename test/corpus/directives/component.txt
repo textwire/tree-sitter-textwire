@@ -6,5 +6,19 @@ Inline @component without text
 
 (program 
     (component_statement
-        (string_literal)))
+        name: (string_literal)))
+
+==================
+Inline @component with argument
+==================
+@component('book', { title })
+---
+
+(program 
+    (component_statement
+        name: (string_literal)
+        argument: (object_literal
+            (pairs
+                (pair
+                    key: (identifier))))))
 
