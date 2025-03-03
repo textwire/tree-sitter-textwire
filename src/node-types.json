@@ -36,6 +36,10 @@
           "named": true
         },
         {
+          "type": "object_literal",
+          "named": true
+        },
+        {
           "type": "prefix_expression",
           "named": true
         },
@@ -80,6 +84,10 @@
         },
         {
           "type": "number_int",
+          "named": true
+        },
+        {
+          "type": "object_literal",
           "named": true
         },
         {
@@ -137,6 +145,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -247,6 +259,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -315,6 +331,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -330,6 +350,16 @@
     "type": "component_statement",
     "named": true,
     "fields": {
+      "argument": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "object_literal",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -363,6 +393,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -372,48 +406,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "array_literal",
-          "named": true
-        },
-        {
-          "type": "boolean_literal",
-          "named": true
-        },
-        {
-          "type": "call_expression",
-          "named": true
-        },
-        {
-          "type": "dot_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "infix_expression",
-          "named": true
-        },
-        {
-          "type": "number_int",
-          "named": true
-        },
-        {
-          "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -450,6 +442,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -556,6 +552,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -608,6 +608,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -656,6 +660,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -695,6 +703,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -772,6 +784,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -840,6 +856,10 @@
           "named": true
         },
         {
+          "type": "object_literal",
+          "named": true
+        },
+        {
           "type": "prefix_expression",
           "named": true
         },
@@ -894,6 +914,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -986,6 +1010,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -996,13 +1024,9 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": ",",
-            "named": false
-          },
           {
             "type": "array_literal",
             "named": true
@@ -1029,6 +1053,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -1077,6 +1105,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -1132,6 +1164,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -1177,6 +1213,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -1232,6 +1272,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -1277,6 +1321,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -1332,6 +1380,10 @@
             "named": true
           },
           {
+            "type": "object_literal",
+            "named": true
+          },
+          {
             "type": "prefix_expression",
             "named": true
           },
@@ -1341,6 +1393,102 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "object_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "pairs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pair",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "pairs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1377,6 +1525,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -1429,6 +1581,10 @@
           },
           {
             "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
             "named": true
           },
           {
@@ -1499,6 +1655,10 @@
           "named": true
         },
         {
+          "type": "object_literal",
+          "named": true
+        },
+        {
           "type": "prefix_expression",
           "named": true
         },
@@ -1543,6 +1703,10 @@
         },
         {
           "type": "number_int",
+          "named": true
+        },
+        {
+          "type": "object_literal",
           "named": true
         },
         {
@@ -1669,6 +1833,10 @@
     "named": false
   },
   {
+    "type": ":",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
@@ -1758,7 +1926,15 @@
     "named": false
   },
   {
+    "type": "{",
+    "named": false
+  },
+  {
     "type": "{{",
+    "named": false
+  },
+  {
+    "type": "}",
     "named": false
   },
   {
