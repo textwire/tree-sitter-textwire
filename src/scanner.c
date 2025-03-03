@@ -4,7 +4,6 @@ https://tree-sitter.github.io/tree-sitter/creating-parsers/4-external-scanners.h
 */
 
 #include "tree_sitter/parser.h"
-#include <stdio.h>
 #include <string.h>
 
 enum TokenType {
