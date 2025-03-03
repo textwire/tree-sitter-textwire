@@ -138,7 +138,6 @@ static bool read_text_token(TSLexer *lexer) {
 
     while (!lexer->eof(lexer)) {
         char ch = lexer->lookahead;
-        bool advanced = false;
 
         if (prev_ch != '\\' && is_directive(ch, lexer)) {
             return handle_directive(lexer, text_consumed);
@@ -156,11 +155,7 @@ static bool read_text_token(TSLexer *lexer) {
         text_consumed = true;
         prev_ch = ch;
 
-        if (!advanced) {
-            advanced = true;
-            lexer->advance(lexer, false);
-        }
-
+        lexer->advance(lexer, false);
         lexer->mark_end(lexer);
     }
 
