@@ -68,7 +68,7 @@ static int the_longest_directive() {
 }
 
 static bool is_letter(char ch) {
-    return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'));
+    return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }
 
 static bool matches_directive_name(char *buffer) {
@@ -81,8 +81,8 @@ static bool matches_directive_name(char *buffer) {
     return false;
 }
 
-static bool is_directive(char ch, TSLexer *lexer) {
-    if (ch != '@') {
+static bool is_directive(TSLexer *lexer) {
+    if (lexer->lookahead != '@') {
         return false;
     }
 
@@ -94,13 +94,11 @@ static bool is_directive(char ch, TSLexer *lexer) {
     int i = 0;
 
     while (!lexer->eof(lexer) && i < longest) {
-        char ch = lexer->lookahead;
-
-        if (!is_letter(ch)) {
+        if (!is_letter(lexer->lookahead)) {
             break;
         }
 
-        buffer[i++] = ch;
+        buffer[i++] = lexer->lookahead;
         lexer->advance(lexer, false);
     }
 
@@ -139,7 +137,7 @@ static bool read_text_token(TSLexer *lexer) {
     while (!lexer->eof(lexer)) {
         char ch = lexer->lookahead;
 
-        if (prev_ch != '\\' && is_directive(ch, lexer)) {
+        if (prev_ch != '\\' && is_directive(lexer)) {
             return handle_directive(lexer, text_consumed);
         }
 
