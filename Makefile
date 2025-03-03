@@ -46,6 +46,7 @@ ifneq ($(filter $(shell uname),FreeBSD NetBSD DragonFly),)
 	PCLIBDIR := $(PREFIX)/libdata/pkgconfig
 endif
 
+.PHONY: all
 all: lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT) $(LANGUAGE_NAME).pc
 
 lib$(LANGUAGE_NAME).a: $(OBJS)
@@ -91,18 +92,18 @@ uninstall:
 clean:
 	$(RM) $(OBJS) $(LANGUAGE_NAME).pc lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT)
 
+# Generate grammar files into C files
 .PHONY: generate
 generate:
 	$(TS) generate
 
+# Test the parser
 .PHONY: test
 test: generate
 	$(TS) test
 
-.PHONY: parse
-parse:
-	$(TS) parse textwire.tw
-
-.PHONY: all install uninstall clean test
+.PHONY: compile
+parse: compile
+	gcc -shared -fPIC -o textwire.so src/parser.c src/scanner.c
 
 .DEFAULT_GOAL := test

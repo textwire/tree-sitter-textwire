@@ -5,4 +5,8 @@
     @if(true)
         <span>{{ -1 + 2 }}</span>
     @end
+
+    @each(user in users)
+        <span>{{ user.name.upper() }}</span>
+    @end
 </div>
