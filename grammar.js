@@ -239,6 +239,7 @@ module.exports = grammar({
     number_int: _ => /\d+/,
     number_float: _ => /\d+\.\d+/,
     boolean_literal: _ => choice('true', 'false'),
+    nil_literal: _ => 'nil',
 
     array_literal: $ =>
       seq(
