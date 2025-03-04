@@ -1,12 +1,23 @@
+; Keywords
 [
- "true"
- "false"
+  "true"
+  "false"
+  "in"
+  "@if"
+	"@else"
+	"@end"
+	"@each"
+	"@breakIf"
+	"@continueIf"
+	"@insert"
+	"@component"
+	"@dump"
 ] @keyword
 
-(component_statement) @function
+; Variables
+(identifier) @variable
 
-(if_statement) @conditional
-
-(each_statement) @conditional
-
-
+; Basic tokens
+(boolean_literal) @constant.builtin
+(number_int) @number
+(comment) @comment
