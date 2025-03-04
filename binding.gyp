@@ -12,6 +12,7 @@
         "bindings/node/binding.cc",
         "src/parser.c",
         "src/scanner.c",
+        "src/scanner.cc",
       ],
       "conditions": [
         ["OS!='win'", {

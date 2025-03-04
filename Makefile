@@ -4,6 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-textwire
 HOMEPAGE_URL := https://github.com/textwire/textwire
+DESCRIPTION := Tree sitter for Textwire language
 VERSION := 0.1.0
 
 # repository
@@ -102,8 +103,9 @@ generate:
 test: generate
 	$(TS) test
 
+# Compile the parser
 .PHONY: compile
-parse: compile
+compile:
 	gcc -shared -fPIC -o textwire.so src/parser.c src/scanner.c
 
 .DEFAULT_GOAL := test
