@@ -1,12 +1,15 @@
-<div>
-    <h1>Nice one</h1>
-    <p>Hey there</p>
+<body>
+    <div>
+        <h1>Nice one</h1>
+        <p>Hey there</p>
 
-    @if(true)
-        <span>{{ -1 + 2 }}</span>
-    @end
+        @if(true)
+            <span>{{ -1 + 2.23 }}</span>
+            <span>{{ nil }}</span>
+        @end
 
-    @each(user in users)
-        <span>{{ user.name.upper() }}</span>
-    @end
-</div>
+        @each(user in users)
+            <span>{{ user.name.upper() }}</span>
+        @end
+    </div>
+</body>

@@ -1785,6 +1785,26 @@
     "fields": {}
   },
   {
+    "type": "text",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "text_interpolation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "!",
     "named": false
   },
@@ -1915,10 +1935,6 @@
   },
   {
     "type": "number_int",
-    "named": true
-  },
-  {
-    "type": "text",
     "named": true
   },
   {
