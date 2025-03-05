@@ -23,3 +23,13 @@ Inline @if
         condition: (boolean_literal)
         consequence: (block_statement
             (text))))
+
+==================
+@if with no body
+==================
+@if(false)@end
+---
+
+(program
+    (if_statement
+        condition: (boolean_literal)))
