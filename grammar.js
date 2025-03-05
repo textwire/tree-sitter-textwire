@@ -85,8 +85,8 @@ module.exports = grammar({
     continue_if_statement: $ =>
       seq('@continueIf', '(', field('condition', $._expression), ')'),
 
-    break_statement: _ => token('@break'),
-    continue_statement: _ => token('@continue'),
+    break_statement: _ => '@break',
+    continue_statement: _ => '@continue',
 
     argument_list: $ =>
       seq($._expression, optional(repeat(seq(',', $._expression)))),
@@ -134,6 +134,15 @@ module.exports = grammar({
         field('condition', $._expression),
         ')',
         optional(field('consequence', $.block_statement)),
+        optional(
+          seq(
+            '@elseif',
+            '(',
+            field('condition', $._expression),
+            ')',
+            field('consequence', $.block_statement),
+          ),
+        ),
         optional(seq('@else', field('alternative', $.block_statement))),
         '@end',
       ),

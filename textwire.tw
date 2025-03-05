@@ -3,13 +3,32 @@
         <h1>Nice one</h1>
         <p>Hey there</p>
 
+        @dump(user, book)
+
         @if(true)
             <span>{{ -1 + 2.23 }}</span>
-            <span>{{ nil }}</span>
+            <span>{{ [1, true, false, nil, user] }}</span>
+            <span>{{ { first, "nice": 2 } }}</span>
+            <span>{{ x = 1; y = 2 }}</span>
+        @elseif(false)
+            <span>Nothing</span>
+        @else
+            <span>{{ "Nice" }}</span>
         @end
 
         @each(user in users)
             <span>{{ user.name.upper() }}</span>
+
+            @breakIf(true)
+            @continueIf(true)
+            @break
+            @continue
+        @end
+
+        @component("user", { name: "John" })
+
+        @component("book", { book })
+            <div>Nice</div>
         @end
     </div>
 </body>

@@ -1,9 +1,21 @@
 ==================
-@if multiline
+Multiline @if
 ==================
 @if(true)
     <span>Hello</span>
 @end
+---
+
+(program
+    (if_statement
+        condition: (boolean_literal)
+        consequence: (block_statement
+            (text))))
+
+==================
+Inline @if
+==================
+@if (false)<span>Hello</span>@end
 ---
 
 (program
