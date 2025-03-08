@@ -163,65 +163,6 @@
         ]
       }
     },
-    "text_interpolation": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "}}"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "text"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "{{"
-        }
-      ]
-    },
-    "text": {
-      "type": "PREC_LEFT",
-      "value": 1,
-      "content": {
-        "type": "REPEAT1",
-        "content": {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "PREC",
-                "value": -1,
-                "content": {
-                  "type": "PATTERN",
-                  "value": "<"
-                }
-              }
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "PREC",
-                "value": 1,
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[^\\s<][^<]*"
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
     "break_if_statement": {
       "type": "SEQ",
       "members": [
@@ -273,18 +214,12 @@
       ]
     },
     "break_statement": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "@break"
-      }
+      "type": "STRING",
+      "value": "@break"
     },
     "continue_statement": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "@continue"
-      }
+      "type": "STRING",
+      "value": "@continue"
     },
     "argument_list": {
       "type": "SEQ",
@@ -526,6 +461,52 @@
         }
       ]
     },
+    "else_if_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@elseif"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "condition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "consequence",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block_statement"
+          }
+        }
+      ]
+    },
+    "else_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_statement"
+        }
+      ]
+    },
     "if_statement": {
       "type": "SEQ",
       "members": [
@@ -566,24 +547,26 @@
           ]
         },
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "FIELD",
+            "name": "alternative",
+            "content": {
+              "type": "SYMBOL",
+              "name": "else_if_statement"
+            }
+          }
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "@else"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "alternative",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "block_statement"
-                  }
-                }
-              ]
+              "type": "FIELD",
+              "name": "alternative",
+              "content": {
+                "type": "SYMBOL",
+                "name": "else_statement"
+              }
             },
             {
               "type": "BLANK"
@@ -1212,15 +1195,16 @@
     {
       "type": "SYMBOL",
       "name": "comment"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "text_interpolation"
     }
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "text"
+    }
+  ],
   "inline": [],
   "supertypes": [],
   "reserved": {}

@@ -127,6 +127,17 @@ module.exports = grammar({
         '@end',
       ),
 
+    else_if_statement: $ =>
+      seq(
+        '@elseif',
+        '(',
+        field('condition', $._expression),
+        ')',
+        field('consequence', $.block_statement),
+      ),
+
+    else_statement: $ => seq('@else', $.block_statement),
+
     if_statement: $ =>
       seq(
         '@if',
@@ -134,16 +145,8 @@ module.exports = grammar({
         field('condition', $._expression),
         ')',
         optional(field('consequence', $.block_statement)),
-        optional(
-          seq(
-            '@elseif',
-            '(',
-            field('condition', $._expression),
-            ')',
-            field('consequence', $.block_statement),
-          ),
-        ),
-        optional(seq('@else', field('alternative', $.block_statement))),
+        repeat(field('alternative', $.else_if_statement)),
+        optional(field('alternative', $.else_statement)),
         '@end',
       ),
 

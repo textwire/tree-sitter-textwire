@@ -108,4 +108,8 @@ test: generate
 compile:
 	gcc -shared -fPIC -o textwire.so src/parser.c src/scanner.c
 
+.PHONY: parse
+parse:
+	$(TS) parse textwire.tw
+
 .DEFAULT_GOAL := test

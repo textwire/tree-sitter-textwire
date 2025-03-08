@@ -33,3 +33,68 @@ Inline @if
 (program
     (if_statement
         condition: (boolean_literal)))
+
+==================
+Single @elseif
+==================
+@if(true)
+    <span>Hello</span>
+@elseif(false)
+    <span>Hi</span>
+@end
+---
+
+(program
+    (if_statement
+        condition: (boolean_literal)
+        consequence: (block_statement
+            (text))
+        alternative: (else_if_statement
+            condition: (boolean_literal)
+            consequence: (block_statement
+                (text)))))
+
+==================
+Multiple @elseif
+==================
+@if(true)
+    <span>Hello</span>
+@elseif(false)
+    <span>Bye bye</span>
+@elseif(true)
+    <span>Hi</span>
+@end
+---
+
+(program
+    (if_statement
+        condition: (boolean_literal)
+        consequence: (block_statement
+            (text))
+        alternative: (else_if_statement
+            condition: (boolean_literal)
+            consequence: (block_statement
+                (text)))
+        alternative: (else_if_statement
+                condition: (boolean_literal)
+                consequence: (block_statement
+                    (text)))))
+
+==================
+Single @else
+==================
+@if(true)
+    <span>Hello</span>
+@else
+    <span>Hi</span>
+@end
+---
+
+(program
+    (if_statement
+        condition: (boolean_literal)
+        consequence: (block_statement
+            (text))
+        alternative: (else_statement
+            (block_statement
+                (text)))))

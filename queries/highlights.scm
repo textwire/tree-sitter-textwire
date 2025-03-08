@@ -18,7 +18,7 @@
   "@continueIf" @keyword)
 
 (if_statement
-  ["@if" "@else" "@elseif" "@end"] @keyword)
+  ["@if" "@else" "@end"] @keyword)
 
 (each_statement
   ["@each" "in" "@else" "@end"] @keyword)
