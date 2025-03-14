@@ -51,6 +51,7 @@ module.exports = grammar({
           $.dump_statement,
           $.component_statement,
           $.insert_statement,
+          $.reserve_statement,
           $.each_statement,
           $.if_statement,
         ),
@@ -67,6 +68,12 @@ module.exports = grammar({
       seq(field('name', $.identifier), '=', field('value', $._expression)),
 
     block_statement: $ => repeat1($._definition),
+
+    // TODO: add named slots
+    slot_statement: _ => '@slot',
+
+    component_block_statement: $ =>
+      repeat1(choice($._definition, $.slot_statement)),
 
     control_flow_block_statement: $ =>
       repeat1(
@@ -92,13 +99,19 @@ module.exports = grammar({
       seq($._expression, optional(repeat(seq(',', $._expression)))),
 
     component_statement: $ =>
-      seq(
-        '@component',
-        '(',
-        field('name', $._expression),
-        optional(seq(',', field('argument', $.object_literal))),
-        ')',
+      prec.right(
+        seq(
+          '@component',
+          '(',
+          field('name', $._expression),
+          optional(seq(',', field('argument', $.object_literal))),
+          ')',
+          optional(seq(field('block', $.component_block_statement), '@end')),
+        ),
       ),
+
+    reserve_statement: $ =>
+      seq('@reserve', '(', field('name', $._expression), ')'),
 
     insert_statement: $ =>
       seq(
@@ -158,7 +171,7 @@ module.exports = grammar({
       choice(
         $.identifier,
         $.number_int,
-        $.number_int,
+        $.nil_literal,
         $.boolean_literal,
         $.prefix_expression,
         $.infix_expression,

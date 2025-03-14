@@ -1,8 +1,21 @@
 ; Keywords
 [
-  "true"
-  "false"
+  "@end"
 ] @keyword
+
+; Variables
+(identifier) @variable
+
+; Basic tokens
+(boolean_literal
+  ["true" "false"] @constant.builtin)
+
+; TODO: doesn't work
+;(nil_literal
+;  "nil" @constant.builtin)
+
+(number_int) @number
+(comment) @comment
 
 ; Statements
 (break_statement) @keyword
@@ -18,21 +31,22 @@
   "@continueIf" @keyword)
 
 (if_statement
-  ["@if" "@else" "@end"] @keyword)
+  "@if" @keyword)
+
+(else_if_statement
+  "@elseif" @keyword)
+
+(else_statement
+  "@else" @keyword)
 
 (each_statement
-  ["@each" "in" "@else" "@end"] @keyword)
+  ["@each" "in"] @keyword)
+
+(component_statement
+  "@component" @keyword)
 
 (insert_statement
   "@insert" @keyword)
 
-(component_statement
-  ["@component" "@end"] @keyword)
-
-; Variables
-(identifier) @variable
-
-; Basic tokens
-(boolean_literal) @constant.builtin
-(number_int) @number
-(comment) @comment
+(reserve_statement
+  "@reserve" @keyword)

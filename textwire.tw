@@ -16,6 +16,12 @@
             <span>{{ "Nice" }}</span>
         @end
 
+        @insert('content')
+            <div>Hey main</div>
+        @end
+
+        @reserve('content')
+
         @each(user in users)
             <span>{{ user.name.upper() }}</span>
 

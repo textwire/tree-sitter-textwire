@@ -22,3 +22,36 @@ Inline @component with argument
                 (pair
                     key: (identifier))))))
 
+==================
+Block @component no arguments
+==================
+@component('book')
+    <div>Nice</div>
+@end
+---
+
+(program 
+    (component_statement
+        name: (string_literal)
+        block: (component_block_statement
+            (text))))
+
+
+==================
+Block @component with arguments
+==================
+@component('book', { name })
+    <div>Nice</div>
+@end
+---
+
+(program 
+    (component_statement
+        name: (string_literal)
+        argument: (object_literal
+            (pairs
+                (pair
+                    key: (identifier))))
+        block: (component_block_statement
+            (text))))
+
