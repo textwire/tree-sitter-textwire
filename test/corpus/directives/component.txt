@@ -55,3 +55,14 @@ Block @component with arguments
         block: (component_block_statement
             (text))))
 
+==================
+Inline @component with block
+==================
+@component('book')<div>Nice</div>@end
+---
+
+(program
+    (component_statement
+        name: (string_literal)
+        block: (component_block_statement
+            (text))))
