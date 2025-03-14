@@ -32,6 +32,10 @@
           "named": true
         },
         {
+          "type": "nil_literal",
+          "named": true
+        },
+        {
           "type": "number_int",
           "named": true
         },
@@ -80,6 +84,10 @@
         },
         {
           "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "nil_literal",
           "named": true
         },
         {
@@ -144,6 +152,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -193,6 +205,10 @@
         },
         {
           "type": "insert_statement",
+          "named": true
+        },
+        {
+          "type": "reserve_statement",
           "named": true
         },
         {
@@ -252,6 +268,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -327,6 +347,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -347,6 +371,53 @@
     }
   },
   {
+    "type": "component_block_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "brace_statement",
+          "named": true
+        },
+        {
+          "type": "component_statement",
+          "named": true
+        },
+        {
+          "type": "dump_statement",
+          "named": true
+        },
+        {
+          "type": "each_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "insert_statement",
+          "named": true
+        },
+        {
+          "type": "reserve_statement",
+          "named": true
+        },
+        {
+          "type": "slot_statement",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "component_statement",
     "named": true,
     "fields": {
@@ -356,6 +427,16 @@
         "types": [
           {
             "type": "object_literal",
+            "named": true
+          }
+        ]
+      },
+      "block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "component_block_statement",
             "named": true
           }
         ]
@@ -386,6 +467,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -438,6 +523,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -509,6 +598,10 @@
           "named": true
         },
         {
+          "type": "reserve_statement",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         }
@@ -545,6 +638,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -604,6 +701,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -656,6 +757,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -699,6 +804,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -780,6 +889,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -849,6 +962,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -929,6 +1046,10 @@
           "named": true
         },
         {
+          "type": "nil_literal",
+          "named": true
+        },
+        {
           "type": "number_int",
           "named": true
         },
@@ -991,6 +1112,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -1087,6 +1212,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -1130,6 +1259,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -1182,6 +1315,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -1241,6 +1378,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -1290,6 +1431,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -1349,6 +1494,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -1398,6 +1547,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -1454,6 +1607,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -1538,6 +1695,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -1605,6 +1766,10 @@
             "named": true
           },
           {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
             "type": "number_int",
             "named": true
           },
@@ -1658,6 +1823,10 @@
           },
           {
             "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
             "named": true
           },
           {
@@ -1732,6 +1901,10 @@
           "named": true
         },
         {
+          "type": "nil_literal",
+          "named": true
+        },
+        {
           "type": "number_int",
           "named": true
         },
@@ -1780,6 +1953,10 @@
         },
         {
           "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "nil_literal",
           "named": true
         },
         {
@@ -1835,10 +2012,70 @@
           "named": true
         },
         {
+          "type": "reserve_statement",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "reserve_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
+            "type": "number_int",
+            "named": true
+          },
+          {
+            "type": "object_literal",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -1966,6 +2203,10 @@
     "named": false
   },
   {
+    "type": "@reserve",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -1999,7 +2240,15 @@
     "named": false
   },
   {
+    "type": "nil_literal",
+    "named": true
+  },
+  {
     "type": "number_int",
+    "named": true
+  },
+  {
+    "type": "slot_statement",
     "named": true
   },
   {
