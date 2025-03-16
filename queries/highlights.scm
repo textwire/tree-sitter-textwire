@@ -14,7 +14,6 @@
 ;(nil_literal
 ;  "nil" @constant.builtin)
 
-(number_int) @number
 (comment) @comment
 
 ; Statements

@@ -24,7 +24,7 @@ Array literal
         (statement
             (expression_statement
                 (array_literal
-                    (number_int)
+                    (integer_literal)
                     (string_literal)
                     (boolean_literal))))))
 
@@ -39,3 +39,34 @@ Simple string expression
         (statement
             (expression_statement
                 (string_literal)))))
+
+==================
+Short object literal with one key
+==================
+{{ { name } }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (object_literal
+                    (pairs
+                        (pair
+                            key: (identifier))))))))
+
+==================
+Full object literal with one element
+==================
+{{ { name: "Serhii" } }}
+---
+
+(program 
+    (brace_statement
+        (statement
+            (expression_statement
+                (object_literal
+                    (pairs
+                        (pair
+                            key: (identifier)
+                            value: (string_literal))))))))

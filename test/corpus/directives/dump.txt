@@ -7,7 +7,7 @@
 (program 
     (dump_statement
         arguments: (argument_list
-            (number_int))))
+            (integer_literal))))
 
 ==================
 @dump inside HTML
@@ -21,19 +21,19 @@
     (text)
     (dump_statement
         arguments: (argument_list
-            (number_int)))
+            (integer_literal)))
     (text))
 
 ==================
 Multiple @dump
 ==================
-@dump(1)@dump("nice")
+@dump(1.55)@dump("nice")
 ---
 
 (program 
     (dump_statement
         arguments: (argument_list
-            (number_int)))
+            (float_literal)))
     (dump_statement
         arguments: (argument_list
             (string_literal))))

@@ -4,14 +4,14 @@ Infix expression with 2 integers
 {{ 1 + 2 }}
 ---
 
-(program 
+(program
     (brace_statement
         (statement
             (expression_statement
                 (infix_expression
                     (plus 
-                        left: (number_int)
-                        right: (number_int)))))))
+                        left: (integer_literal)
+                        right: (integer_literal)))))))
 
 ==================
 Prefix expression
@@ -19,7 +19,7 @@ Prefix expression
 {{ !true }}
 ---
 
-(program 
+(program
     (brace_statement
         (statement
             (expression_statement
@@ -34,7 +34,7 @@ Prefix and infix expressions
 {{ -10 + 5 }}
 ---
 
-(program 
+(program
     (brace_statement
         (statement
             (expression_statement
@@ -42,8 +42,8 @@ Prefix and infix expressions
                     (plus
                         (prefix_expression
                             (prefix_minus
-                                (number_int)))
-                        (number_int)))))))
+                                (integer_literal)))
+                        (integer_literal)))))))
 
 ==================
 Dot expression
@@ -51,7 +51,7 @@ Dot expression
 {{ user.name }}
 ---
 
-(program 
+(program
     (brace_statement
         (statement
             (expression_statement
@@ -65,7 +65,7 @@ Call expression with no arguments
 {{ "Hello World!".upper() }}
 ---
 
-(program 
+(program
     (brace_statement
         (statement
             (expression_statement
@@ -79,7 +79,7 @@ Call expression with arguments
 {{ 'hello world'.split(' ') }}
 ---
 
-(program 
+(program
     (brace_statement
         (statement
             (expression_statement

@@ -4,23 +4,38 @@ Inline @component without text
 @component('user')
 ---
 
-(program 
+(program
     (component_statement
         name: (string_literal)))
 
 ==================
-Inline @component with argument
+Inline @component with short object notation
 ==================
 @component('book', { title })
 ---
 
-(program 
+(program
     (component_statement
         name: (string_literal)
         argument: (object_literal
             (pairs
                 (pair
                     key: (identifier))))))
+
+==================
+Inline @component with full object notation
+==================
+@component("user", { name: "John" })
+---
+
+(program
+    (component_statement
+        name: (string_literal)
+        argument: (object_literal
+            (pairs
+                (pair
+                    key: (identifier)
+                    value: (string_literal))))))
 
 ==================
 Block @component no arguments
@@ -30,12 +45,11 @@ Block @component no arguments
 @end
 ---
 
-(program 
+(program
     (component_statement
         name: (string_literal)
         block: (component_block_statement
             (text))))
-
 
 ==================
 Block @component with arguments
@@ -45,7 +59,7 @@ Block @component with arguments
 @end
 ---
 
-(program 
+(program
     (component_statement
         name: (string_literal)
         argument: (object_literal

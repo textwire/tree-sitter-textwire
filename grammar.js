@@ -170,7 +170,8 @@ module.exports = grammar({
     _expression: $ =>
       choice(
         $.identifier,
-        $.number_int,
+        $.integer_literal,
+        $.float_literal,
         $.nil_literal,
         $.boolean_literal,
         $.prefix_expression,
@@ -261,8 +262,8 @@ module.exports = grammar({
         seq(field('left', $._expression), '.', field('key', $._expression)),
       ),
 
-    number_int: _ => /\d+/,
-    number_float: _ => /\d+\.\d+/,
+    integer_literal: _ => /\d+/,
+    float_literal: _ => /\d+\.\d+/,
     boolean_literal: _ => choice('true', 'false'),
     nil_literal: _ => 'nil',
 
@@ -275,7 +276,11 @@ module.exports = grammar({
 
     pair: $ =>
       choice(
-        seq(field('key', $.string_literal), ':', field('value', $._expression)),
+        seq(
+          field('key', choice($.string_literal, $.identifier)),
+          ':',
+          field('value', $._expression),
+        ),
         field('key', $.identifier),
       ),
 

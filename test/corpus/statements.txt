@@ -4,7 +4,7 @@ Assign statement
 {{ name = "Anna" }}
 ---
 
-(program 
+(program
     (brace_statement
         (statement
             (assign_statement
