@@ -10,6 +10,8 @@
 (boolean_literal
   ["true" "false"] @constant.builtin)
 
+(string_literal) @string
+
 ; TODO: doesn't work
 ;(nil_literal
 ;  "nil" @constant.builtin)

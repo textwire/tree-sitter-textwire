@@ -31,7 +31,10 @@
             @continue
         @end
 
-        @component("user", { name: "John" })
+        <!-- comment -->
+        {{--comment--}}
+        {{-- comment --}}
+        @component("user", { "name": "John" })
 
         @component("book", { book })
             <div>Nice</div>

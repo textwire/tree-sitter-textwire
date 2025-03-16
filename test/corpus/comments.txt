@@ -1,0 +1,61 @@
+======================
+Commented word with no spaces
+======================
+{{--nice--}}
+---
+
+(program (comment))
+
+======================
+Commented word with spaces
+======================
+{{-- nice --}}
+---
+
+(program (comment))
+
+======================
+Commented sentence with spaces
+======================
+{{-- This is a comment here --}}
+---
+
+(program (comment))
+
+======================
+Multiline comment
+======================
+{{-- 
+Here is the first line!
+Here is the second line!
+--}}
+---
+
+(program (comment))
+
+======================
+Commented directive
+======================
+{{-- @dump('nice') --}}
+---
+
+(program (comment))
+
+======================
+Commented curly braces 
+======================
+{{-- {{ nice }} --}}
+---
+
+(program (comment))
+
+======================
+Comment with text
+======================
+{{-- some --}} text
+---
+
+(program
+    (comment)
+    (text))
+

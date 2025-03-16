@@ -288,6 +288,6 @@ module.exports = grammar({
 
     object_literal: $ => seq('{', optional($.pairs), '}'),
 
-    comment: _ => token(choice(seq('//', /.*/))),
+    comment: _ => token(seq('{{--', /(?:.|\n)*/, '--}}')),
   },
 })
