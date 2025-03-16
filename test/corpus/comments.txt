@@ -59,3 +59,16 @@ Comment with text
     (comment)
     (text))
 
+======================
+HTML with comment
+======================
+<div>
+    {{-- <span>Some text</span> --}}
+</div>
+---
+
+(program
+    (text)
+    (comment)
+    (text))
+
