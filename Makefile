@@ -105,7 +105,7 @@ test: generate
 
 # Compile the parser
 .PHONY: compile
-compile:
+compile: generate
 	gcc -shared -fPIC -o textwire.so src/parser.c src/scanner.c
 
 .PHONY: parse
