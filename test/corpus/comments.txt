@@ -72,3 +72,14 @@ HTML with comment
     (comment)
     (text))
 
+======================
+2 comments with text in between
+======================
+{{-- some --}} text {{-- here --}}
+---
+
+(program
+    (comment)
+    (text)
+    (comment))
+
