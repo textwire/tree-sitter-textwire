@@ -32,12 +32,11 @@
         @end
 
         <!-- comment -->
-        {{--comment--}}
         {{-- comment --}}
-        @component("user", { "name": "John" })
-
         @component("book", { book })
             <div>Nice</div>
         @end
+
+        {{-- <h2>Nice</h2> --}}
     </div>
 </body>
