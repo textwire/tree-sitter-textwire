@@ -709,7 +709,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "number_int"
+          "name": "integer_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "float_literal"
         },
         {
           "type": "SYMBOL",
@@ -1076,11 +1080,11 @@
         ]
       }
     },
-    "number_int": {
+    "integer_literal": {
       "type": "PATTERN",
       "value": "\\d+"
     },
-    "number_float": {
+    "float_literal": {
       "type": "PATTERN",
       "value": "\\d+\\.\\d+"
     },
@@ -1157,8 +1161,17 @@
               "type": "FIELD",
               "name": "key",
               "content": {
-                "type": "SYMBOL",
-                "name": "string_literal"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "string_literal"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  }
+                ]
               }
             },
             {
@@ -1244,25 +1257,33 @@
       ]
     },
     "comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "//"
-              },
-              {
-                "type": "PATTERN",
-                "value": ".*"
-              }
-            ]
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "{{--"
           }
-        ]
-      }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "."
+            }
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "--}}"
+          }
+        }
+      ]
     }
   },
   "extras": [
