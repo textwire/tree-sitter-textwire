@@ -1,7 +1,5 @@
 ; Keywords
-[
-  "@end"
-] @keyword
+"@end" @keyword
 
 ; Variables
 (identifier) @variable
@@ -10,12 +8,10 @@
 (boolean_literal
   ["true" "false"] @constant.builtin)
 
+(integer_literal) @constant.numeric
+(float_literal) @constant.numeric
 (string_literal) @string
-
-; TODO: doesn't work
-;(nil_literal
-;  "nil" @constant.builtin)
-
+(nil_literal) @constant.builtin
 (comment) @comment
 
 ; Statements
