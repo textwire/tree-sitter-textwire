@@ -6,12 +6,10 @@ Infix expression with 2 integers
 
 (program
     (brace_statement
-        (statement
-            (expression_statement
-                (infix_expression
-                    (plus 
-                        left: (integer_literal)
-                        right: (integer_literal)))))))
+        (infix_expression
+            (plus 
+                left: (integer_literal)
+                right: (integer_literal)))))
 
 ==================
 Prefix expression
@@ -21,11 +19,9 @@ Prefix expression
 
 (program
     (brace_statement
-        (statement
-            (expression_statement
-                (prefix_expression
-                    (prefix_not
-                        (boolean_literal)))))))
+        (prefix_expression
+            (prefix_not
+                (boolean_literal)))))
 
 
 ==================
@@ -36,14 +32,12 @@ Prefix and infix expressions
 
 (program
     (brace_statement
-        (statement
-            (expression_statement
-                (infix_expression
-                    (plus
-                        (prefix_expression
-                            (prefix_minus
-                                (integer_literal)))
-                        (integer_literal)))))))
+        (infix_expression
+            (plus
+                (prefix_expression
+                    (prefix_minus
+                        (integer_literal)))
+                (integer_literal)))))
 
 ==================
 Dot expression
@@ -53,11 +47,9 @@ Dot expression
 
 (program
     (brace_statement
-        (statement
-            (expression_statement
-                (dot_expression
-                    left: (identifier)
-                    key: (identifier))))))
+        (dot_expression
+            left: (identifier)
+            key: (identifier))))
 
 ==================
 Call expression with no arguments
@@ -67,11 +59,9 @@ Call expression with no arguments
 
 (program
     (brace_statement
-        (statement
-            (expression_statement
-                (call_expression
-                    receiver: (string_literal)
-                    function: (identifier))))))
+        (call_expression
+            receiver: (string_literal)
+            function: (identifier))))
 
 ==================
 Call expression with arguments
@@ -81,11 +71,45 @@ Call expression with arguments
 
 (program
     (brace_statement
-        (statement
-            (expression_statement
-                (call_expression
-                    receiver: (string_literal)
-                    function: (identifier)
-                    arguments: (argument_list
-                        (string_literal)))))))
+        (call_expression
+            receiver: (string_literal)
+            function: (identifier)
+            arguments: (argument_list
+                (string_literal)))))
+
+==================
+Increment postfix expression
+==================
+{{ num++ }}
+---
+
+(program
+    (brace_statement
+        (postfix_increment
+            left: (identifier))))
+
+==================
+Decrement postfix expression
+==================
+{{ num-- }}
+---
+
+(program
+    (brace_statement
+        (postfix_decrement
+            left: (identifier))))
+
+==================
+Infix with postfix expression
+==================
+{{ 1.2 + num-- }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (plus 
+                left: (float_literal)
+                right: (postfix_decrement
+                        left: (identifier))))))
 

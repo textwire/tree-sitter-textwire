@@ -6,7 +6,6 @@ Assign statement
 
 (program
     (brace_statement
-        (statement
-            (assign_statement
-                name: (identifier)
-                value: (string_literal)))))
+        (assign_statement
+            name: (identifier)
+            value: (string_literal))))

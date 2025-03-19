@@ -6,12 +6,8 @@ Boolean literals
 
 (program 
     (brace_statement
-        (statement
-            (expression_statement
-                (boolean_literal)))
-        (statement
-            (expression_statement
-                (boolean_literal)))))
+        (boolean_literal)
+        (boolean_literal)))
 
 ==================
 Array literal
@@ -21,12 +17,10 @@ Array literal
 
 (program 
     (brace_statement
-        (statement
-            (expression_statement
-                (array_literal
-                    (integer_literal)
-                    (string_literal)
-                    (boolean_literal))))))
+        (array_literal
+            (integer_literal)
+            (string_literal)
+            (boolean_literal))))
 
 ==================
 Simple string expression
@@ -36,9 +30,7 @@ Simple string expression
 
 (program 
     (brace_statement
-        (statement
-            (expression_statement
-                (string_literal)))))
+        (string_literal)))
 
 ==================
 Short object literal with one key
@@ -48,12 +40,10 @@ Short object literal with one key
 
 (program 
     (brace_statement
-        (statement
-            (expression_statement
-                (object_literal
-                    (pairs
-                        (pair
-                            key: (identifier))))))))
+        (object_literal
+            (pairs
+                (pair
+                    key: (identifier))))))
 
 ==================
 Full object literal with one element
@@ -63,10 +53,8 @@ Full object literal with one element
 
 (program 
     (brace_statement
-        (statement
-            (expression_statement
-                (object_literal
-                    (pairs
-                        (pair
-                            key: (identifier)
-                            value: (string_literal))))))))
+        (object_literal
+            (pairs
+                (pair
+                    key: (identifier)
+                    value: (string_literal))))))

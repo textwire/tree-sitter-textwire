@@ -1,0 +1,14 @@
+==================
+For statement without any block
+==================
+@for(i = 0; true; i++)@end
+---
+
+(program 
+    (for_statement
+        init: (assign_statement
+            name: (identifier)
+            value: (integer_literal))
+        condition: (boolean_literal)
+        post: (postfix_increment
+            left: (identifier))))

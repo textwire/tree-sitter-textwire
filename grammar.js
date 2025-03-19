@@ -53,16 +53,15 @@ module.exports = grammar({
           $.insert_statement,
           $.reserve_statement,
           $.each_statement,
+          $.for_statement,
           $.if_statement,
         ),
       ),
 
     brace_statement: $ =>
-      seq('{{', $.statement, optional(seq(';', $.statement)), '}}'),
+      seq('{{', $._statement, optional(seq(';', $._statement)), '}}'),
 
-    statement: $ => choice($.assign_statement, $.expression_statement),
-
-    expression_statement: $ => $._expression,
+    _statement: $ => choice($.assign_statement, $._expression),
 
     assign_statement: $ =>
       seq(field('name', $.identifier), '=', field('value', $._expression)),
@@ -140,6 +139,23 @@ module.exports = grammar({
         '@end',
       ),
 
+    for_statement: $ =>
+      seq(
+        '@for',
+        '(',
+        field('init', $._statement),
+        ';',
+        field('condition', $._expression),
+        ';',
+        field('post', $._statement),
+        ')',
+        optional(field('block', $.control_flow_block_statement)),
+        optional(
+          seq('@else', field('alternative', $.control_flow_block_statement)),
+        ),
+        '@end',
+      ),
+
     else_if_statement: $ =>
       seq(
         '@elseif',
@@ -176,6 +192,7 @@ module.exports = grammar({
         $.boolean_literal,
         $.prefix_expression,
         $.infix_expression,
+        $._postfix_expression,
         $.string_literal,
         $.array_literal,
         $.call_expression,
@@ -190,8 +207,15 @@ module.exports = grammar({
     prefix_minus: $ => prec(PREC.PREFIX + 1, seq('-', $._expression)),
     prefix_not: $ => prec(PREC.PREFIX + 1, seq('!', $._expression)),
 
+    postfix_increment: $ =>
+      prec(PREC.INC, seq(field('left', $._expression), '++')),
+    postfix_decrement: $ =>
+      prec(PREC.DEC, seq(field('left', $._expression), '--')),
+
     infix_expression: $ =>
       choice($.multiply, $.modulo, $.divide, $.minus, $.plus),
+
+    _postfix_expression: $ => choice($.postfix_increment, $.postfix_decrement),
 
     multiply: $ =>
       prec.left(

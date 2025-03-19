@@ -37,9 +37,7 @@ Multiline each statement with expression
         block: (control_flow_block_statement
             (text)
             (brace_statement
-                (statement
-                    (expression_statement
-                        (identifier))))
+                (identifier))
             (text))))
 
 ==================
