@@ -12,3 +12,40 @@ For statement without any block
         condition: (boolean_literal)
         post: (postfix_increment
             left: (identifier))))
+
+==================
+For statement with HTML block
+==================
+@for(i = 0; true; i++)
+    <span>Nice</span>
+@end
+---
+
+(program 
+    (for_statement
+        init: (assign_statement
+            name: (identifier)
+            value: (integer_literal))
+        condition: (boolean_literal)
+        post: (postfix_increment
+            left: (identifier))
+        block: (control_flow_block_statement
+            (text))))
+
+==================
+For statement with HTML block
+==================
+@for(i = 0; i < 10; i++)@end
+---
+
+(program 
+    (for_statement
+        init: (assign_statement
+            name: (identifier)
+            value: (integer_literal))
+        condition: (infix_expression
+            (less
+                left: (identifier)
+                right: (integer_literal)))
+        post: (postfix_increment
+            left: (identifier))))

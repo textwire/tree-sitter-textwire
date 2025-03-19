@@ -39,6 +39,9 @@
 (each_statement
   ["@each" "in"] @keyword)
 
+(for_statement
+  "@for" @keyword)
+
 (component_statement
   "@component" @keyword)
 

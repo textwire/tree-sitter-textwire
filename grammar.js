@@ -185,6 +185,7 @@ module.exports = grammar({
 
     _expression: $ =>
       choice(
+        $._postfix_expression,
         $.identifier,
         $.integer_literal,
         $.float_literal,
@@ -192,7 +193,6 @@ module.exports = grammar({
         $.boolean_literal,
         $.prefix_expression,
         $.infix_expression,
-        $._postfix_expression,
         $.string_literal,
         $.array_literal,
         $.call_expression,
@@ -213,9 +213,37 @@ module.exports = grammar({
       prec(PREC.DEC, seq(field('left', $._expression), '--')),
 
     infix_expression: $ =>
-      choice($.multiply, $.modulo, $.divide, $.minus, $.plus),
+      choice(
+        $.multiply,
+        $.modulo,
+        $.divide,
+        $.minus,
+        $.plus,
+        $.less,
+        $.greater,
+      ),
 
     _postfix_expression: $ => choice($.postfix_increment, $.postfix_decrement),
+
+    less: $ =>
+      prec.left(
+        PREC.LTHAN,
+        seq(
+          field('left', $._expression),
+          field('operator', '<'),
+          field('right', $._expression),
+        ),
+      ),
+
+    greater: $ =>
+      prec.left(
+        PREC.GTHAN,
+        seq(
+          field('left', $._expression),
+          field('operator', '>'),
+          field('right', $._expression),
+        ),
+      ),
 
     multiply: $ =>
       prec.left(

@@ -1,5 +1,5 @@
 ==================
-Infix expression with 2 integers
+Addition infix expression
 ==================
 {{ 1 + 2 }}
 ---
@@ -8,6 +8,84 @@ Infix expression with 2 integers
     (brace_statement
         (infix_expression
             (plus 
+                left: (integer_literal)
+                right: (integer_literal)))))
+
+==================
+Multiplication infix expression
+==================
+{{ 3 * 1 }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (multiply 
+                left: (integer_literal)
+                right: (integer_literal)))))
+
+==================
+Division infix expression
+==================
+{{ 3.3 / 1.3 }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (divide 
+                left: (float_literal)
+                right: (float_literal)))))
+
+==================
+Subtraction infix expression
+==================
+{{ 3.0 - 1.0 }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (minus 
+                left: (float_literal)
+                right: (float_literal)))))
+
+==================
+Modulo infix expression
+==================
+{{ 3 % 1 }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (modulo 
+                left: (integer_literal)
+                right: (integer_literal)))))
+
+==================
+Less than infix expression
+==================
+{{ 3 < 1 }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (less 
+                left: (integer_literal)
+                right: (integer_literal)))))
+
+==================
+Greater than infix expression
+==================
+{{ 3 > 1 }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (greater 
                 left: (integer_literal)
                 right: (integer_literal)))))
 
@@ -22,7 +100,6 @@ Prefix expression
         (prefix_expression
             (prefix_not
                 (boolean_literal)))))
-
 
 ==================
 Prefix and infix expressions
