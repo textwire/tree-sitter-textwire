@@ -799,6 +799,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "_postfix_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "identifier"
         },
         {
@@ -824,10 +828,6 @@
         {
           "type": "SYMBOL",
           "name": "infix_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_postfix_expression"
         },
         {
           "type": "SYMBOL",
@@ -970,6 +970,14 @@
         {
           "type": "SYMBOL",
           "name": "plus"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "less"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "greater"
         }
       ]
     },
@@ -985,6 +993,72 @@
           "name": "postfix_decrement"
         }
       ]
+    },
+    "less": {
+      "type": "PREC_LEFT",
+      "value": 3,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "operator",
+            "content": {
+              "type": "STRING",
+              "value": "<"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "right",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          }
+        ]
+      }
+    },
+    "greater": {
+      "type": "PREC_LEFT",
+      "value": 3,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "operator",
+            "content": {
+              "type": "STRING",
+              "value": ">"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "right",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          }
+        ]
+      }
     },
     "multiply": {
       "type": "PREC_LEFT",
