@@ -70,3 +70,22 @@ Each statement with multiline block
             (text)
             (break_statement)
             (text))))
+
+==================
+Each statement else block
+==================
+@each(name in names)
+    hello
+@else
+    no hello
+@end
+---
+
+(program 
+    (each_statement
+        var: (identifier)
+        array: (identifier)
+        block: (control_flow_block_statement
+            (text))
+        alternative: (control_flow_block_statement
+            (text))))

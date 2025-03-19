@@ -112,14 +112,27 @@ module.exports = grammar({
     reserve_statement: $ =>
       seq('@reserve', '(', field('name', $._expression), ')'),
 
-    insert_statement: $ =>
+    _inline_insert_statement: $ =>
       seq(
         '@insert',
         '(',
         field('name', $._expression),
-        optional(seq(',', field('value', $._expression))),
+        seq(',', field('value', $._expression)),
         ')',
       ),
+
+    _block_insert_statement: $ =>
+      seq(
+        '@insert',
+        '(',
+        field('name', $._expression),
+        ')',
+        field('block', $.block_statement),
+        '@end',
+      ),
+
+    insert_statement: $ =>
+      choice($._inline_insert_statement, $._block_insert_statement),
 
     dump_statement: $ =>
       seq('@dump', '(', field('arguments', $.argument_list), ')'),
