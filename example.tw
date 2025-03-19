@@ -38,5 +38,12 @@
         @end
 
         {{-- <h2>Nice</h2> --}}
+
+        @for(i = 0; i < 10; i++)
+            @breakIf(true)
+            @continueIf(true)
+            @break
+            @continue
+        @end
     </div>
 </body>
