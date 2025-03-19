@@ -13,3 +13,22 @@ Inline @insert inside HTML
         name: (string_literal)
         value: (string_literal))
     (text))
+
+==================
+@insert with block
+==================
+<head>
+    <meta charset="UTF-8">
+    @insert('title')
+        <title>My page</title>
+    @end
+</head>
+---
+
+(program
+    (text)
+    (insert_statement
+        name: (string_literal)
+        block: (block_statement
+            (text)))
+    (text))

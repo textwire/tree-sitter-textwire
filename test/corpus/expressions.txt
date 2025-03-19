@@ -66,15 +66,15 @@ Modulo infix expression
 ==================
 Less than infix expression
 ==================
-{{ 3 < 1 }}
+{{ x < y }}
 ---
 
 (program
     (brace_statement
         (infix_expression
             (less 
-                left: (integer_literal)
-                right: (integer_literal)))))
+                left: (identifier)
+                right: (identifier)))))
 
 ==================
 Greater than infix expression
