@@ -1737,6 +1737,16 @@
     "type": "insert_statement",
     "named": true,
     "fields": {
+      "block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block_statement",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,

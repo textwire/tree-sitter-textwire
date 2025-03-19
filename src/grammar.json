@@ -382,7 +382,7 @@
         }
       ]
     },
-    "insert_statement": {
+    "_inline_insert_statement": {
       "type": "SEQ",
       "members": [
         {
@@ -402,33 +402,75 @@
           }
         },
         {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": ","
-                },
-                {
-                  "type": "FIELD",
-                  "name": "value",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "_expression"
-                  }
-                }
-              ]
+              "type": "STRING",
+              "value": ","
             },
             {
-              "type": "BLANK"
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
             }
           ]
         },
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "_block_insert_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@insert"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "block",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block_statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "@end"
+        }
+      ]
+    },
+    "insert_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_inline_insert_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_block_insert_statement"
         }
       ]
     },
