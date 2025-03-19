@@ -10,6 +10,9 @@
             <span>{{ [1, true, false, nil, user] }}</span>
             <span>{{ { first, "nice": 2 } }}</span>
             <span>{{ x = 1; y = 2 }}</span>
+            <span>{{ x++ }}</span>
+            <span>{{ --x }}</span>
+            <span>{{ x < y }}</span>
         @elseif(false)
             <span>Nothing</span>
         @else
@@ -31,6 +34,13 @@
             @continue
         @end
 
+
+        @each(user in users)
+            <span>{{ user.name.upper() }}</span>
+        @else
+            <span>No users</span>
+        @end
+
         <!-- comment -->
         {{-- comment --}}
         @component("book", { book })
@@ -40,10 +50,9 @@
         {{-- <h2>Nice</h2> --}}
 
         @for(i = 0; i < 10; i++)
-            @breakIf(true)
-            @continueIf(true)
-            @break
-            @continue
+            <span>{{ user.name.upper() }}</span>
+        @else
+            <span>No users</span>
         @end
     </div>
 </body>
