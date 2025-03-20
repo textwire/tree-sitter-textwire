@@ -3091,6 +3091,32 @@
     }
   },
   {
+    "type": "slot_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block_statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "string_literal",
     "named": true,
     "fields": {}
@@ -3224,6 +3250,10 @@
     "named": false
   },
   {
+    "type": "@slot",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -3261,10 +3291,6 @@
   },
   {
     "type": "nil_literal",
-    "named": true
-  },
-  {
-    "type": "slot_statement",
     "named": true
   },
   {
