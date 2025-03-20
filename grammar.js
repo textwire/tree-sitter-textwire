@@ -6,7 +6,6 @@
 
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
-
 const PREC = {
   QUESTION: 1,
   EQ: 2,
@@ -68,8 +67,17 @@ module.exports = grammar({
 
     block_statement: $ => repeat1($._definition),
 
-    // TODO: add named slots
-    slot_statement: _ => '@slot',
+    slot_statement: $ =>
+      choice(
+        seq(
+          token(seq('@slot', /\s*/, '(')),
+          field('name', $.string_literal),
+          ')',
+          field('body', $.block_statement),
+          '@end',
+        ),
+        '@slot',
+      ),
 
     component_block_statement: $ =>
       repeat1(choice($._definition, $.slot_statement)),

@@ -80,3 +80,40 @@ Inline @component with block
         name: (string_literal)
         block: (component_block_statement
             (text))))
+
+==================
+Default @slot in @component
+==================
+@component('book')
+    @slot
+@end
+---
+
+(program
+    (component_statement
+        name: (string_literal)
+        block: (component_block_statement
+            (text)
+            (slot_statement)
+            (text))))
+
+==================
+Named @slot in @component
+==================
+@component('book')
+    @slot('title')
+        <h1>Book title</h1>
+    @end
+@end
+---
+
+(program
+    (component_statement
+        name: (string_literal)
+        block: (component_block_statement
+            (text)
+            (slot_statement
+                name: (string_literal)
+                body: (block_statement
+                    (text)))
+            (text))))
