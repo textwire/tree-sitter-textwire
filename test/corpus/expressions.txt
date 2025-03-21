@@ -190,3 +190,31 @@ Infix with postfix expression
                 right: (postfix_decrement
                         left: (identifier))))))
 
+==================
+Ternary expression
+==================
+{{ true ? 2 : 3.0 }}
+---
+
+(program
+    (brace_statement
+        (ternary_expression
+            condition: (boolean_literal)
+            consequence: (integer_literal)
+            alternative: (float_literal))))
+
+==================
+Nested ternary expression
+==================
+{{ true ? 2 : (false ? 2.0 : true) }}
+---
+
+(program
+    (brace_statement
+        (ternary_expression
+            condition: (boolean_literal)
+            consequence: (integer_literal)
+            alternative: (ternary_expression
+                condition: (boolean_literal)
+                consequence: (float_literal)
+                alternative: (boolean_literal)))))

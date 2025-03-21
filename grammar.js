@@ -7,7 +7,7 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 const PREC = {
-  QUESTION: 1,
+  TERNARY: 1,
   EQ: 2,
   NOT_EQ: 2,
   LTHAN: 3,
@@ -204,10 +204,24 @@ module.exports = grammar({
 
     string_literal: _ => choice(seq('"', /[^"]*/, '"'), seq("'", /[^']*/, "'")),
 
+    ternary_expression: $ =>
+      prec.left(
+        PREC.TERNARY,
+        seq(
+          field('condition', $._expression),
+          '?',
+          field('consequence', $._expression),
+          ':',
+          field('alternative', $._expression),
+        ),
+      ),
+
     _expression: $ =>
       choice(
+        $._parenthesized_expression,
         $._postfix_expression,
         $.identifier,
+        $.ternary_expression,
         $.integer_literal,
         $.float_literal,
         $.nil_literal,
@@ -221,6 +235,9 @@ module.exports = grammar({
         $.object_literal,
         $.array_literal,
       ),
+
+    _parenthesized_expression: $ =>
+      prec(PREC.LPAREN, seq('(', $._expression, ')')),
 
     prefix_expression: $ =>
       prec(PREC.PREFIX, choice($.prefix_minus, $.prefix_not)),
