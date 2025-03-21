@@ -53,6 +53,15 @@
             <span>{{ user.name.upper() }}</span>
         @else
             <span>No users</span>
+
+            @slot("nice")
+                <div>nice</div>
+            @end
+        @end
+
+        @for(i = 0; i < 10; i++)
+            @break
+            <span>nice</span>
         @end
     </div>
 </body>
