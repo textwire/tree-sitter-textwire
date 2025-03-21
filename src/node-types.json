@@ -274,6 +274,10 @@
         {
           "type": "text",
           "named": true
+        },
+        {
+          "type": "use_statement",
+          "named": true
         }
       ]
     }
@@ -590,6 +594,10 @@
         {
           "type": "text",
           "named": true
+        },
+        {
+          "type": "use_statement",
+          "named": true
         }
       ]
     }
@@ -832,6 +840,10 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "use_statement",
           "named": true
         }
       ]
@@ -3422,6 +3434,10 @@
         {
           "type": "text",
           "named": true
+        },
+        {
+          "type": "use_statement",
+          "named": true
         }
       ]
     }
@@ -3766,6 +3782,22 @@
     }
   },
   {
+    "type": "use_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "!",
     "named": false
   },
@@ -3899,6 +3931,10 @@
   },
   {
     "type": "@slot",
+    "named": false
+  },
+  {
+    "type": "@use",
     "named": false
   },
   {

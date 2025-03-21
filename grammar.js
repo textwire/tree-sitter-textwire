@@ -54,6 +54,7 @@ module.exports = grammar({
           $.each_statement,
           $.for_statement,
           $.if_statement,
+          $.use_statement,
         ),
       ),
 
@@ -119,6 +120,8 @@ module.exports = grammar({
 
     reserve_statement: $ =>
       seq('@reserve', '(', field('name', $._expression), ')'),
+
+    use_statement: $ => seq('@use', '(', field('name', $.string_literal), ')'),
 
     _inline_insert_statement: $ =>
       seq(

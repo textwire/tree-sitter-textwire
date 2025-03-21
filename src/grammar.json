@@ -51,6 +51,10 @@
             {
               "type": "SYMBOL",
               "name": "if_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "use_statement"
             }
           ]
         }
@@ -428,6 +432,31 @@
           "content": {
             "type": "SYMBOL",
             "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "use_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@use"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_literal"
           }
         },
         {

@@ -31,4 +31,5 @@
   "@insert"
   "@reserve"
   "@slot"
+  "@use"
  ] @keyword

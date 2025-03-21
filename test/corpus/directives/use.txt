@@ -1,0 +1,19 @@
+==================
+@use directive statement
+==================
+@use('~main')
+---
+
+(program
+    (use_statement
+        name: (string_literal)))
+
+==================
+@use statement with empty string
+==================
+@use('')
+---
+
+(program
+    (use_statement
+        name: (string_literal)))
