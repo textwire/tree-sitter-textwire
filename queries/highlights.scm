@@ -30,4 +30,5 @@
   "@component"
   "@insert"
   "@reserve"
+  "@slot"
  ] @keyword
