@@ -1,5 +1,5 @@
 ==================
-For statement without any block
+@for without any block
 ==================
 @for(i = 0; true; i++)@end
 ---
@@ -14,7 +14,7 @@ For statement without any block
             left: (identifier))))
 
 ==================
-For statement with HTML block
+@for with HTML block
 ==================
 @for(i = 0; true; i++)
     <span>Nice</span>
@@ -33,7 +33,7 @@ For statement with HTML block
             (text))))
 
 ==================
-For statement with HTML block
+@for with out HTML block
 ==================
 @for(i = 0; i < 10; i++)@end
 ---
@@ -51,7 +51,7 @@ For statement with HTML block
             left: (identifier))))
 
 ==================
-For statement break statement
+@for with @break
 ==================
 @for(i = 0; i < 10; i++)
     @break
@@ -74,4 +74,35 @@ For statement break statement
             (text)
             (break_statement)
             (text))))
+
+==================
+@for with @break and @continue inside of HTML
+==================
+<div>
+    @for(i = 0; i < 10; i++)
+        @break
+        @continue
+    @end
+</div>
+---
+
+(program 
+    (text)
+    (for_statement
+        init: (assign_statement
+            name: (identifier)
+            value: (integer_literal))
+        condition: (infix_expression
+            (less
+                left: (identifier)
+                right: (integer_literal)))
+        post: (postfix_increment
+            left: (identifier))
+        block: (control_flow_block_statement
+            (text)
+            (break_statement)
+            (text)
+            (continue_statement)
+            (text)))
+    (text))
 

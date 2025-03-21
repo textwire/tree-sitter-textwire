@@ -1,4 +1,9 @@
-<body>
+@use("~main")
+
+@insert("title", 'Welcome')
+
+@insert('content')
+    <div>Hey main</div>
     <div>
         <h1>Nice one</h1>
         <p>Hey there</p>
@@ -10,6 +15,7 @@
             <span>{{ [1, true, false, nil, user] }}</span>
             <span>{{ { first, "nice": 2 } }}</span>
             <span>{{ x = 1; y = 2 }}</span>
+            <span>{{ (1 == 1) ? true : false }}</span>
             <span>{{ x++ }}</span>
             <span>{{ --x }}</span>
             <span>{{ x < y }}</span>
@@ -17,10 +23,6 @@
             <span>Nothing</span>
         @else
             <span>{{ "Nice" }}</span>
-        @end
-
-        @insert('content')
-            <div>Hey main</div>
         @end
 
         @reserve('content')
@@ -48,11 +50,13 @@
         @end
 
         {{-- <h2>Nice</h2> --}}
+        @break
 
         @for(i = 0; i < 10; i++)
             <span>{{ user.name.upper() }}</span>
         @else
             <span>No users</span>
+            @slot
 
             @slot("nice")
                 <div>nice</div>
@@ -61,7 +65,6 @@
 
         @for(i = 0; i < 10; i++)
             @break
-            <span>nice</span>
         @end
     </div>
-</body>
+@end

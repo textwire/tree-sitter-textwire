@@ -11,10 +11,6 @@
 (nil_literal) @constant.builtin
 (comment) @comment
 
-; Statements
-(break_statement) @keyword
-(continue_statement) @keyword
-
 ; Keywords
 [
   "@end"
@@ -33,3 +29,11 @@
   "@slot"
   "@use"
  ] @keyword
+
+; Statements
+(break_statement) @keyword
+(continue_statement) @keyword
+
+; Highlight parentheses in the named slot
+"(" @punctuation.bracket
+")" @punctuation.bracket

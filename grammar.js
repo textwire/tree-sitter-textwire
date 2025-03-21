@@ -70,6 +70,7 @@ module.exports = grammar({
 
     slot_statement: $ =>
       choice(
+        '@slot',
         seq(
           token(seq('@slot', /\s*/, '(')),
           field('name', $.string_literal),
@@ -77,7 +78,6 @@ module.exports = grammar({
           field('body', $.block_statement),
           '@end',
         ),
-        '@slot',
       ),
 
     component_block_statement: $ =>
@@ -171,7 +171,7 @@ module.exports = grammar({
         ';',
         field('condition', $._expression),
         ';',
-        field('post', $._statement),
+        field('post', $._expression),
         ')',
         optional(field('block', $.control_flow_block_statement)),
         optional(
