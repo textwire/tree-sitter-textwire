@@ -1591,10 +1591,6 @@
             "named": true
           },
           {
-            "type": "assign_statement",
-            "named": true
-          },
-          {
             "type": "boolean_literal",
             "named": true
           },

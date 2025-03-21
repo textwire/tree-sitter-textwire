@@ -147,6 +147,10 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "STRING",
+          "value": "@slot"
+        },
+        {
           "type": "SEQ",
           "members": [
             {
@@ -194,10 +198,6 @@
               "value": "@end"
             }
           ]
-        },
-        {
-          "type": "STRING",
-          "value": "@slot"
         }
       ]
     },
@@ -704,7 +704,7 @@
           "name": "post",
           "content": {
             "type": "SYMBOL",
-            "name": "_statement"
+            "name": "_expression"
           }
         },
         {
