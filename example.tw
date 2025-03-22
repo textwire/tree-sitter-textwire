@@ -45,11 +45,8 @@
 
         <!-- comment -->
         {{-- comment --}}
-        @component("book", { book })
-            <div>Nice</div>
-        @end
-
         {{-- <h2>Nice</h2> --}}
+
         @break
 
         @for(i = 0; i < 10; i++)
@@ -60,6 +57,10 @@
 
             @slot("nice")
                 <div>nice</div>
+            @end
+
+            @component("book", { book })
+                <div>Nice</div>
             @end
         @end
 

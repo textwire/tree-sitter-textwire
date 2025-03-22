@@ -27,6 +27,9 @@
   "@insert"
   "@reserve"
   "@slot"
+  "@slot("
+  "@slot ("
+  "@slot  ("
   "@use"
  ] @keyword
 
@@ -34,6 +37,8 @@
 (break_statement) @keyword
 (continue_statement) @keyword
 
-; Highlight parentheses in the named slot
+["+" "-" "*" "/" "%" "="] @operator
+
+; Highlight parentheses
 "(" @punctuation.bracket
 ")" @punctuation.bracket

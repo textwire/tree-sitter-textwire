@@ -72,7 +72,7 @@ module.exports = grammar({
       choice(
         '@slot',
         seq(
-          token(seq('@slot', /\s*/, '(')),
+          choice('@slot(', '@slot (', '@slot  ('),
           field('name', $.string_literal),
           ')',
           field('body', $.block_statement),
