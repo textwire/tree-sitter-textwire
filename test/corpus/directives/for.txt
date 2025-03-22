@@ -106,3 +106,49 @@
             (text)))
     (text))
 
+==================
+@for can be without init
+==================
+@for(; true; i++)@end
+---
+
+(program 
+    (for_statement
+        condition: (boolean_literal)
+        post: (postfix_increment
+            left: (identifier))))
+
+==================
+@for can be without condition
+==================
+@for(i = 0;; i++)@end
+---
+
+(program 
+    (for_statement
+        init: (assign_statement
+            name: (identifier)
+            value: (integer_literal))
+        post: (postfix_increment
+            left: (identifier))))
+
+==================
+@for can be without post
+==================
+@for(i = 0; true;)@end
+---
+
+(program 
+    (for_statement
+        init: (assign_statement
+            name: (identifier)
+            value: (integer_literal))
+        condition: (boolean_literal)))
+
+==================
+@for can be empty
+==================
+@for(;;)@end
+---
+
+(program (for_statement))

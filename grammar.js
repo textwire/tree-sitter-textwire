@@ -167,11 +167,11 @@ module.exports = grammar({
       seq(
         '@for',
         '(',
-        field('init', optional($._statement)),
+        optional(field('init', $._statement)),
         ';',
-        field('condition', optional($._expression)),
+        optional(field('condition', $._expression)),
         ';',
-        field('post', optional($._expression)),
+        optional(field('post', $._expression)),
         ')',
         optional(field('block', $.control_flow_block_statement)),
         optional(
