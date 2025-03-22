@@ -14,9 +14,9 @@
             <span>{{ -1 + 2.23 }}</span>
             <span>{{ [1, true, false, nil, user] }}</span>
             <span>{{ { first, "nice": 2 } }}</span>
-            <span>{{ x = 1; y = 2 }}</span>
-            <span>{{ (1 == 1) ? true : false }}</span>
+            <span>{{ true ? 1 : 2 }}</span>
             <span>{{ x++ }}</span>
+            <span>{{ x = 10; y = 20 }}</span>
             <span>{{ --x }}</span>
             <span>{{ x < y }}</span>
         @elseif(false)
@@ -47,25 +47,29 @@
         {{-- comment --}}
         {{-- <h2>Nice</h2> --}}
 
-        @break
-
         @for(i = 0; i < 10; i++)
+            @if(true)
+                <span>ERROR</span>
+            @end
+
             <span>{{ user.name.upper() }}</span>
         @else
             <span>No users</span>
-            @slot
-
-            @slot("nice")
-                <div>nice</div>
-            @end
-
             @component("book", { book })
                 <div>Nice</div>
+
+                @slot
+
+                @slot("nice")
+                    <div>nice</div>
+                @end
             @end
         @end
 
         @for(i = 0; i < 10; i++)
             @break
+        @else
+            <span>nice</span>
         @end
     </div>
 @end

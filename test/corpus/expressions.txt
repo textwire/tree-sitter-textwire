@@ -220,17 +220,20 @@ Nested ternary expression
                 alternative: (boolean_literal)))))
 
 ==================
-Nested ternary expression
+Nested ternary expression in HTML
 ==================
 <span>{{ (1 == 1) ? true : false }}</span>
 ---
 
 (program
+    (text)
     (brace_statement
         (ternary_expression
-            condition: (boolean_literal)
-            consequence: (integer_literal)
-            alternative: (ternary_expression
-                condition: (boolean_literal)
-                consequence: (float_literal)
-                alternative: (boolean_literal)))))
+            condition: (infix_expression
+                (eq
+                    left: (integer_literal)
+                    right: (integer_literal)))
+            consequence: (boolean_literal)
+            alternative: (boolean_literal)))
+    (text))
+

@@ -37,7 +37,7 @@
 (break_statement) @keyword
 (continue_statement) @keyword
 
-["+" "-" "*" "/" "%" "="] @operator
+["+" "-" "*" "/" "%"] @operator
 
 ; Highlight parentheses
 "(" @punctuation.bracket

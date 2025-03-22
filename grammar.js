@@ -167,11 +167,11 @@ module.exports = grammar({
       seq(
         '@for',
         '(',
-        field('init', $._statement),
+        field('init', optional($._statement)),
         ';',
-        field('condition', $._expression),
+        field('condition', optional($._expression)),
         ';',
-        field('post', $._expression),
+        field('post', optional($._expression)),
         ')',
         optional(field('block', $.control_flow_block_statement)),
         optional(
@@ -253,6 +253,8 @@ module.exports = grammar({
     postfix_decrement: $ =>
       prec(PREC.DEC, seq(field('left', $._expression), '--')),
 
+    _postfix_expression: $ => choice($.postfix_increment, $.postfix_decrement),
+
     infix_expression: $ =>
       choice(
         $.multiply,
@@ -262,9 +264,29 @@ module.exports = grammar({
         $.plus,
         $.less,
         $.greater,
+        $.eq,
+        $.not_eq,
       ),
 
-    _postfix_expression: $ => choice($.postfix_increment, $.postfix_decrement),
+    eq: $ =>
+      prec.left(
+        PREC.EQ,
+        seq(
+          field('left', $._expression),
+          field('operator', '=='),
+          field('right', $._expression),
+        ),
+      ),
+
+    not_eq: $ =>
+      prec.left(
+        PREC.NOT_EQ,
+        seq(
+          field('left', $._expression),
+          field('operator', '!='),
+          field('right', $._expression),
+        ),
+      ),
 
     less: $ =>
       prec.left(

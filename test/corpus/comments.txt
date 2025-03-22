@@ -84,19 +84,17 @@ HTML with comment
     (comment))
 
 ======================
-3 comments with @break
+HTML comment, textwire comment and @reserve
 ======================
 <!-- comment -->
-{{-- comment --}}
 {{-- <h2>Nice</h2> --}}
 
-@break
+@reserve('content')
 ---
 
 (program
     (text)
     (comment)
     (text)
-    (comment)
-    (text)
-    (break_statement))
+    (reserve_statement
+        name: (string_literal)))
