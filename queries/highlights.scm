@@ -31,14 +31,21 @@
   "@slot ("
   "@slot  ("
   "@use"
- ] @keyword
+ ] @type.builtin
 
 ; Statements
-(break_statement) @keyword
-(continue_statement) @keyword
+(break_statement) @type.builtin
+(continue_statement) @type.builtin
 
 ["+" "-" "*" "/" "%"] @operator
 
-; Highlight parentheses
-"(" @punctuation.bracket
-")" @punctuation.bracket
+["(" ")"] @punctuation.bracket
+
+(call_expression
+  function: (identifier) @function.method)
+
+(dot_expression
+  key: (identifier) @property)
+
+(each_statement
+  "in" @constant.builtin)

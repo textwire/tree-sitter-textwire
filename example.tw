@@ -11,13 +11,16 @@
         @dump(user, book)
 
         @if(true)
-            <span>{{ -1 + 2.23 }}</span>
-            <span>{{ [1, true, false, nil, user] }}</span>
+            <span>{{ [1, 3.3, true, false, nil, user] }}</span>
+            <span>{{ x = 10; y = 20 }}</span>
+            <span>{{ true; false; nil }}</span>
+            <span>{{ nice.upper() }}</span>
             <span>{{ { first, "nice": 2 } }}</span>
             <span>{{ true ? 1 : 2 }}</span>
             <span>{{ x++ }}</span>
-            <span>{{ x = 10; y = 20 }}</span>
+            <span>{{ -1 + 2.23 }}</span>
             <span>{{ --x }}</span>
+            <span>{{ obj.key }}</span>
             <span>{{ x < y }}</span>
         @elseif(false)
             <span>Nothing</span>
