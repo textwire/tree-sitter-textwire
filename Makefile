@@ -105,11 +105,11 @@ test: generate
 
 # Compile the parser
 .PHONY: compile
-compile: generate
+compile: clean generate
 	gcc -shared -fPIC -o textwire.so src/parser.c src/scanner.c
 
 .PHONY: parse
 parse:
-	$(TS) parse textwire.tw
+	$(TS) parse example.tw
 
 .DEFAULT_GOAL := test
