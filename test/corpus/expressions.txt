@@ -218,3 +218,19 @@ Nested ternary expression
                 condition: (boolean_literal)
                 consequence: (float_literal)
                 alternative: (boolean_literal)))))
+
+==================
+Nested ternary expression
+==================
+<span>{{ (1 == 1) ? true : false }}</span>
+---
+
+(program
+    (brace_statement
+        (ternary_expression
+            condition: (boolean_literal)
+            consequence: (integer_literal)
+            alternative: (ternary_expression
+                condition: (boolean_literal)
+                consequence: (float_literal)
+                alternative: (boolean_literal)))))

@@ -83,3 +83,20 @@ HTML with comment
     (text)
     (comment))
 
+======================
+3 comments with @break
+======================
+<!-- comment -->
+{{-- comment --}}
+{{-- <h2>Nice</h2> --}}
+
+@break
+---
+
+(program
+    (text)
+    (comment)
+    (text)
+    (comment)
+    (text)
+    (break_statement))
