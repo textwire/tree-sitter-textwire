@@ -8,6 +8,8 @@
         "tw",
         "tw.html"
       ],
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm",
       "injection-regex": "^textwire$"
     }
   ],
