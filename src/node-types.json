@@ -1399,30 +1399,10 @@
     }
   },
   {
-    "type": "for_statement",
+    "type": "eq",
     "named": true,
     "fields": {
-      "alternative": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "control_flow_block_statement",
-            "named": true
-          }
-        ]
-      },
-      "block": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "control_flow_block_statement",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
+      "left": {
         "multiple": true,
         "required": true,
         "types": [
@@ -1496,9 +1476,193 @@
           }
         ]
       },
-      "init": {
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "==",
+            "named": false
+          }
+        ]
+      },
+      "right": {
         "multiple": true,
         "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
+            "type": "object_literal",
+            "named": true
+          },
+          {
+            "type": "postfix_decrement",
+            "named": true
+          },
+          {
+            "type": "postfix_increment",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "for_statement",
+    "named": true,
+    "fields": {
+      "alternative": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "control_flow_block_statement",
+            "named": true
+          }
+        ]
+      },
+      "block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "control_flow_block_statement",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
+            "type": "object_literal",
+            "named": true
+          },
+          {
+            "type": "postfix_decrement",
+            "named": true
+          },
+          {
+            "type": "postfix_increment",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          }
+        ]
+      },
+      "init": {
+        "multiple": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -1576,7 +1740,7 @@
       },
       "post": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -1931,6 +2095,10 @@
           "named": true
         },
         {
+          "type": "eq",
+          "named": true
+        },
+        {
           "type": "greater",
           "named": true
         },
@@ -1948,6 +2116,10 @@
         },
         {
           "type": "multiply",
+          "named": true
+        },
+        {
+          "type": "not_eq",
           "named": true
         },
         {
@@ -2697,6 +2869,170 @@
         "types": [
           {
             "type": "*",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
+            "type": "object_literal",
+            "named": true
+          },
+          {
+            "type": "postfix_decrement",
+            "named": true
+          },
+          {
+            "type": "postfix_increment",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "not_eq",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
+            "type": "object_literal",
+            "named": true
+          },
+          {
+            "type": "postfix_decrement",
+            "named": true
+          },
+          {
+            "type": "postfix_increment",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!=",
             "named": false
           }
         ]
@@ -3798,6 +4134,10 @@
     "named": false
   },
   {
+    "type": "!=",
+    "named": false
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -3870,6 +4210,10 @@
     "named": false
   },
   {
+    "type": "==",
+    "named": false
+  },
+  {
     "type": ">",
     "named": false
   },
@@ -3927,6 +4271,18 @@
   },
   {
     "type": "@slot",
+    "named": false
+  },
+  {
+    "type": "@slot  (",
+    "named": false
+  },
+  {
+    "type": "@slot (",
+    "named": false
+  },
+  {
+    "type": "@slot(",
     "named": false
   },
   {
