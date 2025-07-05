@@ -1,0 +1,11 @@
+name: textwire-treesitter
+
+services:
+    app:
+        image: textwire-treesitter
+        container_name: textwire-treesitter
+        build:
+            context: .
+        volumes:
+            - .:/app
+            - /app/node_modules
