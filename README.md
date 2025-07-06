@@ -33,25 +33,26 @@ make test
 
 ## Contribute
 
-### Without a Container Engine
-If you don't use container engines like [Podman](https://podman.io/) or [Docker](https://www.docker.com/), you need to do a little bit setup. You need to have things like `gcc`, `npm` and `node` installed on your machine.
-
 ### With a Container Engine
 If you use container engines like [Podman](https://podman.io/) or [Docker](https://www.docker.com/) it's a lot easier for you. You just need to have Podman with Podman Compose or Docker with Docker Compose installed on your machine.
 
 #### Build the Image
-To build the image, run this command:
+To build the image, run this command for Docker:
 ```bash
 docker compose build
-# for Podman, run this:
+```
+For Podman, run this:
+```bash
 podman-compose build
 ```
 
 #### Enter the Container
-To enter inside the container, run this command:
+To enter inside the container, run this command for Docker:
 ```bash
 docker compose run --rm app
-# for Podman, run this:
+```
+For Podman, run this:
+```bash
 podman-compose run --rm app
 ```
 
