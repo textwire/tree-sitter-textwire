@@ -1,8 +1,5 @@
 # Tree Sitter Parser for Textwire
 
-> [!NOTE]
-> This project support Container Engines like Docker and Podman, so, you don't need to have anything on your machine other than Git and a Container engine.
-
 ## NPM Commands
 ### Install Dependencies
 Run the following command to install the required NPM dependencies:
@@ -34,24 +31,17 @@ make test
 ## Contribute
 
 ### With a Container Engine
-If you use container engines like [Podman](https://podman.io/) or [Docker](https://www.docker.com/) it's a lot easier for you. You just need to have Podman with Podman Compose or Docker with Docker Compose installed on your machine.
+> [!NOTE]
+> If you use [🐳 Docker](https://app.docker.com/) instead of [🦦 Podman](https://podman.io/), just replace `podman-compose` with `docker compose` in code examples below.
 
 #### Build the Image
-To build the image, run this command for Docker:
-```bash
-docker compose build
-```
-For Podman, run this:
+To build the image, run this command:
 ```bash
 podman-compose build
 ```
 
 #### Enter the Container
-To enter inside the container, run this command for Docker:
-```bash
-docker compose run --rm app
-```
-For Podman, run this:
+To enter inside the container, run this command:
 ```bash
 podman-compose run --rm app
 ```
