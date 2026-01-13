@@ -29,21 +29,31 @@ make test
 ```
 
 ## Contribute
-
 ### With a Container Engine
-> [!NOTE]
-> If you use [🐳 Docker](https://app.docker.com/) instead of [🦦 Podman](https://podman.io/), just replace `podman-compose` with `docker compose` in code examples below.
-
 #### Build the Image
-To build the image, run this command:
+To build the image, run this command.
+
+With Podman:
 ```bash
 podman-compose build
 ```
 
+With Docker:
+```bash
+docker compose build
+```
+
 #### Enter the Container
-To enter inside the container, run this command:
+To enter inside the container, run this command.
+
+With Podman:
 ```bash
 podman-compose run --rm app
+```
+
+With Docker:
+```bash
+docker compose run --rm app
 ```
 
 You'll be able to run [NPM commands](#npm-commands-available) inside of the container.
