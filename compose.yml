@@ -4,8 +4,6 @@ services:
     app:
         image: textwire-treesitter
         container_name: textwire-treesitter
-        build:
-            context: .
-            dockerfile: Containerfile
+        build: .
         volumes:
             - .:/app:z
