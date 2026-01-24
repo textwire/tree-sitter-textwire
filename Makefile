@@ -5,7 +5,7 @@ endif
 LANGUAGE_NAME := tree-sitter-textwire
 HOMEPAGE_URL := https://github.com/textwire/textwire
 DESCRIPTION := Tree sitter for Textwire language
-VERSION := 0.1.0
+VERSION := 0.1.1
 
 # repository
 SRC_DIR := src
@@ -70,7 +70,7 @@ $(LANGUAGE_NAME).pc: bindings/c/$(LANGUAGE_NAME).pc.in
 $(PARSER): $(SRC_DIR)/grammar.json
 	$(TS) generate $^
 
-.PHONY: install
+.PHONY: all
 install: all
 	install -d '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter '$(DESTDIR)$(PCLIBDIR)' '$(DESTDIR)$(LIBDIR)'
 	install -m644 bindings/c/$(LANGUAGE_NAME).h '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter/$(LANGUAGE_NAME).h
