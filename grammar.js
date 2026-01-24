@@ -59,7 +59,7 @@ module.exports = grammar({
       ),
 
     brace_statement: $ =>
-      seq('{{', $._statement, optional(seq(';', $._statement)), '}}'),
+      seq('{{', $._statement, repeat(seq(';', $._statement)), '}}'),
 
     _statement: $ => choice($.assign_statement, $._expression),
 
