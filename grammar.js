@@ -7,25 +7,27 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 const PREC = {
-  TERNARY: 1,
-  EQ: 2,
-  NOT_EQ: 2,
-  LTHAN: 3,
-  GTHAN: 3,
-  LTHAN_EQ: 3,
-  GTHAN_EQ: 3,
-  ADD: 4,
-  SUB: 4,
-  DIV: 4,
-  MOD: 5,
-  MUL: 5,
-  DOT: 6,
-  CALL: 7,
-  PREFIX: 8,
-  LPAREN: 9,
-  LBRACKET: 10,
-  INC: 11,
-  DEC: 11,
+  OR: 1,
+  AND: 2,
+  TERNARY: 3,
+  EQ: 4,
+  NOT_EQ: 4,
+  LTHAN: 5,
+  GTHAN: 5,
+  LTHAN_EQ: 5,
+  GTHAN_EQ: 5,
+  ADD: 6,
+  SUB: 6,
+  DIV: 6,
+  MOD: 7,
+  MUL: 7,
+  DOT: 8,
+  CALL: 9,
+  PREFIX: 10,
+  LPAREN: 11,
+  LBRACKET: 12,
+  INC: 13,
+  DEC: 13,
 }
 
 module.exports = grammar({
@@ -262,6 +264,8 @@ module.exports = grammar({
         $.divide,
         $.minus,
         $.plus,
+        $.and,
+        $.or,
         $.less,
         $.greater,
         $.eq,
@@ -354,6 +358,26 @@ module.exports = grammar({
         seq(
           field('left', $._expression),
           field('operator', '+'),
+          field('right', $._expression),
+        ),
+      ),
+
+    or: $ =>
+      prec.left(
+        PREC.OR,
+        seq(
+          field('left', $._expression),
+          field('operator', '||'),
+          field('right', $._expression),
+        ),
+      ),
+
+    and: $ =>
+      prec.left(
+        PREC.AND,
+        seq(
+          field('left', $._expression),
+          field('operator', '&&'),
           field('right', $._expression),
         ),
       ),

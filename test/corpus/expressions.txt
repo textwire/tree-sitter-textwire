@@ -12,6 +12,35 @@ Addition infix expression
                 right: (integer_literal)))))
 
 ==================
+Addition infix expression ignores braces
+==================
+{{ (1 + (2)) }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (plus
+                left: (integer_literal)
+                right: (integer_literal)))))
+
+==================
+Addition infix expression with subtraction
+==================
+{{ 1 + 2 - 2 }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (minus 
+                left: (infix_expression
+                    (plus
+                        left: (integer_literal)
+                        right: (integer_literal)))
+                right: (integer_literal)))))
+
+==================
 Multiplication infix expression
 ==================
 {{ 3 * 1 }}
@@ -235,5 +264,77 @@ Nested ternary expression in HTML
                     right: (integer_literal)))
             consequence: (boolean_literal)
             alternative: (boolean_literal)))
+    (text))
+
+==================
+Logical operation AND (&&)
+==================
+{{ true && false }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (and 
+                left: (boolean_literal)
+                right: (boolean_literal)))))
+
+==================
+Logical operation OR (||)
+==================
+{{ false || true }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (or 
+                left: (boolean_literal)
+                right: (boolean_literal)))))
+
+==================
+Logical operation OR with AND
+==================
+{{ false || true && true }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (or 
+                left: (boolean_literal)
+                right: (infix_expression
+                    (and
+                        left: (boolean_literal)
+                        right: (boolean_literal)))))))
+
+==================
+Logical operation OR with AND with braces
+==================
+{{ (false || true) && true }}
+---
+
+(program
+    (brace_statement
+        (infix_expression
+            (and 
+                left: (infix_expression
+                    (or
+                        left: (boolean_literal)
+                        right: (boolean_literal)))
+                right: (boolean_literal)))))
+
+==================
+3 inline expresssions inside HTML
+==================
+{{ true; false; nil }}
+---
+
+(program
+    (brace_statement
+        (boolean_literal)
+        (boolean_literal)
+        (nil_literal)
+    )
     (text))
 
