@@ -37,7 +37,7 @@
 (break_statement) @type.builtin
 (continue_statement) @type.builtin
 
-["+" "-" "*" "/" "%"] @operator
+["+" "-" "*" "/" "%" "!" "&&" "||" "?" ":"] @operator
 
 ["(" ")"] @punctuation.bracket
 
