@@ -43,6 +43,19 @@ With Docker:
 docker compose build
 ```
 
+#### Create `node_modules`
+Run this command to install npm packages and generate a `node_modules` directory on your local machine.
+
+With Podman:
+```bash
+podman-compose run --rm app npm i
+```
+
+With Docker:
+```bash
+docker compose run --rm app npm i
+```
+
 #### Enter the Container
 To enter inside the container, run this command.
 
