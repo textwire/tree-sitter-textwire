@@ -325,7 +325,7 @@ Logical operation OR with AND with braces
                 right: (boolean_literal)))))
 
 ==================
-3 inline expresssions inside HTML
+3 inline expressions inside HTML
 ==================
 {{ true; false; nil }}
 ---
@@ -335,6 +335,5 @@ Logical operation OR with AND with braces
         (boolean_literal)
         (boolean_literal)
         (nil_literal)
-    )
-    (text))
+    ))
 
