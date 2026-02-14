@@ -1,6 +1,7 @@
-@use("~main")
+@use('layouts/base')
 
-@insert("title", 'Welcome')
+@insert('title', 'Book Store')
+@insert("description", 'This is a book store description here')
 
 @insert('content')
     <div>Hey main</div>
@@ -29,7 +30,7 @@
             <span>{{ "Nice" }}</span>
         @end
 
-        @reserve('content')
+        @reserve('content', 'The fallback value is here')
 
         @each(user in users)
             <span>{{ user.name.upper() }}</span>
@@ -40,15 +41,29 @@
             @continue
         @end
 
-
+        <h2>Each Statement</h2>
         @each(user in users)
             <span>{{ user.name.upper() }}</span>
         @else
             <span>No users</span>
         @end
 
-        <!-- comment -->
-        {{-- comment --}}
+        <h2>Escapes</h2>
+        \{{ 1 + 2 }}
+        \@insert()
+        {{ "She is really \"nice\"" }}
+
+        <h2>Function Calls</h2>
+        <ul>
+            <li>{{ "nice".upper().split('i') }}</li>
+            <li>{{ defined(user) }}</li>
+            <li>@if(defined(env))env@end</li>
+        </ul>
+
+        <h2>Comments</h2>
+        <!-- HTML comment -->
+        <!-- <h2>Nice</h2> -->
+        {{-- Textwire comment --}}
         {{-- <h2>Nice</h2> --}}
 
         @for(i = 0; i < 10; i++)
@@ -70,6 +85,7 @@
             @end
         @end
 
+        <h2>For Loop</h2>
         @for(i = 0; i < 10; i++)
             @break
         @else

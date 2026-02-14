@@ -121,7 +121,13 @@ module.exports = grammar({
       ),
 
     reserve_statement: $ =>
-      seq('@reserve', '(', field('name', $._expression), ')'),
+      seq(
+        '@reserve',
+        '(',
+        field('name', $._expression),
+        optional(seq(',', field('fallback', $._expression))),
+        ')',
+      ),
 
     use_statement: $ => seq('@use', '(', field('name', $.string_literal), ')'),
 

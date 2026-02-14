@@ -98,3 +98,14 @@ HTML comment, textwire comment and @reserve
     (text)
     (reserve_statement
         name: (string_literal)))
+
+======================
+@reserve with fallback value
+======================
+@reserve('content', 'fallback value')
+---
+
+(program
+    (reserve_statement
+        name: (string_literal)
+        fallback: (string_literal)))
