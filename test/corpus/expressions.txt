@@ -337,3 +337,55 @@ Logical operation OR with AND with braces
         (nil_literal)
     ))
 
+==================
+Index expression
+==================
+{{ users[0] }}
+---
+
+(program
+    (brace_statement
+        (index_expression
+            left: (identifier)
+            index: (integer_literal))))
+
+==================
+Nested ndex expression
+==================
+{{ users[0][3] }}
+---
+
+(program
+    (brace_statement
+        (index_expression
+            left: (index_expression
+                left: (identifier)
+                index: (integer_literal))
+            index: (integer_literal))))
+
+==================
+Index expression with variable index
+==================
+{{ users[i] }}
+---
+
+(program
+    (brace_statement
+        (index_expression
+            left: (identifier)
+            index: (identifier))))
+
+==================
+Index expression with infix index
+==================
+{{ users[i + 2] }}
+---
+
+(program
+    (brace_statement
+        (index_expression
+            left: (identifier)
+            index: (infix_expression
+                (plus
+                    left: (identifier)
+                    right: (integer_literal))))))

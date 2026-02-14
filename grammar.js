@@ -243,6 +243,7 @@ module.exports = grammar({
         $.array_literal,
         $.call_expression,
         $.dot_expression,
+        $.index_expression,
         $.object_literal,
         $.array_literal,
       ),
@@ -405,6 +406,14 @@ module.exports = grammar({
       prec(
         PREC.DOT,
         seq(field('left', $._expression), '.', field('key', $._expression)),
+      ),
+
+    index_expression: $ =>
+      seq(
+        field('left', $._expression),
+        '[',
+        field('index', $._expression),
+        ']',
       ),
 
     integer_literal: _ => /\d+/,

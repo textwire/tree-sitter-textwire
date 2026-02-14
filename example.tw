@@ -24,6 +24,7 @@
             <span>{{ --x }}</span>
             <span>{{ obj.key }}</span>
             <span>{{ x < y }}</span>
+            <div class="text-2xl py-4">{{ tech[0] }}</div>
         @elseif(false)
             <span>Nothing</span>
         @else
