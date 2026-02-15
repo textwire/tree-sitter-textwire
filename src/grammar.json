@@ -962,7 +962,7 @@
     },
     "ternary_expression": {
       "type": "PREC_LEFT",
-      "value": 3,
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1054,6 +1054,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "global_call_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "call_expression"
         },
         {
@@ -1076,7 +1080,7 @@
     },
     "_parenthesized_expression": {
       "type": "PREC",
-      "value": 11,
+      "value": 16,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1613,9 +1617,50 @@
         ]
       }
     },
+    "global_call_expression": {
+      "type": "PREC",
+      "value": 16,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "function",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "arguments",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument_list"
+                }
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
     "call_expression": {
       "type": "PREC",
-      "value": 9,
+      "value": 17,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1668,7 +1713,7 @@
     },
     "dot_expression": {
       "type": "PREC",
-      "value": 8,
+      "value": 15,
       "content": {
         "type": "SEQ",
         "members": [
