@@ -389,3 +389,32 @@ Index expression with infix index
                 (plus
                     left: (identifier)
                     right: (integer_literal))))))
+
+==================
+Global call function expression
+==================
+{{ defined(myVar) }}
+---
+
+(program
+    (brace_statement
+        (global_call_expression
+            function: (identifier)
+            arguments: (argument_list
+                (identifier)))))
+
+==================
+Global call function expression with multiple arguments
+==================
+{{ defined(var1, 1, false, "nice") }}
+---
+
+(program
+    (brace_statement
+        (global_call_expression
+            function: (identifier)
+            arguments: (argument_list
+                (identifier)
+                (integer_literal)
+                (boolean_literal)
+                (string_literal)))))

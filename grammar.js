@@ -7,9 +7,9 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 const PREC = {
+  TERNARY: 0,
   OR: 1,
   AND: 2,
-  TERNARY: 3,
   EQ: 4,
   NOT_EQ: 4,
   LTHAN: 5,
@@ -21,13 +21,12 @@ const PREC = {
   DIV: 6,
   MOD: 7,
   MUL: 7,
-  DOT: 8,
-  CALL: 9,
   PREFIX: 10,
-  LPAREN: 11,
   LBRACKET: 12,
   INC: 13,
   DEC: 13,
+  DOT: 15,
+  LPAREN: 16,
 }
 
 module.exports = grammar({
@@ -241,6 +240,7 @@ module.exports = grammar({
         $.infix_expression,
         $.string_literal,
         $.array_literal,
+        $.global_call_expression,
         $.call_expression,
         $.dot_expression,
         $.index_expression,
@@ -389,9 +389,22 @@ module.exports = grammar({
         ),
       ),
 
+    global_call_expression: $ =>
+      prec(
+        PREC.LPAREN,
+        seq(
+          field('function', $.identifier),
+          '(',
+          optional(field('arguments', $.argument_list)),
+          ')',
+        ),
+      ),
+
     call_expression: $ =>
       prec(
-        PREC.CALL,
+        // We need to add 1 to precedence because it will confict
+        // with global_call_expression.
+        PREC.LPAREN + 1,
         seq(
           field('receiver', $._expression),
           '.',

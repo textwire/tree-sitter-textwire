@@ -25,6 +25,10 @@
             <span>{{ obj.key }}</span>
             <span>{{ x < y }}</span>
             <div class="text-2xl py-4">{{ tech[0] }}</div>
+            <div>This is @if(visible)is@end nice</div>
+            <div>This is \@if(visible)is\@end nice</div>
+            <div>defined(one) && defined(two) ? "Is defined" : "Not defined"</div>
+            <div>defined(one, two) ? "Is defined" : "Not defined"</div>
         @elseif(false)
             <span>Nothing</span>
         @else
