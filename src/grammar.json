@@ -295,7 +295,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "break_if_statement"
+            "name": "breakif_statement"
           },
           {
             "type": "SYMBOL",
@@ -308,7 +308,7 @@
         ]
       }
     },
-    "break_if_statement": {
+    "breakif_statement": {
       "type": "SEQ",
       "members": [
         {

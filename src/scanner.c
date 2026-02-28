@@ -20,6 +20,8 @@ static const char *directives[] = {
     "each",
     "breakIf",
     "continueIf",
+    "breakif",
+    "continueif",
     "insert",
     "reserve",
     "break",

@@ -575,7 +575,7 @@
     }
   },
   {
-    "type": "break_if_statement",
+    "type": "breakif_statement",
     "named": true,
     "fields": {
       "condition": {
@@ -1043,11 +1043,11 @@
           "named": true
         },
         {
-          "type": "break_if_statement",
+          "type": "break_statement",
           "named": true
         },
         {
-          "type": "break_statement",
+          "type": "breakif_statement",
           "named": true
         },
         {
