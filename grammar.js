@@ -81,8 +81,21 @@ module.exports = grammar({
         ),
       ),
 
+    slotif_statement: $ =>
+      seq(
+        '@slotif',
+        '(',
+        field('condition', $._expression),
+        optional(seq(',', field('name', $.string_literal))),
+        ')',
+        field('body', $.block_statement),
+        '@end',
+      ),
+
     component_block_statement: $ =>
-      repeat1(choice($._definition, $.slot_statement)),
+      repeat1(
+        choice($._definition, choice($.slotif_statement, $.slot_statement)),
+      ),
 
     control_flow_block_statement: $ =>
       repeat1(
@@ -96,10 +109,20 @@ module.exports = grammar({
       ),
 
     break_if_statement: $ =>
-      seq('@breakIf', '(', field('condition', $._expression), ')'),
+      seq(
+        choice('@breakIf', '@breakif'),
+        '(',
+        field('condition', $._expression),
+        ')',
+      ),
 
     continue_if_statement: $ =>
-      seq('@continueIf', '(', field('condition', $._expression), ')'),
+      seq(
+        choice('@continueIf', '@continueif'),
+        '(',
+        field('condition', $._expression),
+        ')',
+      ),
 
     break_statement: _ => '@break',
     continue_statement: _ => '@continue',

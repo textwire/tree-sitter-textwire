@@ -11,9 +11,9 @@
 
         @dump(user, book)
 
-        @if(defined(user.address.street.number)) {
+        @if(defined(user.address.street.number))
             {{ user.address.street.number }}
-        }
+        @end
 
         @if(true)
             <span>{{ [1, 3.3, true, false, nil, user] }}</span>
@@ -45,8 +45,8 @@
         @each(user in users)
             <span>{{ user.name.upper() }}</span>
 
-            @breakIf(true)
-            @continueIf(true)
+            @breakif(true)
+            @continueif(true)
             @break
             @continue
         @end
@@ -89,7 +89,13 @@
 
                 @slot
 
-                @slot("nice")
+                @slot("name")
+                    <div>nice</div>
+                @end
+
+                @slotif(true)
+
+                @slotif(true, "name")
                     <div>nice</div>
                 @end
             @end

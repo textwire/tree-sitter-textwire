@@ -117,3 +117,77 @@ Named @slot in @component
                 body: (block_statement
                     (text)))
             (text))))
+
+==================
+Named @slotif in @component
+==================
+@component('book')
+    @slotif(true, 'title')
+        <h1>Book title</h1>
+    @end
+@end
+---
+
+(program
+    (component_statement
+        name: (string_literal)
+        block: (component_block_statement
+            (text)
+            (slotif_statement
+                condition: (boolean_literal)
+                name: (string_literal)
+                body: (block_statement
+                    (text)))
+            (text))))
+
+==================
+Default @slotif in @component
+==================
+@component('book')
+    @slotif(false)
+        <h1>Book</h1>
+    @end
+@end
+---
+
+(program
+    (component_statement
+        name: (string_literal)
+        block: (component_block_statement
+            (text)
+            (slotif_statement
+                condition: (boolean_literal)
+                body: (block_statement
+                    (text)))
+            (text))))
+
+==================
+Multiple @slotif in @component
+==================
+@component('book')
+    @slotif(true)
+        <h1>First</h1>
+    @end
+
+    @slotif(true, "name")
+        <h2>Second</h2>
+    @end
+@end
+---
+
+(program
+    (component_statement
+        name: (string_literal)
+        block: (component_block_statement
+            (text)
+            (slotif_statement
+                condition: (boolean_literal)
+                body: (block_statement
+                    (text)))
+            (text)
+            (slotif_statement
+                condition: (boolean_literal)
+                name: (string_literal)
+                body: (block_statement
+                    (text)))
+            (text))))
