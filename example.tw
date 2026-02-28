@@ -40,7 +40,7 @@
             <span>{{ "Nice" }}</span>
         @end
 
-        @reserve('content', 'The fallback value is here')
+        @reserve('content', 'The fallback value %s here'.format("is"))
 
         @each(user in users)
             <span>{{ user.name.upper() }}</span>
@@ -53,7 +53,7 @@
 
         <h2>Each Statement</h2>
         @each(user in users)
-            <span>{{ user.name.upper() }}</span>
+            <span>{{ user.name.json() }}</span>
         @else
             <span>No users</span>
         @end
@@ -67,6 +67,7 @@
         <ul>
             <li>{{ "nice".upper().split('i') }}</li>
             <li>{{ defined(user) }}</li>
+            <li>{{ hasValue(user) }}</li>
             <li>@if(defined(env))env@end</li>
         </ul>
 
