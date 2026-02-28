@@ -102,13 +102,13 @@ module.exports = grammar({
         choice(
           $.break_statement,
           $.continue_statement,
-          $.break_if_statement,
+          $.breakif_statement,
           $.continue_if_statement,
           $._definition,
         ),
       ),
 
-    break_if_statement: $ =>
+    breakif_statement: $ =>
       seq(
         choice('@breakIf', '@breakif'),
         '(',

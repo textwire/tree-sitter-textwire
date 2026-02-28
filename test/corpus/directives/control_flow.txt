@@ -4,7 +4,7 @@
 @each(user in users) @break @end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
@@ -19,7 +19,7 @@ Only @break inside of @each
 @each(user in users)@break@end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
@@ -32,7 +32,7 @@ Only @break inside of @each
 @each(user in users) @continue @end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
@@ -47,7 +47,7 @@ Only @continue inside of @each
 @each(user in users)@continue@end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
@@ -60,13 +60,13 @@ Only @continue inside of @each
 @each(user in users) @breakIf(true) @end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
         block: (control_flow_block_statement
             (text)
-            (break_if_statement
+            (breakif_statement
                 condition: (boolean_literal))
             (text))))
 
@@ -76,12 +76,40 @@ Only @breakIf inside of @each
 @each(user in users)@breakIf(true)@end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
         block: (control_flow_block_statement
-            (break_if_statement
+            (breakif_statement
+                condition: (boolean_literal)))))
+
+==================
+Lowercased @breakIf inside of @each
+==================
+@each(user in users)@breakif(true)@end
+---
+
+(program
+    (each_statement
+        var: (identifier)
+        array: (identifier)
+        block: (control_flow_block_statement
+            (breakif_statement
+                condition: (boolean_literal)))))
+
+==================
+Lowercased @continueif inside of @each
+==================
+@each(user in users)@continueif(false)@end
+---
+
+(program
+    (each_statement
+        var: (identifier)
+        array: (identifier)
+        block: (control_flow_block_statement
+            (continue_if_statement
                 condition: (boolean_literal)))))
 
 ==================
@@ -90,7 +118,7 @@ Only @breakIf inside of @each
 @each(user in users) @continueIf(false) @end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
@@ -106,7 +134,7 @@ Only @continueIf inside of @each
 @each(user in users)@continueIf(true)@end
 ---
 
-(program 
+(program
     (each_statement
         var: (identifier)
         array: (identifier)
