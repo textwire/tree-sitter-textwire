@@ -820,6 +820,10 @@
           "named": true
         },
         {
+          "type": "slotif_statement",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
@@ -4863,6 +4867,114 @@
     }
   },
   {
+    "type": "slotif_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block_statement",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "global_call_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "nil_literal",
+            "named": true
+          },
+          {
+            "type": "object_literal",
+            "named": true
+          },
+          {
+            "type": "postfix_decrement",
+            "named": true
+          },
+          {
+            "type": "postfix_increment",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "string_literal",
     "named": true,
     "fields": {}
@@ -5236,11 +5348,19 @@
     "named": false
   },
   {
+    "type": "@breakif",
+    "named": false
+  },
+  {
     "type": "@component",
     "named": false
   },
   {
     "type": "@continueIf",
+    "named": false
+  },
+  {
+    "type": "@continueif",
     "named": false
   },
   {
@@ -5293,6 +5413,10 @@
   },
   {
     "type": "@slot(",
+    "named": false
+  },
+  {
+    "type": "@slotif",
     "named": false
   },
   {

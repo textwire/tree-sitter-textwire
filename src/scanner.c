@@ -26,6 +26,7 @@ static const char *directives[] = {
     "continue",
     "component",
     "slot",
+    "slotif",
     "dump",
     NULL,
 };
@@ -35,7 +36,6 @@ void *tree_sitter_textwire_external_scanner_create() {
 }
 
 void tree_sitter_textwire_external_scanner_destroy(void *payload) {
-    //
 }
 
 unsigned tree_sitter_textwire_external_scanner_serialize(
