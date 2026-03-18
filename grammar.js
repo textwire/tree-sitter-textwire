@@ -268,7 +268,6 @@ module.exports = grammar({
         $.dot_expression,
         $.index_expression,
         $.object_literal,
-        $.array_literal,
       ),
 
     _parenthesized_expression: $ =>
@@ -474,7 +473,7 @@ module.exports = grammar({
         field('key', $.identifier),
       ),
 
-    pairs: $ => seq($.pair, optional(repeat(seq(',', $.pair)))),
+    pairs: $ => seq($.pair, optional(repeat(seq(',', $.pair))), optional(',')),
 
     object_literal: $ => seq('{', optional($.pairs), '}'),
 

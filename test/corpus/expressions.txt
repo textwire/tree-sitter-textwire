@@ -184,42 +184,6 @@ Call expression with arguments
                 (string_literal)))))
 
 ==================
-Increment postfix expression
-==================
-{{ num++ }}
----
-
-(program
-    (brace_statement
-        (postfix_increment
-            left: (identifier))))
-
-==================
-Decrement postfix expression
-==================
-{{ num-- }}
----
-
-(program
-    (brace_statement
-        (postfix_decrement
-            left: (identifier))))
-
-==================
-Infix with postfix expression
-==================
-{{ 1.2 + num-- }}
----
-
-(program
-    (brace_statement
-        (infix_expression
-            (plus 
-                left: (float_literal)
-                right: (postfix_decrement
-                        left: (identifier))))))
-
-==================
 Ternary expression
 ==================
 {{ true ? 2 : 3.0 }}

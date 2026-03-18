@@ -9,3 +9,47 @@ Assign statement
         (assign_statement
             name: (identifier)
             value: (string_literal))))
+
+==================
+Assign with trailing commas
+==================
+{{ items = [{ href: '/', }, { href: '/posts', }] }}
+---
+
+(program
+    (brace_statement
+        (assign_statement
+            name: (identifier)
+            value: (array_literal
+                (object_literal
+                    (pairs
+                        (pair
+                            key: (identifier)
+                            value: (string_literal))))
+                (object_literal
+                    (pairs
+                        (pair
+                            key: (identifier)
+                            value: (string_literal))))))))
+
+==================
+Increment postfix statement
+==================
+{{ num++ }}
+---
+
+(program
+    (brace_statement
+        (postfix_increment
+            left: (identifier))))
+
+==================
+Decrement postfix statement
+==================
+{{ num-- }}
+---
+
+(program
+    (brace_statement
+        (postfix_decrement
+            left: (identifier))))

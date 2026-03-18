@@ -1,5 +1,7 @@
 @use('layouts/base')
 
+{{ items = [{ href: '/', }, { href: '/posts', }] }}
+
 @insert('title', 'Book Store')
 @insert("description", 'This is a book store description here')
 

@@ -1160,10 +1160,6 @@
         {
           "type": "SYMBOL",
           "name": "object_literal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "array_literal"
         }
       ]
     },
@@ -2001,6 +1997,18 @@
                   }
                 ]
               }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ","
             },
             {
               "type": "BLANK"
