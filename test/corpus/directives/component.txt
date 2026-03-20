@@ -51,7 +51,8 @@ Block @component no arguments
         block: (comp_block
             (text)
             (comp_slot_default_dir
-                block: (text))
+                block: (comp_block
+                    (text)))
             (text))))
 
 ==================
@@ -99,7 +100,9 @@ Default @slot in @component
         name: (str_expr)
         block: (comp_block
             (text)
-            (slot_dir)
+            (comp_slot_default_dir
+                block: (comp_block
+                    (text)))
             (text))))
 
 ==================
@@ -117,7 +120,8 @@ Named @slot in @component
         name: (str_expr)
         block: (comp_block
             (text)
-            (comp_slot_named_dir
+            (comp_slot_named
+                (open_paren)
                 name: (str_expr)
                 block: (comp_block (text)))
             (text))))
@@ -138,6 +142,7 @@ Named @slotif in @component
         block: (comp_block
             (text)
             (slotif_dir
+                (open_paren)
                 cond: (bool_expr)
                 name: (str_expr)
                 block: (comp_block
@@ -160,6 +165,7 @@ Default @slotif in @component
         block: (comp_block
             (text)
             (slotif_dir
+                (open_paren)
                 cond: (bool_expr)
                 block: (comp_block (text)))
             (text))))
@@ -184,10 +190,12 @@ Multiple @slotif in @component
         block: (comp_block
             (text)
             (slotif_dir
+                (open_paren)
                 cond: (bool_expr)
                 block: (comp_block (text)))
             (text)
             (slotif_dir
+                (open_paren)
                 cond: (bool_expr)
                 name: (str_expr)
                 block: (comp_block (text)))

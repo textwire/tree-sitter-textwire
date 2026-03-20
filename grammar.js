@@ -35,7 +35,7 @@ module.exports = grammar({
   // keyword extraction optimization
   word: $ => $.ident_expr,
 
-  externals: $ => [$.text],
+  externals: $ => [$.text, $.open_paren],
 
   extras: $ => [/\s/, $.comment],
 
@@ -72,7 +72,7 @@ module.exports = grammar({
 
     ext_slot_default: _ => '@slot',
 
-    ext_slot_named_dir: $ => seq('@slot', '(', field('name', $.str_expr), ')'),
+    ext_slot_named_dir: $ => seq('@slot', $.open_paren, field('name', $.str_expr), ')'),
 
     comp_slot_default_dir: $ =>
       seq('@slot', field('block', $.comp_block), '@end'),
@@ -80,7 +80,7 @@ module.exports = grammar({
     comp_slot_named: $ =>
       seq(
         '@slot',
-        '(',
+        $.open_paren,
         field('name', $.str_expr),
         ')',
         field('block', $.comp_block),
@@ -90,7 +90,7 @@ module.exports = grammar({
     slotif_dir: $ =>
       seq(
         '@slotif',
-        '(',
+        $.open_paren,
         field('cond', $._expression),
         optional(seq(',', field('name', $.str_expr))),
         ')',

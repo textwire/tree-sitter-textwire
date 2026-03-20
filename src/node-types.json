@@ -843,6 +843,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "open_paren",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1811,6 +1821,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "open_paren",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -4439,6 +4459,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "open_paren",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -4892,6 +4922,10 @@
   },
   {
     "type": "nil_expr",
+    "named": true
+  },
+  {
+    "type": "open_paren",
     "named": true
   },
   {
