@@ -194,3 +194,36 @@ Multiple @slotif in @component
                 name: (str_expr)
                 block: (block (text)))
             (text))))
+
+==================
+Inline @slot in @component
+==================
+@component('book')@slotTEXT@end@end
+---
+
+(program
+    (comp_dir
+        name: (str_expr)
+        block: (block
+            (slot_dir
+                block: (block
+                    (text))))))
+
+==================
+Standalone @slot
+==================
+@slot
+---
+
+(program
+    (slot_dir))
+
+==================
+Standalone @slot with name
+==================
+@slot('title')
+---
+
+(program
+    (slot_dir
+        name: (str_expr)))
