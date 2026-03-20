@@ -185,7 +185,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "open_paren"
+          "name": "_open_paren"
         },
         {
           "type": "FIELD",
@@ -231,7 +231,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "open_paren"
+          "name": "_open_paren"
         },
         {
           "type": "FIELD",
@@ -268,7 +268,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "open_paren"
+          "name": "_open_paren"
         },
         {
           "type": "FIELD",
@@ -2168,7 +2168,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "open_paren"
+      "name": "_open_paren"
     }
   ],
   "inline": [],

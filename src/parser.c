@@ -82,7 +82,7 @@ enum ts_symbol_identifiers {
   aux_sym_comment_token1 = 60,
   anon_sym_DASH_DASH_RBRACE_RBRACE = 61,
   sym_text = 62,
-  sym_open_paren = 63,
+  sym__open_paren = 63,
   sym_program = 64,
   sym__chunk = 65,
   sym__directive = 66,
@@ -219,7 +219,7 @@ static const char * const ts_symbol_names[] = {
   [aux_sym_comment_token1] = "comment_token1",
   [anon_sym_DASH_DASH_RBRACE_RBRACE] = "--}}",
   [sym_text] = "text",
-  [sym_open_paren] = "open_paren",
+  [sym__open_paren] = "_open_paren",
   [sym_program] = "program",
   [sym__chunk] = "_chunk",
   [sym__directive] = "_directive",
@@ -356,7 +356,7 @@ static const TSSymbol ts_symbol_map[] = {
   [aux_sym_comment_token1] = aux_sym_comment_token1,
   [anon_sym_DASH_DASH_RBRACE_RBRACE] = anon_sym_DASH_DASH_RBRACE_RBRACE,
   [sym_text] = sym_text,
-  [sym_open_paren] = sym_open_paren,
+  [sym__open_paren] = sym__open_paren,
   [sym_program] = sym_program,
   [sym__chunk] = sym__chunk,
   [sym__directive] = sym__directive,
@@ -682,8 +682,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_open_paren] = {
-    .visible = true,
+  [sym__open_paren] = {
+    .visible = false,
     .named = true,
   },
   [sym_program] = {
@@ -3027,7 +3027,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_RBRACE] = ACTIONS(1),
     [anon_sym_LBRACE_LBRACE_DASH_DASH] = ACTIONS(3),
     [sym_text] = ACTIONS(1),
-    [sym_open_paren] = ACTIONS(1),
+    [sym__open_paren] = ACTIONS(1),
   },
   [STATE(1)] = {
     [sym_program] = STATE(458),
@@ -10716,7 +10716,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(185), 1,
       sym_text,
     ACTIONS(286), 1,
-      sym_open_paren,
+      sym__open_paren,
     STATE(127), 1,
       sym_comment,
     STATE(128), 1,
@@ -11511,7 +11511,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LBRACE_LBRACE_DASH_DASH,
     ACTIONS(401), 1,
-      sym_open_paren,
+      sym__open_paren,
     STATE(151), 1,
       sym_comment,
     ACTIONS(399), 4,
@@ -17308,7 +17308,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       anon_sym_LBRACE_LBRACE_DASH_DASH,
     ACTIONS(1020), 1,
-      sym_open_paren,
+      sym__open_paren,
     STATE(384), 1,
       sym_comment,
   [18416] = 3,
@@ -18876,24 +18876,24 @@ static const TSParseActionEntry ts_parse_actions[] = {
 
 enum ts_external_scanner_symbol_identifiers {
   ts_external_token_text = 0,
-  ts_external_token_open_paren = 1,
+  ts_external_token__open_paren = 1,
 };
 
 static const TSSymbol ts_external_scanner_symbol_map[EXTERNAL_TOKEN_COUNT] = {
   [ts_external_token_text] = sym_text,
-  [ts_external_token_open_paren] = sym_open_paren,
+  [ts_external_token__open_paren] = sym__open_paren,
 };
 
 static const bool ts_external_scanner_states[4][EXTERNAL_TOKEN_COUNT] = {
   [1] = {
     [ts_external_token_text] = true,
-    [ts_external_token_open_paren] = true,
+    [ts_external_token__open_paren] = true,
   },
   [2] = {
     [ts_external_token_text] = true,
   },
   [3] = {
-    [ts_external_token_open_paren] = true,
+    [ts_external_token__open_paren] = true,
   },
 };
 
