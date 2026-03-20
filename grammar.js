@@ -130,7 +130,7 @@ module.exports = grammar({
         seq(
           '@component',
           '(',
-          field('name', $._expression),
+          field('name', $.str_expr),
           optional(seq(',', field('argument', $.obj_expr))),
           ')',
           optional(seq(field('block', $.block), '@end')),
@@ -141,7 +141,7 @@ module.exports = grammar({
       seq(
         '@reserve',
         '(',
-        field('name', $._expression),
+        field('name', $.str_expr),
         optional(seq(',', field('fallback', $._expression))),
         ')',
       ),
@@ -154,7 +154,7 @@ module.exports = grammar({
         seq(
           '@insert',
           '(',
-          field('name', $._expression),
+          field('name', $.str_expr),
           seq(',', field('val', $._expression)),
           ')',
         ),
@@ -162,7 +162,7 @@ module.exports = grammar({
         seq(
           '@insert',
           '(',
-          field('name', $._expression),
+          field('name', $.str_expr),
           ')',
           field('block', $.block),
           '@end',

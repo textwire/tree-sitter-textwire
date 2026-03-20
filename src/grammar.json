@@ -452,7 +452,7 @@
             "name": "name",
             "content": {
               "type": "SYMBOL",
-              "name": "_expression"
+              "name": "str_expr"
             }
           },
           {
@@ -528,7 +528,7 @@
           "name": "name",
           "content": {
             "type": "SYMBOL",
-            "name": "_expression"
+            "name": "str_expr"
           }
         },
         {
@@ -606,7 +606,7 @@
               "name": "name",
               "content": {
                 "type": "SYMBOL",
-                "name": "_expression"
+                "name": "str_expr"
               }
             },
             {
@@ -648,7 +648,7 @@
               "name": "name",
               "content": {
                 "type": "SYMBOL",
-                "name": "_expression"
+                "name": "str_expr"
               }
             },
             {

@@ -9,16 +9,6 @@ Inline @component without text
         name: (str_expr)))
 
 ==================
-Inline @component with variable name
-==================
-@component(componentName)
----
-
-(program
-    (comp_dir
-        name: (ident_expr)))
-
-==================
 Inline @component with short object notation
 ==================
 @component('book', { title })

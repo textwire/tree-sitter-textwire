@@ -34,12 +34,16 @@ Inline @insert inside HTML
     (text))
 
 ==================
-@insert with variable value
+@insert with expression value
 ==================
-@insert('key', variableName)
+@insert('key', user.name)
 ---
 
 (program
     (insert_dir
         name: (str_expr)
-        val: (ident_expr)))
+        val: (dot_expr
+            left: (ident_expr)
+            key: (ident_expr))))
+
+

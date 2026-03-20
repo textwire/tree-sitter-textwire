@@ -685,75 +685,11 @@
         ]
       },
       "name": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "arr_expr",
-            "named": true
-          },
-          {
-            "type": "bool_expr",
-            "named": true
-          },
-          {
-            "type": "call_expr",
-            "named": true
-          },
-          {
-            "type": "dot_expr",
-            "named": true
-          },
-          {
-            "type": "float_expr",
-            "named": true
-          },
-          {
-            "type": "global_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "infix_expr",
-            "named": true
-          },
-          {
-            "type": "int_expr",
-            "named": true
-          },
-          {
-            "type": "nil_expr",
-            "named": true
-          },
-          {
-            "type": "obj_expr",
-            "named": true
-          },
-          {
-            "type": "prefix_expr",
-            "named": true
-          },
-          {
             "type": "str_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -2284,75 +2220,11 @@
         ]
       },
       "name": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "arr_expr",
-            "named": true
-          },
-          {
-            "type": "bool_expr",
-            "named": true
-          },
-          {
-            "type": "call_expr",
-            "named": true
-          },
-          {
-            "type": "dot_expr",
-            "named": true
-          },
-          {
-            "type": "float_expr",
-            "named": true
-          },
-          {
-            "type": "global_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "infix_expr",
-            "named": true
-          },
-          {
-            "type": "int_expr",
-            "named": true
-          },
-          {
-            "type": "nil_expr",
-            "named": true
-          },
-          {
-            "type": "obj_expr",
-            "named": true
-          },
-          {
-            "type": "prefix_expr",
-            "named": true
-          },
-          {
             "type": "str_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -4101,75 +3973,11 @@
         ]
       },
       "name": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "arr_expr",
-            "named": true
-          },
-          {
-            "type": "bool_expr",
-            "named": true
-          },
-          {
-            "type": "call_expr",
-            "named": true
-          },
-          {
-            "type": "dot_expr",
-            "named": true
-          },
-          {
-            "type": "float_expr",
-            "named": true
-          },
-          {
-            "type": "global_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident_expr",
-            "named": true
-          },
-          {
-            "type": "index_expr",
-            "named": true
-          },
-          {
-            "type": "infix_expr",
-            "named": true
-          },
-          {
-            "type": "int_expr",
-            "named": true
-          },
-          {
-            "type": "nil_expr",
-            "named": true
-          },
-          {
-            "type": "obj_expr",
-            "named": true
-          },
-          {
-            "type": "prefix_expr",
-            "named": true
-          },
-          {
             "type": "str_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_expr",
             "named": true
           }
         ]

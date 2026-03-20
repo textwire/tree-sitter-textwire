@@ -20,27 +20,6 @@
         fallback: (str_expr)))
 
 ==================
-@reserve with variable
-==================
-@reserve(name)
----
-
-(program
-    (reserve_dir
-        name: (ident_expr)))
-
-==================
-@reserve with variable and fallback
-==================
-@reserve(name, fallback)
----
-
-(program
-    (reserve_dir
-        name: (ident_expr)
-        fallback: (ident_expr)))
-
-==================
 @reserve inside HTML
 ==================
 <div>@reserve('title')</div>
