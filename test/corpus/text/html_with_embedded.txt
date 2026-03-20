@@ -1,0 +1,13 @@
+==================
+HTML with embedded expression in attribute
+==================
+<img src="/images/{{ user.image }}.jpg" />
+---
+
+(program
+    (text)
+    (embedded
+        (dot_expr
+            left: (ident_expr)
+            key: (ident_expr)))
+    (text))
