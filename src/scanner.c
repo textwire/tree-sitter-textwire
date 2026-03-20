@@ -123,7 +123,7 @@ static bool handle_directive(TSLexer *lexer, bool text_consumed) {
     return false;
 }
 
-static bool handle_braces_statement(TSLexer *lexer, bool text_consumed) {
+static bool handle_embedded(TSLexer *lexer, bool text_consumed) {
     if (text_consumed) {
         lexer->result_symbol = TEXT;
     }
@@ -147,7 +147,7 @@ static bool read_text_token(TSLexer *lexer) {
             lexer->advance(lexer, false);
 
             if (lexer->lookahead == '{') {
-                return handle_braces_statement(lexer, text_consumed);
+                return handle_embedded(lexer, text_consumed);
             }
         }
 

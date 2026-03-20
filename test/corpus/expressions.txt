@@ -5,11 +5,11 @@ Addition infix expression
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (plus 
-                left: (integer_literal)
-                right: (integer_literal)))))
+                left: (int_expr)
+                right: (int_expr)))))
 
 ==================
 Addition infix expression ignores braces
@@ -18,11 +18,11 @@ Addition infix expression ignores braces
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (plus
-                left: (integer_literal)
-                right: (integer_literal)))))
+                left: (int_expr)
+                right: (int_expr)))))
 
 ==================
 Addition infix expression with subtraction
@@ -31,14 +31,14 @@ Addition infix expression with subtraction
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (minus 
-                left: (infix_expression
+                left: (infix_expr
                     (plus
-                        left: (integer_literal)
-                        right: (integer_literal)))
-                right: (integer_literal)))))
+                        left: (int_expr)
+                        right: (int_expr)))
+                right: (int_expr)))))
 
 ==================
 Multiplication infix expression
@@ -47,11 +47,11 @@ Multiplication infix expression
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (multiply 
-                left: (integer_literal)
-                right: (integer_literal)))))
+                left: (int_expr)
+                right: (int_expr)))))
 
 ==================
 Division infix expression
@@ -60,11 +60,11 @@ Division infix expression
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (divide 
-                left: (float_literal)
-                right: (float_literal)))))
+                left: (float_expr)
+                right: (float_expr)))))
 
 ==================
 Subtraction infix expression
@@ -73,11 +73,11 @@ Subtraction infix expression
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (minus 
-                left: (float_literal)
-                right: (float_literal)))))
+                left: (float_expr)
+                right: (float_expr)))))
 
 ==================
 Modulo infix expression
@@ -86,11 +86,11 @@ Modulo infix expression
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (modulo 
-                left: (integer_literal)
-                right: (integer_literal)))))
+                left: (int_expr)
+                right: (int_expr)))))
 
 ==================
 Less than infix expression
@@ -99,11 +99,11 @@ Less than infix expression
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (less 
-                left: (identifier)
-                right: (identifier)))))
+                left: (ident_expr)
+                right: (ident_expr)))))
 
 ==================
 Greater than infix expression
@@ -112,11 +112,11 @@ Greater than infix expression
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (greater 
-                left: (integer_literal)
-                right: (integer_literal)))))
+                left: (int_expr)
+                right: (int_expr)))))
 
 ==================
 Prefix expression
@@ -125,10 +125,10 @@ Prefix expression
 ---
 
 (program
-    (brace_statement
-        (prefix_expression
+    (embedded
+        (prefix_expr
             (prefix_not
-                (boolean_literal)))))
+                (bool_expr)))))
 
 ==================
 Prefix and infix expressions
@@ -137,13 +137,13 @@ Prefix and infix expressions
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (plus
-                (prefix_expression
+                (prefix_expr
                     (prefix_minus
-                        (integer_literal)))
-                (integer_literal)))))
+                        (int_expr)))
+                (int_expr)))))
 
 ==================
 Dot expression
@@ -152,10 +152,10 @@ Dot expression
 ---
 
 (program
-    (brace_statement
-        (dot_expression
-            left: (identifier)
-            key: (identifier))))
+    (embedded
+        (dot_expr
+            left: (ident_expr)
+            key: (ident_expr))))
 
 ==================
 Call expression with no arguments
@@ -164,10 +164,10 @@ Call expression with no arguments
 ---
 
 (program
-    (brace_statement
-        (call_expression
-            receiver: (string_literal)
-            function: (identifier))))
+    (embedded
+        (call_expr
+            receiver: (str_expr)
+            function: (ident_expr))))
 
 ==================
 Call expression with arguments
@@ -176,12 +176,12 @@ Call expression with arguments
 ---
 
 (program
-    (brace_statement
-        (call_expression
-            receiver: (string_literal)
-            function: (identifier)
+    (embedded
+        (call_expr
+            receiver: (str_expr)
+            function: (ident_expr)
             arguments: (argument_list
-                (string_literal)))))
+                (str_expr)))))
 
 ==================
 Ternary expression
@@ -190,11 +190,11 @@ Ternary expression
 ---
 
 (program
-    (brace_statement
-        (ternary_expression
-            condition: (boolean_literal)
-            consequence: (integer_literal)
-            alternative: (float_literal))))
+    (embedded
+        (ternary_expr
+            cond: (bool_expr)
+            if_block: (int_expr)
+            else_block: (float_expr))))
 
 ==================
 Nested ternary expression
@@ -203,14 +203,14 @@ Nested ternary expression
 ---
 
 (program
-    (brace_statement
-        (ternary_expression
-            condition: (boolean_literal)
-            consequence: (integer_literal)
-            alternative: (ternary_expression
-                condition: (boolean_literal)
-                consequence: (float_literal)
-                alternative: (boolean_literal)))))
+    (embedded
+        (ternary_expr
+            cond: (bool_expr)
+            if_block: (int_expr)
+            else_block: (ternary_expr
+                cond: (bool_expr)
+                if_block: (float_expr)
+                else_block: (bool_expr)))))
 
 ==================
 Nested ternary expression in HTML
@@ -220,14 +220,14 @@ Nested ternary expression in HTML
 
 (program
     (text)
-    (brace_statement
-        (ternary_expression
-            condition: (infix_expression
+    (embedded
+        (ternary_expr
+            cond: (infix_expr
                 (eq
-                    left: (integer_literal)
-                    right: (integer_literal)))
-            consequence: (boolean_literal)
-            alternative: (boolean_literal)))
+                    left: (int_expr)
+                    right: (int_expr)))
+            if_block: (bool_expr)
+            else_block: (bool_expr)))
     (text))
 
 ==================
@@ -237,11 +237,11 @@ Logical operation AND (&&)
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (and 
-                left: (boolean_literal)
-                right: (boolean_literal)))))
+                left: (bool_expr)
+                right: (bool_expr)))))
 
 ==================
 Logical operation OR (||)
@@ -250,11 +250,11 @@ Logical operation OR (||)
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (or 
-                left: (boolean_literal)
-                right: (boolean_literal)))))
+                left: (bool_expr)
+                right: (bool_expr)))))
 
 ==================
 Logical operation OR with AND
@@ -263,14 +263,14 @@ Logical operation OR with AND
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (or 
-                left: (boolean_literal)
-                right: (infix_expression
+                left: (bool_expr)
+                right: (infix_expr
                     (and
-                        left: (boolean_literal)
-                        right: (boolean_literal)))))))
+                        left: (bool_expr)
+                        right: (bool_expr)))))))
 
 ==================
 Logical operation OR with AND with braces
@@ -279,14 +279,14 @@ Logical operation OR with AND with braces
 ---
 
 (program
-    (brace_statement
-        (infix_expression
+    (embedded
+        (infix_expr
             (and 
-                left: (infix_expression
+                left: (infix_expr
                     (or
-                        left: (boolean_literal)
-                        right: (boolean_literal)))
-                right: (boolean_literal)))))
+                        left: (bool_expr)
+                        right: (bool_expr)))
+                right: (bool_expr)))))
 
 ==================
 3 inline expressions inside HTML
@@ -295,10 +295,10 @@ Logical operation OR with AND with braces
 ---
 
 (program
-    (brace_statement
-        (boolean_literal)
-        (boolean_literal)
-        (nil_literal)
+    (embedded
+        (bool_expr)
+        (bool_expr)
+        (nil_expr)
     ))
 
 ==================
@@ -308,10 +308,10 @@ Index expression
 ---
 
 (program
-    (brace_statement
-        (index_expression
-            left: (identifier)
-            index: (integer_literal))))
+    (embedded
+        (index_expr
+            left: (ident_expr)
+            index: (int_expr))))
 
 ==================
 Nested ndex expression
@@ -320,12 +320,12 @@ Nested ndex expression
 ---
 
 (program
-    (brace_statement
-        (index_expression
-            left: (index_expression
-                left: (identifier)
-                index: (integer_literal))
-            index: (integer_literal))))
+    (embedded
+        (index_expr
+            left: (index_expr
+                left: (ident_expr)
+                index: (int_expr))
+            index: (int_expr))))
 
 ==================
 Index expression with variable index
@@ -334,10 +334,10 @@ Index expression with variable index
 ---
 
 (program
-    (brace_statement
-        (index_expression
-            left: (identifier)
-            index: (identifier))))
+    (embedded
+        (index_expr
+            left: (ident_expr)
+            index: (ident_expr))))
 
 ==================
 Index expression with infix index
@@ -346,13 +346,13 @@ Index expression with infix index
 ---
 
 (program
-    (brace_statement
-        (index_expression
-            left: (identifier)
-            index: (infix_expression
+    (embedded
+        (index_expr
+            left: (ident_expr)
+            index: (infix_expr
                 (plus
-                    left: (identifier)
-                    right: (integer_literal))))))
+                    left: (ident_expr)
+                    right: (int_expr))))))
 
 ==================
 Global call function expression
@@ -361,11 +361,11 @@ Global call function expression
 ---
 
 (program
-    (brace_statement
-        (global_call_expression
-            function: (identifier)
+    (embedded
+        (global_call_expr
+            function: (ident_expr)
             arguments: (argument_list
-                (identifier)))))
+                (ident_expr)))))
 
 ==================
 Global call function expression with multiple arguments
@@ -374,11 +374,11 @@ Global call function expression with multiple arguments
 ---
 
 (program
-    (brace_statement
-        (global_call_expression
-            function: (identifier)
+    (embedded
+        (global_call_expr
+            function: (ident_expr)
             arguments: (argument_list
-                (identifier)
-                (integer_literal)
-                (boolean_literal)
-                (string_literal)))))
+                (ident_expr)
+                (int_expr)
+                (bool_expr)
+                (str_expr)))))

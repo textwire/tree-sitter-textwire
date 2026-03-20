@@ -5,10 +5,10 @@ Assign statement
 ---
 
 (program
-    (brace_statement
-        (assign_statement
-            name: (identifier)
-            value: (string_literal))))
+    (embedded
+        (assign_stmt
+            name: (ident_expr)
+            val: (str_expr))))
 
 ==================
 Assign with trailing commas
@@ -17,20 +17,20 @@ Assign with trailing commas
 ---
 
 (program
-    (brace_statement
-        (assign_statement
-            name: (identifier)
-            value: (array_literal
-                (object_literal
+    (embedded
+        (assign_stmt
+            name: (ident_expr)
+            val: (arr_expr
+                (obj_expr
                     (pairs
                         (pair
-                            key: (identifier)
-                            value: (string_literal))))
-                (object_literal
+                            key: (ident_expr)
+                            val: (str_expr))))
+                (obj_expr
                     (pairs
                         (pair
-                            key: (identifier)
-                            value: (string_literal))))))))
+                            key: (ident_expr)
+                            val: (str_expr))))))))
 
 ==================
 Increment postfix statement
@@ -39,9 +39,9 @@ Increment postfix statement
 ---
 
 (program
-    (brace_statement
-        (postfix_increment
-            left: (identifier))))
+    (embedded
+        (postfix_stmt
+            left: (ident_expr))))
 
 ==================
 Decrement postfix statement
@@ -50,6 +50,6 @@ Decrement postfix statement
 ---
 
 (program
-    (brace_statement
-        (postfix_decrement
-            left: (identifier))))
+    (embedded
+        (postfix_stmt
+            left: (ident_expr))))

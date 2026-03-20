@@ -5,8 +5,8 @@
 ---
 
 (program
-    (use_statement
-        name: (string_literal)))
+    (use_dir
+        name: (str_expr)))
 
 ==================
 @use statement with empty string
@@ -15,5 +15,5 @@
 ---
 
 (program
-    (use_statement
-        name: (string_literal)))
+    (use_dir
+        name: (str_expr)))

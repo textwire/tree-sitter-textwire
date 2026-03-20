@@ -16,76 +16,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -108,71 +100,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -188,78 +172,70 @@
       "required": true,
       "types": [
         {
-          "type": "array_literal",
+          "type": "arr_expr",
           "named": true
         },
         {
-          "type": "boolean_literal",
+          "type": "bool_expr",
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call_expr",
           "named": true
         },
         {
-          "type": "dot_expression",
+          "type": "dot_expr",
           "named": true
         },
         {
-          "type": "float_literal",
+          "type": "float_expr",
           "named": true
         },
         {
-          "type": "global_call_expression",
+          "type": "global_call_expr",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "ident_expr",
           "named": true
         },
         {
-          "type": "index_expression",
+          "type": "index_expr",
           "named": true
         },
         {
-          "type": "infix_expression",
+          "type": "infix_expr",
           "named": true
         },
         {
-          "type": "integer_literal",
+          "type": "int_expr",
           "named": true
         },
         {
-          "type": "nil_literal",
+          "type": "nil_expr",
           "named": true
         },
         {
-          "type": "object_literal",
+          "type": "obj_expr",
           "named": true
         },
         {
-          "type": "postfix_decrement",
+          "type": "prefix_expr",
           "named": true
         },
         {
-          "type": "postfix_increment",
+          "type": "str_expr",
           "named": true
         },
         {
-          "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "ternary_expression",
+          "type": "ternary_expr",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "array_literal",
+    "type": "arr_expr",
     "named": true,
     "fields": {},
     "children": {
@@ -267,78 +243,70 @@
       "required": false,
       "types": [
         {
-          "type": "array_literal",
+          "type": "arr_expr",
           "named": true
         },
         {
-          "type": "boolean_literal",
+          "type": "bool_expr",
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call_expr",
           "named": true
         },
         {
-          "type": "dot_expression",
+          "type": "dot_expr",
           "named": true
         },
         {
-          "type": "float_literal",
+          "type": "float_expr",
           "named": true
         },
         {
-          "type": "global_call_expression",
+          "type": "global_call_expr",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "ident_expr",
           "named": true
         },
         {
-          "type": "index_expression",
+          "type": "index_expr",
           "named": true
         },
         {
-          "type": "infix_expression",
+          "type": "infix_expr",
           "named": true
         },
         {
-          "type": "integer_literal",
+          "type": "int_expr",
           "named": true
         },
         {
-          "type": "nil_literal",
+          "type": "nil_expr",
           "named": true
         },
         {
-          "type": "object_literal",
+          "type": "obj_expr",
           "named": true
         },
         {
-          "type": "postfix_decrement",
+          "type": "prefix_expr",
           "named": true
         },
         {
-          "type": "postfix_increment",
+          "type": "str_expr",
           "named": true
         },
         {
-          "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "ternary_expression",
+          "type": "ternary_expr",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "assign_statement",
+    "type": "assign_stmt",
     "named": true,
     "fields": {
       "name": {
@@ -346,12 +314,12 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           }
         ]
       },
-      "value": {
+      "val": {
         "multiple": true,
         "required": true,
         "types": [
@@ -364,71 +332,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -436,7 +396,7 @@
     }
   },
   {
-    "type": "block_statement",
+    "type": "block",
     "named": true,
     "fields": {},
     "children": {
@@ -444,35 +404,43 @@
       "required": true,
       "types": [
         {
-          "type": "brace_statement",
+          "type": "comp_dir",
           "named": true
         },
         {
-          "type": "component_statement",
+          "type": "dump_dir",
           "named": true
         },
         {
-          "type": "dump_statement",
+          "type": "each_dir",
           "named": true
         },
         {
-          "type": "each_statement",
+          "type": "embedded",
           "named": true
         },
         {
-          "type": "for_statement",
+          "type": "ext_slot_default",
           "named": true
         },
         {
-          "type": "if_statement",
+          "type": "ext_slot_named_dir",
           "named": true
         },
         {
-          "type": "insert_statement",
+          "type": "for_dir",
           "named": true
         },
         {
-          "type": "reserve_statement",
+          "type": "if_dir",
+          "named": true
+        },
+        {
+          "type": "insert_dir",
+          "named": true
+        },
+        {
+          "type": "reserve_dir",
           "named": true
         },
         {
@@ -480,105 +448,22 @@
           "named": true
         },
         {
-          "type": "use_statement",
+          "type": "use_dir",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "boolean_literal",
+    "type": "bool_expr",
     "named": true,
     "fields": {}
   },
   {
-    "type": "brace_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "array_literal",
-          "named": true
-        },
-        {
-          "type": "assign_statement",
-          "named": true
-        },
-        {
-          "type": "boolean_literal",
-          "named": true
-        },
-        {
-          "type": "call_expression",
-          "named": true
-        },
-        {
-          "type": "dot_expression",
-          "named": true
-        },
-        {
-          "type": "float_literal",
-          "named": true
-        },
-        {
-          "type": "global_call_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "index_expression",
-          "named": true
-        },
-        {
-          "type": "infix_expression",
-          "named": true
-        },
-        {
-          "type": "integer_literal",
-          "named": true
-        },
-        {
-          "type": "nil_literal",
-          "named": true
-        },
-        {
-          "type": "object_literal",
-          "named": true
-        },
-        {
-          "type": "postfix_decrement",
-          "named": true
-        },
-        {
-          "type": "postfix_increment",
-          "named": true
-        },
-        {
-          "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "ternary_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "breakif_statement",
+    "type": "breakif_dir",
     "named": true,
     "fields": {
-      "condition": {
+      "cond": {
         "multiple": true,
         "required": true,
         "types": [
@@ -591,71 +476,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -663,7 +540,7 @@
     }
   },
   {
-    "type": "call_expression",
+    "type": "call_expr",
     "named": true,
     "fields": {
       "arguments": {
@@ -681,7 +558,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           }
         ]
@@ -699,71 +576,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -776,7 +645,7 @@
     "fields": {}
   },
   {
-    "type": "component_block_statement",
+    "type": "comp_block",
     "named": true,
     "fields": {},
     "children": {
@@ -784,43 +653,43 @@
       "required": true,
       "types": [
         {
-          "type": "brace_statement",
+          "type": "comp_dir",
           "named": true
         },
         {
-          "type": "component_statement",
+          "type": "comp_slot_default_dir",
           "named": true
         },
         {
-          "type": "dump_statement",
+          "type": "comp_slot_named",
           "named": true
         },
         {
-          "type": "each_statement",
+          "type": "dump_dir",
           "named": true
         },
         {
-          "type": "for_statement",
+          "type": "each_dir",
           "named": true
         },
         {
-          "type": "if_statement",
+          "type": "for_dir",
           "named": true
         },
         {
-          "type": "insert_statement",
+          "type": "if_dir",
           "named": true
         },
         {
-          "type": "reserve_statement",
+          "type": "insert_dir",
           "named": true
         },
         {
-          "type": "slot_statement",
+          "type": "reserve_dir",
           "named": true
         },
         {
-          "type": "slotif_statement",
+          "type": "slotif_dir",
           "named": true
         },
         {
@@ -828,14 +697,14 @@
           "named": true
         },
         {
-          "type": "use_statement",
+          "type": "use_dir",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "component_statement",
+    "type": "comp_dir",
     "named": true,
     "fields": {
       "argument": {
@@ -843,7 +712,7 @@
         "required": false,
         "types": [
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           }
         ]
@@ -853,7 +722,7 @@
         "required": false,
         "types": [
           {
-            "type": "component_block_statement",
+            "type": "comp_block",
             "named": true
           }
         ]
@@ -871,71 +740,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -943,10 +804,52 @@
     }
   },
   {
-    "type": "continue_if_statement",
+    "type": "comp_slot_default_dir",
     "named": true,
     "fields": {
-      "condition": {
+      "block": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "comp_block",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "comp_slot_named",
+    "named": true,
+    "fields": {
+      "block": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "comp_block",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str_expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "continueif_dir",
+    "named": true,
+    "fields": {
+      "cond": {
         "multiple": true,
         "required": true,
         "types": [
@@ -959,71 +862,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -1031,7 +926,7 @@
     }
   },
   {
-    "type": "control_flow_block_statement",
+    "type": "control_flow_block",
     "named": true,
     "fields": {},
     "children": {
@@ -1039,51 +934,59 @@
       "required": true,
       "types": [
         {
-          "type": "brace_statement",
+          "type": "break_dir",
           "named": true
         },
         {
-          "type": "break_statement",
+          "type": "breakif_dir",
           "named": true
         },
         {
-          "type": "breakif_statement",
+          "type": "comp_dir",
           "named": true
         },
         {
-          "type": "component_statement",
+          "type": "continue_dir",
           "named": true
         },
         {
-          "type": "continue_if_statement",
+          "type": "continueif_dir",
           "named": true
         },
         {
-          "type": "continue_statement",
+          "type": "dump_dir",
           "named": true
         },
         {
-          "type": "dump_statement",
+          "type": "each_dir",
           "named": true
         },
         {
-          "type": "each_statement",
+          "type": "embedded",
           "named": true
         },
         {
-          "type": "for_statement",
+          "type": "ext_slot_default",
           "named": true
         },
         {
-          "type": "if_statement",
+          "type": "ext_slot_named_dir",
           "named": true
         },
         {
-          "type": "insert_statement",
+          "type": "for_dir",
           "named": true
         },
         {
-          "type": "reserve_statement",
+          "type": "if_dir",
+          "named": true
+        },
+        {
+          "type": "insert_dir",
+          "named": true
+        },
+        {
+          "type": "reserve_dir",
           "named": true
         },
         {
@@ -1091,7 +994,7 @@
           "named": true
         },
         {
-          "type": "use_statement",
+          "type": "use_dir",
           "named": true
         }
       ]
@@ -1114,76 +1017,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -1206,71 +1101,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -1278,7 +1165,7 @@
     }
   },
   {
-    "type": "dot_expression",
+    "type": "dot_expr",
     "named": true,
     "fields": {
       "key": {
@@ -1294,71 +1181,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -1376,71 +1255,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -1448,7 +1319,7 @@
     }
   },
   {
-    "type": "dump_statement",
+    "type": "dump_dir",
     "named": true,
     "fields": {
       "arguments": {
@@ -1464,19 +1335,9 @@
     }
   },
   {
-    "type": "each_statement",
+    "type": "each_dir",
     "named": true,
     "fields": {
-      "alternative": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "control_flow_block_statement",
-            "named": true
-          }
-        ]
-      },
       "array": {
         "multiple": true,
         "required": true,
@@ -1490,71 +1351,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -1564,7 +1417,17 @@
         "required": false,
         "types": [
           {
-            "type": "control_flow_block_statement",
+            "type": "control_flow_block",
+            "named": true
+          }
+        ]
+      },
+      "else_block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "control_flow_block",
             "named": true
           }
         ]
@@ -1574,7 +1437,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           }
         ]
@@ -1582,10 +1445,25 @@
     }
   },
   {
-    "type": "else_if_statement",
+    "type": "else_dir",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "elseif_dir",
     "named": true,
     "fields": {
-      "condition": {
+      "cond": {
         "multiple": true,
         "required": true,
         "types": [
@@ -1598,81 +1476,73 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "consequence": {
+      "if_block": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "block_statement",
+            "type": "block",
             "named": true
           }
         ]
@@ -1680,15 +1550,79 @@
     }
   },
   {
-    "type": "else_statement",
+    "type": "embedded",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
         {
-          "type": "block_statement",
+          "type": "arr_expr",
+          "named": true
+        },
+        {
+          "type": "assign_stmt",
+          "named": true
+        },
+        {
+          "type": "bool_expr",
+          "named": true
+        },
+        {
+          "type": "call_expr",
+          "named": true
+        },
+        {
+          "type": "dot_expr",
+          "named": true
+        },
+        {
+          "type": "float_expr",
+          "named": true
+        },
+        {
+          "type": "global_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident_expr",
+          "named": true
+        },
+        {
+          "type": "index_expr",
+          "named": true
+        },
+        {
+          "type": "infix_expr",
+          "named": true
+        },
+        {
+          "type": "int_expr",
+          "named": true
+        },
+        {
+          "type": "nil_expr",
+          "named": true
+        },
+        {
+          "type": "obj_expr",
+          "named": true
+        },
+        {
+          "type": "postfix_stmt",
+          "named": true
+        },
+        {
+          "type": "prefix_expr",
+          "named": true
+        },
+        {
+          "type": "str_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_expr",
           "named": true
         }
       ]
@@ -1711,76 +1645,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -1803,71 +1729,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -1875,30 +1793,41 @@
     }
   },
   {
-    "type": "for_statement",
+    "type": "ext_slot_default",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ext_slot_named_dir",
     "named": true,
     "fields": {
-      "alternative": {
+      "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "control_flow_block_statement",
+            "type": "str_expr",
             "named": true
           }
         ]
-      },
+      }
+    }
+  },
+  {
+    "type": "for_dir",
+    "named": true,
+    "fields": {
       "block": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "control_flow_block_statement",
+            "type": "control_flow_block",
             "named": true
           }
         ]
       },
-      "condition": {
+      "cond": {
         "multiple": true,
         "required": false,
         "types": [
@@ -1911,239 +1840,101 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
+            "type": "ternary_expr",
             "named": true
-          },
+          }
+        ]
+      },
+      "else_block": {
+        "multiple": false,
+        "required": false,
+        "types": [
           {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "control_flow_block",
             "named": true
           }
         ]
       },
       "init": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_literal",
+            "type": "assign_stmt",
             "named": true
           },
           {
-            "type": "assign_statement",
-            "named": true
-          },
-          {
-            "type": "boolean_literal",
-            "named": true
-          },
-          {
-            "type": "call_expression",
-            "named": true
-          },
-          {
-            "type": "dot_expression",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "global_call_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "index_expression",
-            "named": true
-          },
-          {
-            "type": "infix_expression",
-            "named": true
-          },
-          {
-            "type": "integer_literal",
-            "named": true
-          },
-          {
-            "type": "nil_literal",
-            "named": true
-          },
-          {
-            "type": "object_literal",
-            "named": true
-          },
-          {
-            "type": "postfix_decrement",
-            "named": true
-          },
-          {
-            "type": "postfix_increment",
-            "named": true
-          },
-          {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "postfix_stmt",
             "named": true
           }
         ]
       },
       "post": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_literal",
+            "type": "assign_stmt",
             "named": true
           },
           {
-            "type": "boolean_literal",
-            "named": true
-          },
-          {
-            "type": "call_expression",
-            "named": true
-          },
-          {
-            "type": "dot_expression",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "global_call_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "index_expression",
-            "named": true
-          },
-          {
-            "type": "infix_expression",
-            "named": true
-          },
-          {
-            "type": "integer_literal",
-            "named": true
-          },
-          {
-            "type": "nil_literal",
-            "named": true
-          },
-          {
-            "type": "object_literal",
-            "named": true
-          },
-          {
-            "type": "postfix_decrement",
-            "named": true
-          },
-          {
-            "type": "postfix_increment",
-            "named": true
-          },
-          {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "postfix_stmt",
             "named": true
           }
         ]
@@ -2151,7 +1942,7 @@
     }
   },
   {
-    "type": "global_call_expression",
+    "type": "global_call_expr",
     "named": true,
     "fields": {
       "arguments": {
@@ -2169,7 +1960,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           }
         ]
@@ -2193,76 +1984,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -2285,71 +2068,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -2357,24 +2132,10 @@
     }
   },
   {
-    "type": "if_statement",
+    "type": "if_dir",
     "named": true,
     "fields": {
-      "alternative": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "else_if_statement",
-            "named": true
-          },
-          {
-            "type": "else_statement",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
+      "cond": {
         "multiple": true,
         "required": true,
         "types": [
@@ -2387,81 +2148,93 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "consequence": {
+      "else_block": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "block_statement",
+            "type": "else_dir",
+            "named": true
+          }
+        ]
+      },
+      "elseif_block": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "elseif_dir",
+            "named": true
+          }
+        ]
+      },
+      "if_block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
             "named": true
           }
         ]
@@ -2469,7 +2242,7 @@
     }
   },
   {
-    "type": "index_expression",
+    "type": "index_expr",
     "named": true,
     "fields": {
       "index": {
@@ -2485,71 +2258,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -2567,71 +2332,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -2639,7 +2396,7 @@
     }
   },
   {
-    "type": "infix_expression",
+    "type": "infix_expr",
     "named": true,
     "fields": {},
     "children": {
@@ -2694,7 +2451,7 @@
     }
   },
   {
-    "type": "insert_statement",
+    "type": "insert_dir",
     "named": true,
     "fields": {
       "block": {
@@ -2702,7 +2459,7 @@
         "required": false,
         "types": [
           {
-            "type": "block_statement",
+            "type": "block",
             "named": true
           }
         ]
@@ -2720,76 +2477,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "value": {
+      "val": {
         "multiple": true,
         "required": false,
         "types": [
@@ -2802,71 +2551,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -2890,76 +2631,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -2982,71 +2715,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -3070,76 +2795,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3162,71 +2879,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -3250,76 +2959,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3342,71 +3043,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -3430,76 +3123,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3522,71 +3207,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -3610,76 +3287,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3702,71 +3371,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -3774,7 +3435,7 @@
     }
   },
   {
-    "type": "object_literal",
+    "type": "obj_expr",
     "named": true,
     "fields": {},
     "children": {
@@ -3805,76 +3466,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3897,71 +3550,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -3977,16 +3622,16 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "string_literal",
+            "type": "str_expr",
             "named": true
           }
         ]
       },
-      "value": {
+      "val": {
         "multiple": true,
         "required": false,
         "types": [
@@ -3999,71 +3644,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -4102,76 +3739,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "operator": {
+      "op": {
         "multiple": false,
         "required": true,
         "types": [
@@ -4194,71 +3823,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -4266,7 +3887,7 @@
     }
   },
   {
-    "type": "postfix_decrement",
+    "type": "postfix_stmt",
     "named": true,
     "fields": {
       "left": {
@@ -4282,71 +3903,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -4354,95 +3967,7 @@
     }
   },
   {
-    "type": "postfix_increment",
-    "named": true,
-    "fields": {
-      "left": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_literal",
-            "named": true
-          },
-          {
-            "type": "boolean_literal",
-            "named": true
-          },
-          {
-            "type": "call_expression",
-            "named": true
-          },
-          {
-            "type": "dot_expression",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "global_call_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "index_expression",
-            "named": true
-          },
-          {
-            "type": "infix_expression",
-            "named": true
-          },
-          {
-            "type": "integer_literal",
-            "named": true
-          },
-          {
-            "type": "nil_literal",
-            "named": true
-          },
-          {
-            "type": "object_literal",
-            "named": true
-          },
-          {
-            "type": "postfix_decrement",
-            "named": true
-          },
-          {
-            "type": "postfix_increment",
-            "named": true
-          },
-          {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "prefix_expression",
+    "type": "prefix_expr",
     "named": true,
     "fields": {},
     "children": {
@@ -4469,71 +3994,63 @@
       "required": true,
       "types": [
         {
-          "type": "array_literal",
+          "type": "arr_expr",
           "named": true
         },
         {
-          "type": "boolean_literal",
+          "type": "bool_expr",
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call_expr",
           "named": true
         },
         {
-          "type": "dot_expression",
+          "type": "dot_expr",
           "named": true
         },
         {
-          "type": "float_literal",
+          "type": "float_expr",
           "named": true
         },
         {
-          "type": "global_call_expression",
+          "type": "global_call_expr",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "ident_expr",
           "named": true
         },
         {
-          "type": "index_expression",
+          "type": "index_expr",
           "named": true
         },
         {
-          "type": "infix_expression",
+          "type": "infix_expr",
           "named": true
         },
         {
-          "type": "integer_literal",
+          "type": "int_expr",
           "named": true
         },
         {
-          "type": "nil_literal",
+          "type": "nil_expr",
           "named": true
         },
         {
-          "type": "object_literal",
+          "type": "obj_expr",
           "named": true
         },
         {
-          "type": "postfix_decrement",
+          "type": "prefix_expr",
           "named": true
         },
         {
-          "type": "postfix_increment",
+          "type": "str_expr",
           "named": true
         },
         {
-          "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "ternary_expression",
+          "type": "ternary_expr",
           "named": true
         }
       ]
@@ -4548,71 +4065,63 @@
       "required": true,
       "types": [
         {
-          "type": "array_literal",
+          "type": "arr_expr",
           "named": true
         },
         {
-          "type": "boolean_literal",
+          "type": "bool_expr",
           "named": true
         },
         {
-          "type": "call_expression",
+          "type": "call_expr",
           "named": true
         },
         {
-          "type": "dot_expression",
+          "type": "dot_expr",
           "named": true
         },
         {
-          "type": "float_literal",
+          "type": "float_expr",
           "named": true
         },
         {
-          "type": "global_call_expression",
+          "type": "global_call_expr",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "ident_expr",
           "named": true
         },
         {
-          "type": "index_expression",
+          "type": "index_expr",
           "named": true
         },
         {
-          "type": "infix_expression",
+          "type": "infix_expr",
           "named": true
         },
         {
-          "type": "integer_literal",
+          "type": "int_expr",
           "named": true
         },
         {
-          "type": "nil_literal",
+          "type": "nil_expr",
           "named": true
         },
         {
-          "type": "object_literal",
+          "type": "obj_expr",
           "named": true
         },
         {
-          "type": "postfix_decrement",
+          "type": "prefix_expr",
           "named": true
         },
         {
-          "type": "postfix_increment",
+          "type": "str_expr",
           "named": true
         },
         {
-          "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "ternary_expression",
+          "type": "ternary_expr",
           "named": true
         }
       ]
@@ -4628,35 +4137,43 @@
       "required": false,
       "types": [
         {
-          "type": "brace_statement",
+          "type": "comp_dir",
           "named": true
         },
         {
-          "type": "component_statement",
+          "type": "dump_dir",
           "named": true
         },
         {
-          "type": "dump_statement",
+          "type": "each_dir",
           "named": true
         },
         {
-          "type": "each_statement",
+          "type": "embedded",
           "named": true
         },
         {
-          "type": "for_statement",
+          "type": "ext_slot_default",
           "named": true
         },
         {
-          "type": "if_statement",
+          "type": "ext_slot_named_dir",
           "named": true
         },
         {
-          "type": "insert_statement",
+          "type": "for_dir",
           "named": true
         },
         {
-          "type": "reserve_statement",
+          "type": "if_dir",
+          "named": true
+        },
+        {
+          "type": "insert_dir",
+          "named": true
+        },
+        {
+          "type": "reserve_dir",
           "named": true
         },
         {
@@ -4664,14 +4181,14 @@
           "named": true
         },
         {
-          "type": "use_statement",
+          "type": "use_dir",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "reserve_statement",
+    "type": "reserve_dir",
     "named": true,
     "fields": {
       "fallback": {
@@ -4687,71 +4204,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -4769,71 +4278,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -4841,46 +4342,20 @@
     }
   },
   {
-    "type": "slot_statement",
+    "type": "slotif_dir",
     "named": true,
     "fields": {
-      "body": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "block_statement",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "string_literal",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "slotif_statement",
-    "named": true,
-    "fields": {
-      "body": {
+      "block": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "block_statement",
+            "type": "comp_block",
             "named": true
           }
         ]
       },
-      "condition": {
+      "cond": {
         "multiple": true,
         "required": true,
         "types": [
@@ -4893,71 +4368,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -4967,7 +4434,7 @@
         "required": false,
         "types": [
           {
-            "type": "string_literal",
+            "type": "str_expr",
             "named": true
           }
         ]
@@ -4975,15 +4442,15 @@
     }
   },
   {
-    "type": "string_literal",
+    "type": "str_expr",
     "named": true,
     "fields": {}
   },
   {
-    "type": "ternary_expression",
+    "type": "ternary_expr",
     "named": true,
     "fields": {
-      "alternative": {
+      "cond": {
         "multiple": true,
         "required": true,
         "types": [
@@ -4996,76 +4463,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "condition": {
+      "else_block": {
         "multiple": true,
         "required": true,
         "types": [
@@ -5078,76 +4537,68 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
       },
-      "consequence": {
+      "if_block": {
         "multiple": true,
         "required": true,
         "types": [
@@ -5160,71 +4611,63 @@
             "named": false
           },
           {
-            "type": "array_literal",
+            "type": "arr_expr",
             "named": true
           },
           {
-            "type": "boolean_literal",
+            "type": "bool_expr",
             "named": true
           },
           {
-            "type": "call_expression",
+            "type": "call_expr",
             "named": true
           },
           {
-            "type": "dot_expression",
+            "type": "dot_expr",
             "named": true
           },
           {
-            "type": "float_literal",
+            "type": "float_expr",
             "named": true
           },
           {
-            "type": "global_call_expression",
+            "type": "global_call_expr",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "ident_expr",
             "named": true
           },
           {
-            "type": "index_expression",
+            "type": "index_expr",
             "named": true
           },
           {
-            "type": "infix_expression",
+            "type": "infix_expr",
             "named": true
           },
           {
-            "type": "integer_literal",
+            "type": "int_expr",
             "named": true
           },
           {
-            "type": "nil_literal",
+            "type": "nil_expr",
             "named": true
           },
           {
-            "type": "object_literal",
+            "type": "obj_expr",
             "named": true
           },
           {
-            "type": "postfix_decrement",
+            "type": "prefix_expr",
             "named": true
           },
           {
-            "type": "postfix_increment",
+            "type": "str_expr",
             "named": true
           },
           {
-            "type": "prefix_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
+            "type": "ternary_expr",
             "named": true
           }
         ]
@@ -5232,7 +4675,7 @@
     }
   },
   {
-    "type": "use_statement",
+    "type": "use_dir",
     "named": true,
     "fields": {
       "name": {
@@ -5240,7 +4683,7 @@
         "required": true,
         "types": [
           {
-            "type": "string_literal",
+            "type": "str_expr",
             "named": true
           }
         ]
@@ -5404,18 +4847,6 @@
     "named": false
   },
   {
-    "type": "@slot  (",
-    "named": false
-  },
-  {
-    "type": "@slot (",
-    "named": false
-  },
-  {
-    "type": "@slot(",
-    "named": false
-  },
-  {
     "type": "@slotif",
     "named": false
   },
@@ -5432,11 +4863,11 @@
     "named": false
   },
   {
-    "type": "break_statement",
+    "type": "break_dir",
     "named": true
   },
   {
-    "type": "continue_statement",
+    "type": "continue_dir",
     "named": true
   },
   {
@@ -5444,11 +4875,11 @@
     "named": false
   },
   {
-    "type": "float_literal",
+    "type": "float_expr",
     "named": true
   },
   {
-    "type": "identifier",
+    "type": "ident_expr",
     "named": true
   },
   {
@@ -5456,11 +4887,11 @@
     "named": false
   },
   {
-    "type": "integer_literal",
+    "type": "int_expr",
     "named": true
   },
   {
-    "type": "nil_literal",
+    "type": "nil_expr",
     "named": true
   },
   {

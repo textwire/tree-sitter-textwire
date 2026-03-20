@@ -87,6 +87,7 @@
             <span>{{ user.name.upper() }}</span>
         @else
             <span>No users</span>
+            @component('name')@slotTEXT@end@end
             @component("book", { book })
                 <div>Nice</div>
 

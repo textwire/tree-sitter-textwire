@@ -9,9 +9,9 @@ Inline @insert inside HTML
 
 (program
     (text)
-    (insert_statement
-        name: (string_literal)
-        value: (string_literal))
+    (insert_dir
+        name: (str_expr)
+        val: (str_expr))
     (text))
 
 ==================
@@ -27,8 +27,8 @@ Inline @insert inside HTML
 
 (program
     (text)
-    (insert_statement
-        name: (string_literal)
-        block: (block_statement
+    (insert_dir
+        name: (str_expr)
+        block: (block
             (text)))
     (text))

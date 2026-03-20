@@ -5,13 +5,13 @@
 ---
 
 (program 
-    (for_statement
-        init: (assign_statement
-            name: (identifier)
-            value: (integer_literal))
-        condition: (boolean_literal)
-        post: (postfix_increment
-            left: (identifier))))
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        cond: (bool_expr)
+        post: (postfix_stmt
+            left: (ident_expr))))
 
 ==================
 @for with HTML block
@@ -22,14 +22,14 @@
 ---
 
 (program 
-    (for_statement
-        init: (assign_statement
-            name: (identifier)
-            value: (integer_literal))
-        condition: (boolean_literal)
-        post: (postfix_increment
-            left: (identifier))
-        block: (control_flow_block_statement
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        cond: (bool_expr)
+        post: (postfix_stmt
+            left: (ident_expr))
+        block: (control_flow_block
             (text))))
 
 ==================
@@ -39,16 +39,16 @@
 ---
 
 (program 
-    (for_statement
-        init: (assign_statement
-            name: (identifier)
-            value: (integer_literal))
-        condition: (infix_expression
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        cond: (infix_expr
             (less
-                left: (identifier)
-                right: (integer_literal)))
-        post: (postfix_increment
-            left: (identifier))))
+                left: (ident_expr)
+                right: (int_expr)))
+        post: (postfix_stmt
+            left: (ident_expr))))
 
 ==================
 @for with @break
@@ -60,19 +60,19 @@
 ---
 
 (program 
-    (for_statement
-        init: (assign_statement
-            name: (identifier)
-            value: (integer_literal))
-        condition: (infix_expression
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        cond: (infix_expr
             (less
-                left: (identifier)
-                right: (integer_literal)))
-        post: (postfix_increment
-            left: (identifier))
-        block: (control_flow_block_statement
+                left: (ident_expr)
+                right: (int_expr)))
+        post: (postfix_stmt
+            left: (ident_expr))
+        block: (control_flow_block
             (text)
-            (break_statement)
+            (break_dir)
             (text))))
 
 ==================
@@ -88,21 +88,21 @@
 
 (program 
     (text)
-    (for_statement
-        init: (assign_statement
-            name: (identifier)
-            value: (integer_literal))
-        condition: (infix_expression
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        cond: (infix_expr
             (less
-                left: (identifier)
-                right: (integer_literal)))
-        post: (postfix_increment
-            left: (identifier))
-        block: (control_flow_block_statement
+                left: (ident_expr)
+                right: (int_expr)))
+        post: (postfix_stmt
+            left: (ident_expr))
+        block: (control_flow_block
             (text)
-            (break_statement)
+            (break_dir)
             (text)
-            (continue_statement)
+            (continue_dir)
             (text)))
     (text))
 
@@ -113,24 +113,24 @@
 ---
 
 (program 
-    (for_statement
-        condition: (boolean_literal)
-        post: (postfix_increment
-            left: (identifier))))
+    (for_dir
+        cond: (bool_expr)
+        post: (postfix_stmt
+            left: (ident_expr))))
 
 ==================
-@for can be without condition
+@for can be without cond
 ==================
 @for(i = 0;; i++)@end
 ---
 
 (program 
-    (for_statement
-        init: (assign_statement
-            name: (identifier)
-            value: (integer_literal))
-        post: (postfix_increment
-            left: (identifier))))
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        post: (postfix_stmt
+            left: (ident_expr))))
 
 ==================
 @for can be without post
@@ -139,11 +139,11 @@
 ---
 
 (program 
-    (for_statement
-        init: (assign_statement
-            name: (identifier)
-            value: (integer_literal))
-        condition: (boolean_literal)))
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        cond: (bool_expr)))
 
 ==================
 @for can be empty
@@ -151,4 +151,4 @@
 @for(;;)@end
 ---
 
-(program (for_statement))
+(program (for_dir))
