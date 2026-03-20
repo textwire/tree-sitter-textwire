@@ -43,6 +43,7 @@ module.exports = grammar({
 Handles TEXT tokens and detects:
 - Directives starting with @ (e.g., @if, @for)
 - Brace statements {{ }}
+- `_OPEN_PAREN` - Hidden external token to disambiguate `@slot` from `@slot('name')`
 
 ## Tests
 

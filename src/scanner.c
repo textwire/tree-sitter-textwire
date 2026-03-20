@@ -8,7 +8,7 @@ https://tree-sitter.github.io/tree-sitter/creating-parsers/4-external-scanners.h
 
 enum TokenType {
     TEXT,
-    OPEN_PAREN,
+    _OPEN_PAREN,
 };
 
 static const char *directives[] = {
@@ -173,9 +173,9 @@ bool tree_sitter_textwire_external_scanner_scan(
     TSLexer *lexer,
     const bool *valid_symbols
 ) {
-    if (valid_symbols[OPEN_PAREN] && lexer->lookahead == '(') {
+    if (valid_symbols[_OPEN_PAREN] && lexer->lookahead == '(') {
         lexer->advance(lexer, false);
-        lexer->result_symbol = OPEN_PAREN;
+        lexer->result_symbol = _OPEN_PAREN;
         return true;
     }
 

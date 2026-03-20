@@ -121,7 +121,6 @@ Named @slot in @component
         block: (comp_block
             (text)
             (comp_slot_named
-                (open_paren)
                 name: (str_expr)
                 block: (comp_block (text)))
             (text))))
@@ -142,7 +141,6 @@ Named @slotif in @component
         block: (comp_block
             (text)
             (slotif_dir
-                (open_paren)
                 cond: (bool_expr)
                 name: (str_expr)
                 block: (comp_block
@@ -165,7 +163,6 @@ Default @slotif in @component
         block: (comp_block
             (text)
             (slotif_dir
-                (open_paren)
                 cond: (bool_expr)
                 block: (comp_block (text)))
             (text))))
@@ -190,12 +187,10 @@ Multiple @slotif in @component
         block: (comp_block
             (text)
             (slotif_dir
-                (open_paren)
                 cond: (bool_expr)
                 block: (comp_block (text)))
             (text)
             (slotif_dir
-                (open_paren)
                 cond: (bool_expr)
                 name: (str_expr)
                 block: (comp_block (text)))
