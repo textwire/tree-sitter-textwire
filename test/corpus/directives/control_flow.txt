@@ -8,7 +8,7 @@
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text)
             (break_dir)
             (text))))
@@ -23,7 +23,7 @@ Only @break inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (break_dir))))
 
 ==================
@@ -36,7 +36,7 @@ Only @break inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text)
             (continue_dir)
             (text))))
@@ -51,7 +51,7 @@ Only @continue inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (continue_dir))))
 
 ==================
@@ -64,7 +64,7 @@ Only @continue inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text)
             (breakif_dir
                 cond: (bool_expr))
@@ -80,7 +80,7 @@ Only @breakIf inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (breakif_dir
                 cond: (bool_expr)))))
 
@@ -94,7 +94,7 @@ Lowercased @breakIf inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (breakif_dir
                 cond: (bool_expr)))))
 
@@ -108,7 +108,7 @@ Lowercased @continueif inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (continueif_dir
                 cond: (bool_expr)))))
 
@@ -122,7 +122,7 @@ Lowercased @continueif inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text)
             (continueif_dir
                 cond: (bool_expr))
@@ -138,6 +138,6 @@ Only @continueIf inside of @each
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (continueif_dir
                 cond: (bool_expr)))))

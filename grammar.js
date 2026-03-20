@@ -54,7 +54,12 @@ module.exports = grammar({
         $.for_dir,
         $.if_dir,
         $.use_dir,
-        $._ext_slot_dir,
+        $.break_dir,
+        $.continue_dir,
+        $.breakif_dir,
+        $.continueif_dir,
+        $.slot_dir,
+        $.slotif_dir,
       ),
 
     embedded: $ => seq('{{', $._segment, repeat(seq(';', $._segment)), '}}'),
@@ -66,25 +71,23 @@ module.exports = grammar({
 
     block: $ => repeat1($._chunk),
 
-    _comp_slot_dir: $ => choice($.comp_slot_named, $.comp_slot_default_dir),
-
-    _ext_slot_dir: $ => choice($.ext_slot_default, $.ext_slot_named_dir),
-
-    ext_slot_default: _ => '@slot',
-
-    ext_slot_named_dir: $ => seq('@slot', $._open_paren, field('name', $.str_expr), ')'),
-
-    comp_slot_default_dir: $ =>
-      seq('@slot', field('block', $.comp_block), '@end'),
-
-    comp_slot_named: $ =>
-      seq(
+    slot_dir: $ =>
+      choice(
+        // @slot
         '@slot',
-        $._open_paren,
-        field('name', $.str_expr),
-        ')',
-        field('block', $.comp_block),
-        '@end',
+        // @slotBLOCK@end
+        seq('@slot', field('block', $.block), '@end'),
+        // @slot('name')BLOCK@end
+        seq(
+          '@slot',
+          $._open_paren,
+          field('name', $.str_expr),
+          ')',
+          field('block', $.block),
+          '@end',
+        ),
+        // @slot('name')
+        seq('@slot', $._open_paren, field('name', $.str_expr), ')'),
       ),
 
     slotif_dir: $ =>
@@ -94,36 +97,8 @@ module.exports = grammar({
         field('cond', $._expression),
         optional(seq(',', field('name', $.str_expr))),
         ')',
-        field('block', $.comp_block),
+        field('block', $.block),
         '@end',
-      ),
-
-    comp_block: $ =>
-      repeat1(
-        choice(
-          $.slotif_dir,
-          $._comp_slot_dir,
-          $.text,
-          $.dump_dir,
-          $.comp_dir,
-          $.insert_dir,
-          $.reserve_dir,
-          $.each_dir,
-          $.for_dir,
-          $.if_dir,
-          $.use_dir,
-        ),
-      ),
-
-    control_flow_block: $ =>
-      repeat1(
-        choice(
-          $.break_dir,
-          $.continue_dir,
-          $.breakif_dir,
-          $.continueif_dir,
-          $._chunk,
-        ),
       ),
 
     breakif_dir: $ =>
@@ -156,7 +131,7 @@ module.exports = grammar({
           field('name', $._expression),
           optional(seq(',', field('argument', $.obj_expr))),
           ')',
-          optional(seq(field('block', $.comp_block), '@end')),
+          optional(seq(field('block', $.block), '@end')),
         ),
       ),
 
@@ -171,26 +146,26 @@ module.exports = grammar({
 
     use_dir: $ => seq('@use', '(', field('name', $.str_expr), ')'),
 
-    _inline_insert_dir: $ =>
-      seq(
-        '@insert',
-        '(',
-        field('name', $._expression),
-        seq(',', field('val', $._expression)),
-        ')',
+    insert_dir: $ =>
+      choice(
+        // Inline @insert
+        seq(
+          '@insert',
+          '(',
+          field('name', $._expression),
+          seq(',', field('val', $._expression)),
+          ')',
+        ),
+        // @insert with block
+        seq(
+          '@insert',
+          '(',
+          field('name', $._expression),
+          ')',
+          field('block', $.block),
+          '@end',
+        ),
       ),
-
-    _block_insert_dir: $ =>
-      seq(
-        '@insert',
-        '(',
-        field('name', $._expression),
-        ')',
-        field('block', $.block),
-        '@end',
-      ),
-
-    insert_dir: $ => choice($._inline_insert_dir, $._block_insert_dir),
 
     dump_dir: $ => seq('@dump', '(', field('arguments', $.argument_list), ')'),
 
@@ -202,8 +177,8 @@ module.exports = grammar({
         'in',
         field('array', $._expression),
         ')',
-        optional(field('block', $.control_flow_block)),
-        optional(seq('@else', field('else_block', $.control_flow_block))),
+        optional(field('block', $.block)),
+        optional(seq('@else', field('else_block', $.block))),
         '@end',
       ),
 
@@ -217,8 +192,8 @@ module.exports = grammar({
         ';',
         optional(field('post', $._statement)),
         ')',
-        optional(field('block', $.control_flow_block)),
-        optional(seq('@else', field('else_block', $.control_flow_block))),
+        optional(field('block', $.block)),
+        optional(seq('@else', field('else_block', $.block))),
         '@end',
       ),
 

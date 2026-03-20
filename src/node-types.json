@@ -404,7 +404,23 @@
       "required": true,
       "types": [
         {
+          "type": "break_dir",
+          "named": true
+        },
+        {
+          "type": "breakif_dir",
+          "named": true
+        },
+        {
           "type": "comp_dir",
+          "named": true
+        },
+        {
+          "type": "continue_dir",
+          "named": true
+        },
+        {
+          "type": "continueif_dir",
           "named": true
         },
         {
@@ -441,6 +457,10 @@
         },
         {
           "type": "reserve_dir",
+          "named": true
+        },
+        {
+          "type": "slotif_dir",
           "named": true
         },
         {
@@ -645,65 +665,6 @@
     "fields": {}
   },
   {
-    "type": "comp_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "comp_dir",
-          "named": true
-        },
-        {
-          "type": "comp_slot_default_dir",
-          "named": true
-        },
-        {
-          "type": "comp_slot_named",
-          "named": true
-        },
-        {
-          "type": "dump_dir",
-          "named": true
-        },
-        {
-          "type": "each_dir",
-          "named": true
-        },
-        {
-          "type": "for_dir",
-          "named": true
-        },
-        {
-          "type": "if_dir",
-          "named": true
-        },
-        {
-          "type": "insert_dir",
-          "named": true
-        },
-        {
-          "type": "reserve_dir",
-          "named": true
-        },
-        {
-          "type": "slotif_dir",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "use_dir",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "comp_dir",
     "named": true,
     "fields": {
@@ -722,7 +683,7 @@
         "required": false,
         "types": [
           {
-            "type": "comp_block",
+            "type": "block",
             "named": true
           }
         ]
@@ -797,48 +758,6 @@
           },
           {
             "type": "ternary_expr",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "comp_slot_default_dir",
-    "named": true,
-    "fields": {
-      "block": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "comp_block",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "comp_slot_named",
-    "named": true,
-    "fields": {
-      "block": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "comp_block",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "str_expr",
             "named": true
           }
         ]
@@ -923,81 +842,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "control_flow_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "break_dir",
-          "named": true
-        },
-        {
-          "type": "breakif_dir",
-          "named": true
-        },
-        {
-          "type": "comp_dir",
-          "named": true
-        },
-        {
-          "type": "continue_dir",
-          "named": true
-        },
-        {
-          "type": "continueif_dir",
-          "named": true
-        },
-        {
-          "type": "dump_dir",
-          "named": true
-        },
-        {
-          "type": "each_dir",
-          "named": true
-        },
-        {
-          "type": "embedded",
-          "named": true
-        },
-        {
-          "type": "ext_slot_default",
-          "named": true
-        },
-        {
-          "type": "ext_slot_named_dir",
-          "named": true
-        },
-        {
-          "type": "for_dir",
-          "named": true
-        },
-        {
-          "type": "if_dir",
-          "named": true
-        },
-        {
-          "type": "insert_dir",
-          "named": true
-        },
-        {
-          "type": "reserve_dir",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "use_dir",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1417,7 +1261,7 @@
         "required": false,
         "types": [
           {
-            "type": "control_flow_block",
+            "type": "block",
             "named": true
           }
         ]
@@ -1427,7 +1271,7 @@
         "required": false,
         "types": [
           {
-            "type": "control_flow_block",
+            "type": "block",
             "named": true
           }
         ]
@@ -1822,7 +1666,7 @@
         "required": false,
         "types": [
           {
-            "type": "control_flow_block",
+            "type": "block",
             "named": true
           }
         ]
@@ -1906,7 +1750,7 @@
         "required": false,
         "types": [
           {
-            "type": "control_flow_block",
+            "type": "block",
             "named": true
           }
         ]
@@ -4137,7 +3981,23 @@
       "required": false,
       "types": [
         {
+          "type": "break_dir",
+          "named": true
+        },
+        {
+          "type": "breakif_dir",
+          "named": true
+        },
+        {
           "type": "comp_dir",
+          "named": true
+        },
+        {
+          "type": "continue_dir",
+          "named": true
+        },
+        {
+          "type": "continueif_dir",
           "named": true
         },
         {
@@ -4174,6 +4034,10 @@
         },
         {
           "type": "reserve_dir",
+          "named": true
+        },
+        {
+          "type": "slotif_dir",
           "named": true
         },
         {
@@ -4350,7 +4214,7 @@
         "required": true,
         "types": [
           {
-            "type": "comp_block",
+            "type": "block",
             "named": true
           }
         ]
