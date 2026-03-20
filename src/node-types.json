@@ -436,14 +436,6 @@
           "named": true
         },
         {
-          "type": "ext_slot_default",
-          "named": true
-        },
-        {
-          "type": "ext_slot_named_dir",
-          "named": true
-        },
-        {
           "type": "for_dir",
           "named": true
         },
@@ -457,6 +449,10 @@
         },
         {
           "type": "reserve_dir",
+          "named": true
+        },
+        {
+          "type": "slot_dir",
           "named": true
         },
         {
@@ -1630,27 +1626,6 @@
           },
           {
             "type": "ternary_expr",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "ext_slot_default",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ext_slot_named_dir",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "str_expr",
             "named": true
           }
         ]
@@ -4013,14 +3988,6 @@
           "named": true
         },
         {
-          "type": "ext_slot_default",
-          "named": true
-        },
-        {
-          "type": "ext_slot_named_dir",
-          "named": true
-        },
-        {
           "type": "for_dir",
           "named": true
         },
@@ -4034,6 +4001,10 @@
         },
         {
           "type": "reserve_dir",
+          "named": true
+        },
+        {
+          "type": "slot_dir",
           "named": true
         },
         {
@@ -4199,6 +4170,32 @@
           },
           {
             "type": "ternary_expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "slot_dir",
+    "named": true,
+    "fields": {
+      "block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "str_expr",
             "named": true
           }
         ]
