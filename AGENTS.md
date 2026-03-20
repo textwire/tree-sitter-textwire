@@ -1,12 +1,6 @@
 This is a Tree-sitter parser for Textwire templating language for Go.
 
-## Commands (run via Podman)
-
-All commands must be run inside the Podman container:
-
-```bash
-podman-compose run --rm app <command>
-```
+## Commands
 
 | Command | Description |
 |---------|-------------|
@@ -65,6 +59,6 @@ Input text
 
 Run tests:
 ```bash
-podman-compose run --rm app make test
-podman-compose run --rm app npm run tree-sitter -- test --filter "test name"
+make test
+npm run tree-sitter -- test --filter "test name"
 ```

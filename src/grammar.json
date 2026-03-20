@@ -184,8 +184,8 @@
           "value": "@slot"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "open_paren"
         },
         {
           "type": "FIELD",
@@ -230,8 +230,8 @@
           "value": "@slot"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "open_paren"
         },
         {
           "type": "FIELD",
@@ -267,8 +267,8 @@
           "value": "@slotif"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "open_paren"
         },
         {
           "type": "FIELD",
@@ -2165,6 +2165,10 @@
     {
       "type": "SYMBOL",
       "name": "text"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "open_paren"
     }
   ],
   "inline": [],

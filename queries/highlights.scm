@@ -30,9 +30,6 @@
   "@reserve"
   "@slotif"
   "@slot"
-  "@slot("
-  "@slot ("
-  "@slot  ("
   "@use"
  ] @type.builtin
 
