@@ -84,30 +84,54 @@ static bool matches_directive_name(char *buffer) {
     return false;
 }
 
+static bool starts_with_directive_prefix(const char *buffer) {
+    for (int i = 0; directives[i] != NULL; i++) {
+        if (strncmp(directives[i], buffer, strlen(buffer)) == 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
 static bool is_directive(TSLexer *lexer) {
     if (lexer->lookahead != '@') {
         return false;
     }
 
+    // Save position to check without consuming
+    TSLexer saved_lexer = *lexer;
+    
     lexer->advance(lexer, false); // skip "@"
 
     int longest = the_longest_directive();
-
-    char buffer[longest + 1]; // +1 for null-terminator
+    char buffer[longest + 1];
     int i = 0;
 
     while (!lexer->eof(lexer) && i < longest) {
         if (!is_letter(lexer->lookahead)) {
             break;
         }
-
-        buffer[i++] = lexer->lookahead;
+        
+        // Check if adding this letter would still match a directive prefix
+        buffer[i] = lexer->lookahead;
+        buffer[i + 1] = '\0';
+        
+        if (!starts_with_directive_prefix(buffer)) {
+            // This path doesn't match any directive, stop here
+            break;
+        }
+        
+        i++;
         lexer->advance(lexer, false);
     }
 
-    buffer[i] = '\0'; // Null-terminate
-
-    return matches_directive_name(buffer);
+    buffer[i] = '\0';
+    bool is_dir = matches_directive_name(buffer);
+    
+    // Restore original position
+    *lexer = saved_lexer;
+    
+    return is_dir;
 }
 
 static bool is_double_brace(char ch, TSLexer *lexer) {
