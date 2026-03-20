@@ -224,7 +224,10 @@ module.exports = grammar({
 
     ident_expr: _ => /[A-Za-z_][A-Za-z_0-9]*/,
 
-    str_expr: _ => choice(seq('"', /[^"]*/, '"'), seq("'", /[^']*/, "'")),
+    str_expr: _ => choice(
+      seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
+      seq("'", repeat(choice(/[^'\\]/, /\\./)), "'")
+    ),
 
     ternary_expr: $ =>
       prec.left(

@@ -1,0 +1,59 @@
+==================
+String with escaped quotes
+==================
+{{ "She is really \"nice\"" }}
+---
+
+(program
+    (embedded
+        (str_expr)))
+
+==================
+String with escaped single quote
+==================
+{{ 'It\'s working' }}
+---
+
+(program
+    (embedded
+        (str_expr)))
+
+==================
+String with escaped backslash
+==================
+{{ "Path: C:\\Users\\name" }}
+---
+
+(program
+    (embedded
+        (str_expr)))
+
+==================
+String with multiple escapes
+==================
+{{ "Line 1\\nLine 2\\tTabbed" }}
+---
+
+(program
+    (embedded
+        (str_expr)))
+
+==================
+Empty string
+==================
+{{ "" }}
+---
+
+(program
+    (embedded
+        (str_expr)))
+
+==================
+String with only escaped quote
+==================
+{{ "\"" }}
+---
+
+(program
+    (embedded
+        (str_expr)))
