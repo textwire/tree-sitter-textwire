@@ -37,3 +37,18 @@ Multiple @dump
     (dump_dir
         arguments: (argument_list
             (str_expr))))
+
+==================
+@dump with multiple arguments
+==================
+@dump(user.name, count, items)
+---
+
+(program
+    (dump_dir
+        arguments: (argument_list
+            (dot_expr
+                left: (ident_expr)
+                key: (ident_expr))
+            (ident_expr)
+            (ident_expr))))

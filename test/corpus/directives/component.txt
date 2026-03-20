@@ -9,6 +9,16 @@ Inline @component without text
         name: (str_expr)))
 
 ==================
+Inline @component with variable name
+==================
+@component(componentName)
+---
+
+(program
+    (comp_dir
+        name: (ident_expr)))
+
+==================
 Inline @component with short object notation
 ==================
 @component('book', { title })
@@ -223,3 +233,39 @@ Standalone @slot with name
 (program
     (slot_dir
         name: (str_expr)))
+
+==================
+Complex nested directives
+==================
+@component('list')
+    @each(item in items)
+        @if(item.active)
+            <span>{{ item.name }}</span>
+        @end
+    @end
+@end
+---
+
+(program
+    (comp_dir
+        name: (str_expr)
+        block: (block
+            (text)
+            (each_dir
+                var: (ident_expr)
+                array: (ident_expr)
+                block: (block
+                    (text)
+                    (if_dir
+                        cond: (dot_expr
+                            left: (ident_expr)
+                            key: (ident_expr))
+                        if_block: (block
+                            (text)
+                            (embedded
+                                (dot_expr
+                                    left: (ident_expr)
+                                    key: (ident_expr)))
+                            (text)))
+                    (text)))
+            (text))))

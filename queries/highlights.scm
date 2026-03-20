@@ -33,7 +33,6 @@
   "@use"
  ] @type.builtin
 
-; Statements
 (break_dir) @type.builtin
 (continue_dir) @type.builtin
 

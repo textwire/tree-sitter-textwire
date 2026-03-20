@@ -32,3 +32,14 @@ Inline @insert inside HTML
         block: (block
             (text)))
     (text))
+
+==================
+@insert with variable value
+==================
+@insert('key', variableName)
+---
+
+(program
+    (insert_dir
+        name: (str_expr)
+        val: (ident_expr)))

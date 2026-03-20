@@ -152,3 +152,29 @@
 ---
 
 (program (for_dir))
+
+==================
+@for with @else
+==================
+@for(i = 0; i < 10; i++)
+    <span>Item</span>
+@else
+    <span>No items</span>
+@end
+---
+
+(program
+    (for_dir
+        init: (assign_stmt
+            name: (ident_expr)
+            val: (int_expr))
+        cond: (infix_expr
+            (less
+                left: (ident_expr)
+                right: (int_expr)))
+        post: (postfix_stmt
+            left: (ident_expr))
+        block: (block
+            (text))
+        else_block: (block
+            (text))))
