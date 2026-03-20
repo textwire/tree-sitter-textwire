@@ -5,12 +5,12 @@
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text)
-            (break_statement)
+            (break_dir)
             (text))))
 
 ==================
@@ -20,11 +20,11 @@ Only @break inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
-            (break_statement))))
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
+            (break_dir))))
 
 ==================
 @continue inside of @each
@@ -33,12 +33,12 @@ Only @break inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text)
-            (continue_statement)
+            (continue_dir)
             (text))))
 
 ==================
@@ -48,11 +48,11 @@ Only @continue inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
-            (continue_statement))))
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
+            (continue_dir))))
 
 ==================
 @breakIf inside of @each
@@ -61,13 +61,13 @@ Only @continue inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text)
-            (breakif_statement
-                condition: (boolean_literal))
+            (breakif_dir
+                cond: (bool_expr))
             (text))))
 
 ==================
@@ -77,12 +77,12 @@ Only @breakIf inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
-            (breakif_statement
-                condition: (boolean_literal)))))
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
+            (breakif_dir
+                cond: (bool_expr)))))
 
 ==================
 Lowercased @breakIf inside of @each
@@ -91,12 +91,12 @@ Lowercased @breakIf inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
-            (breakif_statement
-                condition: (boolean_literal)))))
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
+            (breakif_dir
+                cond: (bool_expr)))))
 
 ==================
 Lowercased @continueif inside of @each
@@ -105,12 +105,12 @@ Lowercased @continueif inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
-            (continue_if_statement
-                condition: (boolean_literal)))))
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
+            (continueif_dir
+                cond: (bool_expr)))))
 
 ==================
 @continueIf inside of @each
@@ -119,13 +119,13 @@ Lowercased @continueif inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text)
-            (continue_if_statement
-                condition: (boolean_literal))
+            (continueif_dir
+                cond: (bool_expr))
             (text))))
 
 ==================
@@ -135,9 +135,9 @@ Only @continueIf inside of @each
 ---
 
 (program
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
-            (continue_if_statement
-                condition: (boolean_literal)))))
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
+            (continueif_dir
+                cond: (bool_expr)))))

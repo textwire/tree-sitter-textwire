@@ -5,9 +5,9 @@
 ---
 
 (program 
-    (dump_statement
+    (dump_dir
         arguments: (argument_list
-            (integer_literal))))
+            (int_expr))))
 
 ==================
 @dump inside HTML
@@ -19,9 +19,9 @@
 
 (program 
     (text)
-    (dump_statement
+    (dump_dir
         arguments: (argument_list
-            (integer_literal)))
+            (int_expr)))
     (text))
 
 ==================
@@ -31,9 +31,9 @@ Multiple @dump
 ---
 
 (program 
-    (dump_statement
+    (dump_dir
         arguments: (argument_list
-            (float_literal)))
-    (dump_statement
+            (float_expr)))
+    (dump_dir
         arguments: (argument_list
-            (string_literal))))
+            (str_expr))))

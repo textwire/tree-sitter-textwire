@@ -1,60 +1,70 @@
 ==================
-Boolean literals
+2 chunks with boolean expressions
 ==================
 {{ true; false }}
 ---
 
 (program 
-    (brace_statement
-        (boolean_literal)
-        (boolean_literal)))
+    (embedded
+        (bool_expr)
+        (bool_expr)))
 
 ==================
-Array literal
+1 chunk with boolean expression
+==================
+{{ true }}
+---
+
+(program 
+    (embedded
+        (bool_expr)))
+
+==================
+Array expression with 3 items
 ==================
 {{ [1, "two", false] }}
 ---
 
 (program 
-    (brace_statement
-        (array_literal
-            (integer_literal)
-            (string_literal)
-            (boolean_literal))))
+    (embedded
+        (arr_expr
+            (int_expr)
+            (str_expr)
+            (bool_expr))))
 
 ==================
-Simple string expression
+String expression
 ==================
 {{ 'Hello, world!' }}
 ---
 
 (program 
-    (brace_statement
-        (string_literal)))
+    (embedded
+        (str_expr)))
 
 ==================
-Short object literal with one key
+Short object expr with one key
 ==================
 {{ { name } }}
 ---
 
 (program 
-    (brace_statement
-        (object_literal
+    (embedded
+        (obj_expr
             (pairs
                 (pair
-                    key: (identifier))))))
+                    key: (ident_expr))))))
 
 ==================
-Full object literal with one element
+Full object expr with one element
 ==================
 {{ { name: "Serhii" } }}
 ---
 
 (program 
-    (brace_statement
-        (object_literal
+    (embedded
+        (obj_expr
             (pairs
                 (pair
-                    key: (identifier)
-                    value: (string_literal))))))
+                    key: (ident_expr)
+                    val: (str_expr))))))

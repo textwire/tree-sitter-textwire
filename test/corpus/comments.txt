@@ -96,8 +96,8 @@ HTML comment, textwire comment and @reserve
     (text)
     (comment)
     (text)
-    (reserve_statement
-        name: (string_literal)))
+    (reserve_dir
+        name: (str_expr)))
 
 ======================
 @reserve with fallback value
@@ -106,6 +106,6 @@ HTML comment, textwire comment and @reserve
 ---
 
 (program
-    (reserve_statement
-        name: (string_literal)
-        fallback: (string_literal)))
+    (reserve_dir
+        name: (str_expr)
+        fallback: (str_expr)))

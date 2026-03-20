@@ -23,8 +23,7 @@ const PREC = {
   MUL: 7,
   PREFIX: 10,
   LBRACKET: 12,
-  INC: 13,
-  DEC: 13,
+  POSTFIX: 13,
   DOT: 15,
   LPAREN: 16,
 }
@@ -34,115 +33,134 @@ module.exports = grammar({
 
   // the name of a token that will match keywords to the
   // keyword extraction optimization
-  word: $ => $.identifier,
+  word: $ => $.ident_expr,
 
   externals: $ => [$.text],
 
   extras: $ => [/\s/, $.comment],
 
   rules: {
-    program: $ => repeat($._definition),
+    program: $ => repeat($._chunk),
 
-    _definition: $ =>
+    _chunk: $ => choice($.embedded, $._directive, $.text),
+
+    _directive: $ =>
       choice(
-        $.text,
-        choice(
-          $.brace_statement,
-          $.dump_statement,
-          $.component_statement,
-          $.insert_statement,
-          $.reserve_statement,
-          $.each_statement,
-          $.for_statement,
-          $.if_statement,
-          $.use_statement,
-        ),
+        $.dump_dir,
+        $.comp_dir,
+        $.insert_dir,
+        $.reserve_dir,
+        $.each_dir,
+        $.for_dir,
+        $.if_dir,
+        $.use_dir,
+        $._ext_slot_dir,
       ),
 
-    brace_statement: $ =>
-      seq('{{', $._statement, repeat(seq(';', $._statement)), '}}'),
+    embedded: $ => seq('{{', $._segment, repeat(seq(';', $._segment)), '}}'),
 
-    _statement: $ => choice($.assign_statement, $._expression),
+    _segment: $ => choice($._statement, $._expression),
 
-    assign_statement: $ =>
-      seq(field('name', $.identifier), '=', field('value', $._expression)),
+    assign_stmt: $ =>
+      seq(field('name', $.ident_expr), '=', field('val', $._expression)),
 
-    block_statement: $ => repeat1($._definition),
+    block: $ => repeat1($._chunk),
 
-    slot_statement: $ =>
-      choice(
-        '@slot',
-        seq(
-          choice('@slot(', '@slot (', '@slot  ('),
-          field('name', $.string_literal),
-          ')',
-          field('body', $.block_statement),
-          '@end',
-        ),
-      ),
+    _comp_slot_dir: $ => choice($.comp_slot_named, $.comp_slot_default_dir),
 
-    slotif_statement: $ =>
+    _ext_slot_dir: $ => choice($.ext_slot_default, $.ext_slot_named_dir),
+
+    ext_slot_default: _ => '@slot',
+
+    ext_slot_named_dir: $ => seq('@slot', '(', field('name', $.str_expr), ')'),
+
+    comp_slot_default_dir: $ =>
+      seq('@slot', field('block', $.comp_block), '@end'),
+
+    comp_slot_named: $ =>
       seq(
-        '@slotif',
+        '@slot',
         '(',
-        field('condition', $._expression),
-        optional(seq(',', field('name', $.string_literal))),
+        field('name', $.str_expr),
         ')',
-        field('body', $.block_statement),
+        field('block', $.comp_block),
         '@end',
       ),
 
-    component_block_statement: $ =>
-      repeat1(
-        choice($._definition, choice($.slotif_statement, $.slot_statement)),
+    slotif_dir: $ =>
+      seq(
+        '@slotif',
+        '(',
+        field('cond', $._expression),
+        optional(seq(',', field('name', $.str_expr))),
+        ')',
+        field('block', $.comp_block),
+        '@end',
       ),
 
-    control_flow_block_statement: $ =>
+    comp_block: $ =>
       repeat1(
         choice(
-          $.break_statement,
-          $.continue_statement,
-          $.breakif_statement,
-          $.continue_if_statement,
-          $._definition,
+          $.slotif_dir,
+          $._comp_slot_dir,
+          $.text,
+          $.dump_dir,
+          $.comp_dir,
+          $.insert_dir,
+          $.reserve_dir,
+          $.each_dir,
+          $.for_dir,
+          $.if_dir,
+          $.use_dir,
         ),
       ),
 
-    breakif_statement: $ =>
+    control_flow_block: $ =>
+      repeat1(
+        choice(
+          $.break_dir,
+          $.continue_dir,
+          $.breakif_dir,
+          $.continueif_dir,
+          $._chunk,
+        ),
+      ),
+
+    breakif_dir: $ =>
       seq(
         choice('@breakIf', '@breakif'),
         '(',
-        field('condition', $._expression),
+        field('cond', $._expression),
         ')',
       ),
 
-    continue_if_statement: $ =>
+    continueif_dir: $ =>
       seq(
         choice('@continueIf', '@continueif'),
         '(',
-        field('condition', $._expression),
+        field('cond', $._expression),
         ')',
       ),
 
-    break_statement: _ => '@break',
-    continue_statement: _ => '@continue',
+    break_dir: _ => '@break',
+    continue_dir: _ => '@continue',
 
     argument_list: $ =>
       seq($._expression, optional(repeat(seq(',', $._expression)))),
 
-    component_statement: $ =>
+    comp_dir: $ =>
       prec.right(
         seq(
           '@component',
           '(',
           field('name', $._expression),
-          optional(seq(',', field('argument', $.object_literal))),
+          optional(seq(',', field('argument', $.obj_expr))),
           ')',
-          optional(seq(field('block', $.component_block_statement), '@end')),
+          optional(seq(field('block', $.comp_block), '@end')),
         ),
       ),
 
-    reserve_statement: $ =>
+    reserve_dir: $ =>
       seq(
         '@reserve',
         '(',
@@ -151,142 +169,131 @@ module.exports = grammar({
         ')',
       ),
 
-    use_statement: $ => seq('@use', '(', field('name', $.string_literal), ')'),
+    use_dir: $ => seq('@use', '(', field('name', $.str_expr), ')'),
 
-    _inline_insert_statement: $ =>
+    _inline_insert_dir: $ =>
       seq(
         '@insert',
         '(',
         field('name', $._expression),
-        seq(',', field('value', $._expression)),
+        seq(',', field('val', $._expression)),
         ')',
       ),
 
-    _block_insert_statement: $ =>
+    _block_insert_dir: $ =>
       seq(
         '@insert',
         '(',
         field('name', $._expression),
         ')',
-        field('block', $.block_statement),
+        field('block', $.block),
         '@end',
       ),
 
-    insert_statement: $ =>
-      choice($._inline_insert_statement, $._block_insert_statement),
+    insert_dir: $ => choice($._inline_insert_dir, $._block_insert_dir),
 
-    dump_statement: $ =>
-      seq('@dump', '(', field('arguments', $.argument_list), ')'),
+    dump_dir: $ => seq('@dump', '(', field('arguments', $.argument_list), ')'),
 
-    each_statement: $ =>
+    each_dir: $ =>
       seq(
         '@each',
         '(',
-        field('var', $.identifier),
+        field('var', $.ident_expr),
         'in',
         field('array', $._expression),
         ')',
-        optional(field('block', $.control_flow_block_statement)),
-        optional(
-          seq('@else', field('alternative', $.control_flow_block_statement)),
-        ),
+        optional(field('block', $.control_flow_block)),
+        optional(seq('@else', field('else_block', $.control_flow_block))),
         '@end',
       ),
 
-    for_statement: $ =>
+    for_dir: $ =>
       seq(
         '@for',
         '(',
         optional(field('init', $._statement)),
         ';',
-        optional(field('condition', $._expression)),
+        optional(field('cond', $._expression)),
         ';',
-        optional(field('post', $._expression)),
+        optional(field('post', $._statement)),
         ')',
-        optional(field('block', $.control_flow_block_statement)),
-        optional(
-          seq('@else', field('alternative', $.control_flow_block_statement)),
-        ),
+        optional(field('block', $.control_flow_block)),
+        optional(seq('@else', field('else_block', $.control_flow_block))),
         '@end',
       ),
 
-    else_if_statement: $ =>
+    elseif_dir: $ =>
       seq(
         '@elseif',
         '(',
-        field('condition', $._expression),
+        field('cond', $._expression),
         ')',
-        field('consequence', $.block_statement),
+        field('if_block', $.block),
       ),
 
-    else_statement: $ => seq('@else', $.block_statement),
+    else_dir: $ => seq('@else', $.block),
 
-    if_statement: $ =>
+    if_dir: $ =>
       seq(
         '@if',
         '(',
-        field('condition', $._expression),
+        field('cond', $._expression),
         ')',
-        optional(field('consequence', $.block_statement)),
-        repeat(field('alternative', $.else_if_statement)),
-        optional(field('alternative', $.else_statement)),
+        optional(field('if_block', $.block)),
+        repeat(field('elseif_block', $.elseif_dir)),
+        optional(field('else_block', $.else_dir)),
         '@end',
       ),
 
-    identifier: _ => /[A-Za-z_][A-Za-z_0-9]*/,
+    ident_expr: _ => /[A-Za-z_][A-Za-z_0-9]*/,
 
-    string_literal: _ => choice(seq('"', /[^"]*/, '"'), seq("'", /[^']*/, "'")),
+    str_expr: _ => choice(seq('"', /[^"]*/, '"'), seq("'", /[^']*/, "'")),
 
-    ternary_expression: $ =>
+    ternary_expr: $ =>
       prec.left(
         PREC.TERNARY,
         seq(
-          field('condition', $._expression),
+          field('cond', $._expression),
           '?',
-          field('consequence', $._expression),
+          field('if_block', $._expression),
           ':',
-          field('alternative', $._expression),
+          field('else_block', $._expression),
         ),
       ),
 
+    _statement: $ => choice($.postfix_stmt, $.assign_stmt),
+
     _expression: $ =>
       choice(
-        $._parenthesized_expression,
-        $._postfix_expression,
-        $.identifier,
-        $.ternary_expression,
-        $.integer_literal,
-        $.float_literal,
-        $.nil_literal,
-        $.boolean_literal,
-        $.prefix_expression,
-        $.infix_expression,
-        $.string_literal,
-        $.array_literal,
-        $.global_call_expression,
-        $.call_expression,
-        $.dot_expression,
-        $.index_expression,
-        $.object_literal,
+        $._parenthesized_expr,
+        $.ident_expr,
+        $.ternary_expr,
+        $.int_expr,
+        $.float_expr,
+        $.nil_expr,
+        $.bool_expr,
+        $.prefix_expr,
+        $.infix_expr,
+        $.str_expr,
+        $.arr_expr,
+        $.global_call_expr,
+        $.call_expr,
+        $.dot_expr,
+        $.index_expr,
+        $.obj_expr,
       ),
 
-    _parenthesized_expression: $ =>
-      prec(PREC.LPAREN, seq('(', $._expression, ')')),
+    _parenthesized_expr: $ => prec(PREC.LPAREN, seq('(', $._expression, ')')),
 
-    prefix_expression: $ =>
-      prec(PREC.PREFIX, choice($.prefix_minus, $.prefix_not)),
+    prefix_expr: $ => prec(PREC.PREFIX, choice($.prefix_minus, $.prefix_not)),
 
     prefix_minus: $ => prec(PREC.PREFIX + 1, seq('-', $._expression)),
     prefix_not: $ => prec(PREC.PREFIX + 1, seq('!', $._expression)),
 
-    postfix_increment: $ =>
-      prec(PREC.INC, seq(field('left', $._expression), '++')),
-    postfix_decrement: $ =>
-      prec(PREC.DEC, seq(field('left', $._expression), '--')),
+    postfix_stmt: $ =>
+      prec(PREC.POSTFIX, seq(field('left', $._expression), choice('++', '--'))),
 
-    _postfix_expression: $ => choice($.postfix_increment, $.postfix_decrement),
-
-    infix_expression: $ =>
+    infix_expr: $ =>
       choice(
         $.multiply,
         $.modulo,
@@ -306,7 +313,7 @@ module.exports = grammar({
         PREC.EQ,
         seq(
           field('left', $._expression),
-          field('operator', '=='),
+          field('op', '=='),
           field('right', $._expression),
         ),
       ),
@@ -316,7 +323,7 @@ module.exports = grammar({
         PREC.NOT_EQ,
         seq(
           field('left', $._expression),
-          field('operator', '!='),
+          field('op', '!='),
           field('right', $._expression),
         ),
       ),
@@ -326,7 +333,7 @@ module.exports = grammar({
         PREC.LTHAN,
         seq(
           field('left', $._expression),
-          field('operator', '<'),
+          field('op', '<'),
           field('right', $._expression),
         ),
       ),
@@ -336,7 +343,7 @@ module.exports = grammar({
         PREC.GTHAN,
         seq(
           field('left', $._expression),
-          field('operator', '>'),
+          field('op', '>'),
           field('right', $._expression),
         ),
       ),
@@ -346,7 +353,7 @@ module.exports = grammar({
         PREC.MUL,
         seq(
           field('left', $._expression),
-          field('operator', '*'),
+          field('op', '*'),
           field('right', $._expression),
         ),
       ),
@@ -356,7 +363,7 @@ module.exports = grammar({
         PREC.MOD,
         seq(
           field('left', $._expression),
-          field('operator', '%'),
+          field('op', '%'),
           field('right', $._expression),
         ),
       ),
@@ -366,7 +373,7 @@ module.exports = grammar({
         PREC.DIV,
         seq(
           field('left', $._expression),
-          field('operator', '/'),
+          field('op', '/'),
           field('right', $._expression),
         ),
       ),
@@ -376,7 +383,7 @@ module.exports = grammar({
         PREC.SUB,
         seq(
           field('left', $._expression),
-          field('operator', '-'),
+          field('op', '-'),
           field('right', $._expression),
         ),
       ),
@@ -386,7 +393,7 @@ module.exports = grammar({
         PREC.ADD,
         seq(
           field('left', $._expression),
-          field('operator', '+'),
+          field('op', '+'),
           field('right', $._expression),
         ),
       ),
@@ -396,7 +403,7 @@ module.exports = grammar({
         PREC.OR,
         seq(
           field('left', $._expression),
-          field('operator', '||'),
+          field('op', '||'),
           field('right', $._expression),
         ),
       ),
@@ -406,44 +413,44 @@ module.exports = grammar({
         PREC.AND,
         seq(
           field('left', $._expression),
-          field('operator', '&&'),
+          field('op', '&&'),
           field('right', $._expression),
         ),
       ),
 
-    global_call_expression: $ =>
+    global_call_expr: $ =>
       prec(
         PREC.LPAREN,
         seq(
-          field('function', $.identifier),
+          field('function', $.ident_expr),
           '(',
           optional(field('arguments', $.argument_list)),
           ')',
         ),
       ),
 
-    call_expression: $ =>
+    call_expr: $ =>
       prec(
         // We need to add 1 to precedence because it will confict
-        // with global_call_expression.
+        // with global_call_expr.
         PREC.LPAREN + 1,
         seq(
           field('receiver', $._expression),
           '.',
-          field('function', $.identifier),
+          field('function', $.ident_expr),
           '(',
           optional(field('arguments', $.argument_list)),
           ')',
         ),
       ),
 
-    dot_expression: $ =>
+    dot_expr: $ =>
       prec(
         PREC.DOT,
         seq(field('left', $._expression), '.', field('key', $._expression)),
       ),
 
-    index_expression: $ =>
+    index_expr: $ =>
       seq(
         field('left', $._expression),
         '[',
@@ -451,12 +458,12 @@ module.exports = grammar({
         ']',
       ),
 
-    integer_literal: _ => /\d+/,
-    float_literal: _ => /\d+\.\d+/,
-    boolean_literal: _ => choice('true', 'false'),
-    nil_literal: _ => 'nil',
+    int_expr: _ => /\d+/,
+    float_expr: _ => /\d+\.\d+/,
+    bool_expr: _ => choice('true', 'false'),
+    nil_expr: _ => 'nil',
 
-    array_literal: $ =>
+    arr_expr: $ =>
       seq(
         '[',
         optional(seq($._expression, repeat(seq(',', $._expression)))),
@@ -466,16 +473,16 @@ module.exports = grammar({
     pair: $ =>
       choice(
         seq(
-          field('key', choice($.string_literal, $.identifier)),
+          field('key', choice($.str_expr, $.ident_expr)),
           ':',
-          field('value', $._expression),
+          field('val', $._expression),
         ),
-        field('key', $.identifier),
+        field('key', $.ident_expr),
       ),
 
     pairs: $ => seq($.pair, optional(repeat(seq(',', $.pair))), optional(',')),
 
-    object_literal: $ => seq('{', optional($.pairs), '}'),
+    obj_expr: $ => seq('{', optional($.pairs), '}'),
 
     comment: _ => seq(token('{{--'), repeat(token(/./)), token('--}}')),
   },

@@ -5,8 +5,8 @@ Inline @component without text
 ---
 
 (program
-    (component_statement
-        name: (string_literal)))
+    (comp_dir
+        name: (str_expr)))
 
 ==================
 Inline @component with short object notation
@@ -15,12 +15,12 @@ Inline @component with short object notation
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        argument: (object_literal
+    (comp_dir
+        name: (str_expr)
+        argument: (obj_expr
             (pairs
                 (pair
-                    key: (identifier))))))
+                    key: (ident_expr))))))
 
 ==================
 Inline @component with full object notation
@@ -29,26 +29,29 @@ Inline @component with full object notation
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        argument: (object_literal
+    (comp_dir
+        name: (str_expr)
+        argument: (obj_expr
             (pairs
                 (pair
-                    key: (identifier)
-                    value: (string_literal))))))
+                    key: (ident_expr)
+                    val: (str_expr))))))
 
 ==================
 Block @component no arguments
 ==================
 @component('book')
-    <div>Nice</div>
+    @slot<div>Nice</div>@end
 @end
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        block: (component_block_statement
+    (comp_dir
+        name: (str_expr)
+        block: (comp_block
+            (text)
+            (comp_slot_default_dir
+                block: (text))
             (text))))
 
 ==================
@@ -60,13 +63,13 @@ Block @component with arguments
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        argument: (object_literal
+    (comp_dir
+        name: (str_expr)
+        argument: (obj_expr
             (pairs
                 (pair
-                    key: (identifier))))
-        block: (component_block_statement
+                    key: (ident_expr))))
+        block: (comp_block
             (text))))
 
 ==================
@@ -76,9 +79,9 @@ Inline @component with block
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        block: (component_block_statement
+    (comp_dir
+        name: (str_expr)
+        block: (comp_block
             (text))))
 
 ==================
@@ -86,15 +89,17 @@ Default @slot in @component
 ==================
 @component('book')
     @slot
+        TEST
+    @end
 @end
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        block: (component_block_statement
+    (comp_dir
+        name: (str_expr)
+        block: (comp_block
             (text)
-            (slot_statement)
+            (slot_dir)
             (text))))
 
 ==================
@@ -108,14 +113,13 @@ Named @slot in @component
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        block: (component_block_statement
+    (comp_dir
+        name: (str_expr)
+        block: (comp_block
             (text)
-            (slot_statement
-                name: (string_literal)
-                body: (block_statement
-                    (text)))
+            (comp_slot_named_dir
+                name: (str_expr)
+                block: (comp_block (text)))
             (text))))
 
 ==================
@@ -129,14 +133,14 @@ Named @slotif in @component
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        block: (component_block_statement
+    (comp_dir
+        name: (str_expr)
+        block: (comp_block
             (text)
-            (slotif_statement
-                condition: (boolean_literal)
-                name: (string_literal)
-                body: (block_statement
+            (slotif_dir
+                cond: (bool_expr)
+                name: (str_expr)
+                block: (comp_block
                     (text)))
             (text))))
 
@@ -151,14 +155,13 @@ Default @slotif in @component
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        block: (component_block_statement
+    (comp_dir
+        name: (str_expr)
+        block: (comp_block
             (text)
-            (slotif_statement
-                condition: (boolean_literal)
-                body: (block_statement
-                    (text)))
+            (slotif_dir
+                cond: (bool_expr)
+                block: (comp_block (text)))
             (text))))
 
 ==================
@@ -176,18 +179,16 @@ Multiple @slotif in @component
 ---
 
 (program
-    (component_statement
-        name: (string_literal)
-        block: (component_block_statement
+    (comp_dir
+        name: (str_expr)
+        block: (comp_block
             (text)
-            (slotif_statement
-                condition: (boolean_literal)
-                body: (block_statement
-                    (text)))
+            (slotif_dir
+                cond: (bool_expr)
+                block: (comp_block (text)))
             (text)
-            (slotif_statement
-                condition: (boolean_literal)
-                name: (string_literal)
-                body: (block_statement
-                    (text)))
+            (slotif_dir
+                cond: (bool_expr)
+                name: (str_expr)
+                block: (comp_block (text)))
             (text))))

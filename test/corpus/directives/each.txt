@@ -5,9 +5,9 @@ Each statement without any block
 ---
 
 (program 
-    (each_statement
-        var: (identifier)
-        array: (identifier)))
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)))
 
 ==================
 Inline each statement with 1 HTML statement
@@ -16,10 +16,10 @@ Inline each statement with 1 HTML statement
 ---
 
 (program 
-    (each_statement
-        var: (identifier)
-        array: (array_literal)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (arr_expr)
+        block: (control_flow_block
             (text))))
 
 ==================
@@ -31,13 +31,13 @@ Multiline each statement with expression
 ---
 
 (program 
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text)
-            (brace_statement
-                (identifier))
+            (embedded
+                (ident_expr))
             (text))))
 
 ==================
@@ -47,10 +47,10 @@ Each statement with escaped break
 ---
 
 (program 
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text))))
 
 ==================
@@ -63,12 +63,12 @@ Each statement with multiline block
 ---
 
 (program 
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text)
-            (break_statement)
+            (break_dir)
             (text))))
 
 ==================
@@ -82,10 +82,10 @@ Each statement else block
 ---
 
 (program 
-    (each_statement
-        var: (identifier)
-        array: (identifier)
-        block: (control_flow_block_statement
+    (each_dir
+        var: (ident_expr)
+        array: (ident_expr)
+        block: (control_flow_block
             (text))
-        alternative: (control_flow_block_statement
+        else_block: (control_flow_block
             (text))))

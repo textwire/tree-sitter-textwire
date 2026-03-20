@@ -7,9 +7,9 @@ Multiline @if
 ---
 
 (program
-    (if_statement
-        condition: (boolean_literal)
-        consequence: (block_statement
+    (if_dir
+        cond: (bool_expr)
+        if_block: (block
             (text))))
 
 ==================
@@ -19,9 +19,9 @@ Inline @if
 ---
 
 (program
-    (if_statement
-        condition: (boolean_literal)
-        consequence: (block_statement
+    (if_dir
+        cond: (bool_expr)
+        if_block: (block
             (text))))
 
 ==================
@@ -31,8 +31,8 @@ Inline @if
 ---
 
 (program
-    (if_statement
-        condition: (boolean_literal)))
+    (if_dir
+        cond: (bool_expr)))
 
 ==================
 Single @elseif
@@ -45,13 +45,13 @@ Single @elseif
 ---
 
 (program
-    (if_statement
-        condition: (boolean_literal)
-        consequence: (block_statement
+    (if_dir
+        cond: (bool_expr)
+        if_block: (block
             (text))
-        alternative: (else_if_statement
-            condition: (boolean_literal)
-            consequence: (block_statement
+        elseif_block: (elseif_dir
+            cond: (bool_expr)
+            if_block: (block
                 (text)))))
 
 ==================
@@ -67,17 +67,17 @@ Multiple @elseif
 ---
 
 (program
-    (if_statement
-        condition: (boolean_literal)
-        consequence: (block_statement
+    (if_dir
+        cond: (bool_expr)
+        if_block: (block
             (text))
-        alternative: (else_if_statement
-            condition: (boolean_literal)
-            consequence: (block_statement
+        elseif_block: (elseif_dir
+            cond: (bool_expr)
+            if_block: (block
                 (text)))
-        alternative: (else_if_statement
-                condition: (boolean_literal)
-                consequence: (block_statement
+        elseif_block: (elseif_dir
+                cond: (bool_expr)
+                if_block: (block
                     (text)))))
 
 ==================
@@ -91,10 +91,10 @@ Single @else
 ---
 
 (program
-    (if_statement
-        condition: (boolean_literal)
-        consequence: (block_statement
+    (if_dir
+        cond: (bool_expr)
+        if_block: (block
             (text))
-        alternative: (else_statement
-            (block_statement
+        else_block: (else_dir
+            (block
                 (text)))))
