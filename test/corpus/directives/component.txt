@@ -50,9 +50,8 @@ Block @component no arguments
         name: (str_expr)
         block: (block
             (text)
-            (comp_slot_default_dir
-                block: (block
-                    (text)))
+            (slot_dir
+                block: (block (text)))
             (text))))
 
 ==================
@@ -100,7 +99,7 @@ Default @slot in @component
         name: (str_expr)
         block: (block
             (text)
-            (comp_slot_default_dir
+            (slot_dir
                 block: (block
                     (text)))
             (text))))
@@ -120,7 +119,7 @@ Named @slot in @component
         name: (str_expr)
         block: (block
             (text)
-            (comp_slot_named
+            (slot_dir
                 name: (str_expr)
                 block: (block (text)))
             (text))))

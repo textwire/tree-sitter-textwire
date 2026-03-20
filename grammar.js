@@ -72,22 +72,24 @@ module.exports = grammar({
     block: $ => repeat1($._chunk),
 
     slot_dir: $ =>
-      choice(
-        // @slot
-        '@slot',
-        // @slotBLOCK@end
-        seq('@slot', field('block', $.block), '@end'),
-        // @slot('name')BLOCK@end
-        seq(
+      prec.right(
+        choice(
+          // @slot('name')BLOCK@end
+          seq(
+            '@slot',
+            $._open_paren,
+            field('name', $.str_expr),
+            ')',
+            field('block', $.block),
+            '@end',
+          ),
+          // @slotBLOCK@end
+          seq('@slot', field('block', $.block), '@end'),
+          // @slot('name')
+          seq('@slot', $._open_paren, field('name', $.str_expr), ')'),
+          // @slot
           '@slot',
-          $._open_paren,
-          field('name', $.str_expr),
-          ')',
-          field('block', $.block),
-          '@end',
         ),
-        // @slot('name')
-        seq('@slot', $._open_paren, field('name', $.str_expr), ')'),
       ),
 
     slotif_dir: $ =>
