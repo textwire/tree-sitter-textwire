@@ -19,7 +19,7 @@ Inline each statement with 1 HTML statement
     (each_dir
         var: (ident_expr)
         array: (arr_expr)
-        block: (control_flow_block
+        block: (block
             (text))))
 
 ==================
@@ -34,7 +34,7 @@ Multiline each statement with expression
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text)
             (embedded
                 (ident_expr))
@@ -50,7 +50,7 @@ Each statement with escaped break
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text))))
 
 ==================
@@ -66,7 +66,7 @@ Each statement with multiline block
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text)
             (break_dir)
             (text))))
@@ -85,7 +85,7 @@ Each statement else block
     (each_dir
         var: (ident_expr)
         array: (ident_expr)
-        block: (control_flow_block
+        block: (block
             (text))
-        else_block: (control_flow_block
+        else_block: (block
             (text))))

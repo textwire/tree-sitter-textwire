@@ -29,7 +29,7 @@
         cond: (bool_expr)
         post: (postfix_stmt
             left: (ident_expr))
-        block: (control_flow_block
+        block: (block
             (text))))
 
 ==================
@@ -70,7 +70,7 @@
                 right: (int_expr)))
         post: (postfix_stmt
             left: (ident_expr))
-        block: (control_flow_block
+        block: (block
             (text)
             (break_dir)
             (text))))
@@ -98,7 +98,7 @@
                 right: (int_expr)))
         post: (postfix_stmt
             left: (ident_expr))
-        block: (control_flow_block
+        block: (block
             (text)
             (break_dir)
             (text)

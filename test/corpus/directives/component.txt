@@ -48,10 +48,10 @@ Block @component no arguments
 (program
     (comp_dir
         name: (str_expr)
-        block: (comp_block
+        block: (block
             (text)
             (comp_slot_default_dir
-                block: (comp_block
+                block: (block
                     (text)))
             (text))))
 
@@ -70,7 +70,7 @@ Block @component with arguments
             (pairs
                 (pair
                     key: (ident_expr))))
-        block: (comp_block
+        block: (block
             (text))))
 
 ==================
@@ -82,7 +82,7 @@ Inline @component with block
 (program
     (comp_dir
         name: (str_expr)
-        block: (comp_block
+        block: (block
             (text))))
 
 ==================
@@ -98,10 +98,10 @@ Default @slot in @component
 (program
     (comp_dir
         name: (str_expr)
-        block: (comp_block
+        block: (block
             (text)
             (comp_slot_default_dir
-                block: (comp_block
+                block: (block
                     (text)))
             (text))))
 
@@ -118,11 +118,11 @@ Named @slot in @component
 (program
     (comp_dir
         name: (str_expr)
-        block: (comp_block
+        block: (block
             (text)
             (comp_slot_named
                 name: (str_expr)
-                block: (comp_block (text)))
+                block: (block (text)))
             (text))))
 
 ==================
@@ -138,12 +138,12 @@ Named @slotif in @component
 (program
     (comp_dir
         name: (str_expr)
-        block: (comp_block
+        block: (block
             (text)
             (slotif_dir
                 cond: (bool_expr)
                 name: (str_expr)
-                block: (comp_block
+                block: (block
                     (text)))
             (text))))
 
@@ -160,11 +160,11 @@ Default @slotif in @component
 (program
     (comp_dir
         name: (str_expr)
-        block: (comp_block
+        block: (block
             (text)
             (slotif_dir
                 cond: (bool_expr)
-                block: (comp_block (text)))
+                block: (block (text)))
             (text))))
 
 ==================
@@ -184,14 +184,14 @@ Multiple @slotif in @component
 (program
     (comp_dir
         name: (str_expr)
-        block: (comp_block
+        block: (block
             (text)
             (slotif_dir
                 cond: (bool_expr)
-                block: (comp_block (text)))
+                block: (block (text)))
             (text)
             (slotif_dir
                 cond: (bool_expr)
                 name: (str_expr)
-                block: (comp_block (text)))
+                block: (block (text)))
             (text))))
