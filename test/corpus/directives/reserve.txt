@@ -1,0 +1,66 @@
+==================
+@reserve with string
+==================
+@reserve('content')
+---
+
+(program
+    (reserve_dir
+        name: (str_expr)))
+
+==================
+@reserve with fallback
+==================
+@reserve('content', 'fallback value')
+---
+
+(program
+    (reserve_dir
+        name: (str_expr)
+        fallback: (str_expr)))
+
+==================
+@reserve with variable
+==================
+@reserve(name)
+---
+
+(program
+    (reserve_dir
+        name: (ident_expr)))
+
+==================
+@reserve with variable and fallback
+==================
+@reserve(name, fallback)
+---
+
+(program
+    (reserve_dir
+        name: (ident_expr)
+        fallback: (ident_expr)))
+
+==================
+@reserve inside HTML
+==================
+<div>@reserve('title')</div>
+---
+
+(program
+    (text)
+    (reserve_dir
+        name: (str_expr))
+    (text))
+
+==================
+@reserve with expression fallback
+==================
+@reserve('key', user.name)
+---
+
+(program
+    (reserve_dir
+        name: (str_expr)
+        fallback: (dot_expr
+            left: (ident_expr)
+            key: (ident_expr))))

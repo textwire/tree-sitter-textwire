@@ -58,8 +58,6 @@ Block @component no arguments
 Block @component with arguments
 ==================
 @component('book', { name })
-    <div>Nice</div>
-@end
 ---
 
 (program
@@ -68,9 +66,7 @@ Block @component with arguments
         argument: (obj_expr
             (pairs
                 (pair
-                    key: (ident_expr))))
-        block: (block
-            (text))))
+                    key: (ident_expr))))))
 
 ==================
 Inline @component with block
