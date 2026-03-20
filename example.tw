@@ -7,6 +7,9 @@
 
 @insert('content')
     <div>Hey main</div>
+
+    <img src="/images/{{ user.image }}.jpg" />
+
     <div>
         <h1>Nice one</h1>
         <p>Hey there</p>
@@ -62,8 +65,9 @@
 
         <h2>Escapes</h2>
         \{{ 1 + 2 }}
-        \@insert()
+        \@insert('title', 'hello')
         {{ "She is really \"nice\"" }}
+        {{ 'She is really \'nice\'' }}
 
         <h2>Function Calls</h2>
         <ul>
@@ -97,7 +101,7 @@
                     <div>nice</div>
                 @end
 
-                @slotif(true)
+                @slotif(true)THIS@end
 
                 @slotif(true, "name")
                     <div>nice</div>
