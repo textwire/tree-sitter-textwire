@@ -5,6 +5,10 @@
 @insert('title', 'Book Store')
 @insert("description", 'This is a book store description here')
 
+@slot
+@slot('header')
+@slot('footer')
+
 @insert('content')
     <div>Hey main</div>
 
@@ -73,6 +77,7 @@
         <ul>
             <li>{{ "nice".upper().split('i') }}</li>
             <li>{{ defined(user) }}</li>
+            <li>{{ formatDate(date, "") }}</li>
             <li>{{ hasValue(user) }}</li>
             <li>@if(defined(env))env@end</li>
         </ul>
@@ -91,25 +96,26 @@
             <span>{{ user.name.upper() }}</span>
         @else
             <span>No users</span>
-            @component('name')@slotTEXT@end@end
+
+            @component('name')
+                <h2>Textwire</h2>
+            @end
+
             @component("book", { book })
                 <div>Nice</div>
 
-                @slot
-
-                @slot("name")
+                @pass("name")
                     <div>nice</div>
                 @end
 
-                @slotif(true)THIS@end
+                @passif(true)THIS@end
 
-                @slotif(true, "name")
+                @passif(true, "name")
                     <div>nice</div>
                 @end
             @end
         @end
 
-        <h2>For Loop</h2>
         @for(i = 0; i < 10; i++)
             @break
         @else

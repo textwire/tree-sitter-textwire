@@ -448,6 +448,14 @@
           "named": true
         },
         {
+          "type": "pass_dir",
+          "named": true
+        },
+        {
+          "type": "passif_dir",
+          "named": true
+        },
+        {
           "type": "reserve_dir",
           "named": true
         },
@@ -676,7 +684,7 @@
       },
       "block": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "block",
@@ -3414,6 +3422,132 @@
     }
   },
   {
+    "type": "pass_dir",
+    "named": true,
+    "fields": {
+      "block": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str_expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "passif_dir",
+    "named": true,
+    "fields": {
+      "block": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "cond": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arr_expr",
+            "named": true
+          },
+          {
+            "type": "bool_expr",
+            "named": true
+          },
+          {
+            "type": "call_expr",
+            "named": true
+          },
+          {
+            "type": "dot_expr",
+            "named": true
+          },
+          {
+            "type": "float_expr",
+            "named": true
+          },
+          {
+            "type": "global_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident_expr",
+            "named": true
+          },
+          {
+            "type": "index_expr",
+            "named": true
+          },
+          {
+            "type": "infix_expr",
+            "named": true
+          },
+          {
+            "type": "int_expr",
+            "named": true
+          },
+          {
+            "type": "nil_expr",
+            "named": true
+          },
+          {
+            "type": "obj_expr",
+            "named": true
+          },
+          {
+            "type": "prefix_expr",
+            "named": true
+          },
+          {
+            "type": "str_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_expr",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "str_expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "plus",
     "named": true,
     "fields": {
@@ -3869,6 +4003,14 @@
         },
         {
           "type": "insert_dir",
+          "named": true
+        },
+        {
+          "type": "pass_dir",
+          "named": true
+        },
+        {
+          "type": "passif_dir",
           "named": true
         },
         {
@@ -4505,6 +4647,14 @@
   },
   {
     "type": "@insert",
+    "named": false
+  },
+  {
+    "type": "@pass",
+    "named": false
+  },
+  {
+    "type": "@passif",
     "named": false
   },
   {

@@ -84,6 +84,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "pass_dir"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "passif_dir"
+        },
+        {
+          "type": "SYMBOL",
           "name": "slotif_dir"
         }
       ]
@@ -165,6 +173,43 @@
         "type": "SYMBOL",
         "name": "_chunk"
       }
+    },
+    "pass_dir": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@pass"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_open_paren"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "str_expr"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "block",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "@end"
+        }
+      ]
     },
     "slot_dir": {
       "type": "PREC_RIGHT",
@@ -261,6 +306,60 @@
           }
         ]
       }
+    },
+    "passif_dir": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@passif"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_open_paren"
+        },
+        {
+          "type": "FIELD",
+          "name": "cond",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "str_expr"
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "block",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "@end"
+        }
+      ]
     },
     "slotif_dir": {
       "type": "SEQ",
@@ -434,83 +533,66 @@
       ]
     },
     "comp_dir": {
-      "type": "PREC_RIGHT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "@component"
-          },
-          {
-            "type": "STRING",
-            "value": "("
-          },
-          {
-            "type": "FIELD",
-            "name": "name",
-            "content": {
-              "type": "SYMBOL",
-              "name": "str_expr"
-            }
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "FIELD",
-                    "name": "argument",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "obj_expr"
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": ")"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "FIELD",
-                    "name": "block",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "block"
-                    }
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "@end"
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@component"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "str_expr"
           }
-        ]
-      }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "FIELD",
+                  "name": "argument",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "obj_expr"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "block",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "@end"
+        }
+      ]
     },
     "reserve_dir": {
       "type": "SEQ",

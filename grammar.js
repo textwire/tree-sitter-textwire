@@ -59,7 +59,9 @@ module.exports = grammar({
         $.breakif_dir,
         $.continueif_dir,
         $.slot_dir,
-        $.slotif_dir,
+        $.pass_dir,
+        $.passif_dir,
+        $.slotif_dir, // Legacy directive
       ),
 
     embedded: $ => seq('{{', $._segment, repeat(seq(';', $._segment)), '}}'),
@@ -71,10 +73,20 @@ module.exports = grammar({
 
     block: $ => repeat1($._chunk),
 
+    pass_dir: $ =>
+      seq(
+        '@pass',
+        $._open_paren,
+        field('name', $.str_expr),
+        ')',
+        field('block', $.block),
+        '@end',
+      ),
+
     slot_dir: $ =>
       prec.right(
         choice(
-          // @slot('name')BLOCK@end
+          // Legacy directive. @slot('name')BLOCK@end
           seq(
             '@slot',
             $._open_paren,
@@ -83,7 +95,7 @@ module.exports = grammar({
             field('block', $.block),
             '@end',
           ),
-          // @slotBLOCK@end
+          // Legacy directive. @slotBLOCK@end
           seq('@slot', field('block', $.block), '@end'),
           // @slot('name')
           seq('@slot', $._open_paren, field('name', $.str_expr), ')'),
@@ -92,6 +104,18 @@ module.exports = grammar({
         ),
       ),
 
+    passif_dir: $ =>
+      seq(
+        '@passif',
+        $._open_paren,
+        field('cond', $._expression),
+        seq(',', field('name', $.str_expr)),
+        ')',
+        field('block', $.block),
+        '@end',
+      ),
+
+    // Legacy directive.
     slotif_dir: $ =>
       seq(
         '@slotif',
@@ -126,15 +150,14 @@ module.exports = grammar({
       seq($._expression, optional(repeat(seq(',', $._expression)))),
 
     comp_dir: $ =>
-      prec.right(
-        seq(
-          '@component',
-          '(',
-          field('name', $.str_expr),
-          optional(seq(',', field('argument', $.obj_expr))),
-          ')',
-          optional(seq(field('block', $.block), '@end')),
-        ),
+      seq(
+        '@component',
+        '(',
+        field('name', $.str_expr),
+        optional(seq(',', field('argument', $.obj_expr))),
+        ')',
+        field('block', $.block),
+        '@end',
       ),
 
     reserve_dir: $ =>
@@ -224,10 +247,11 @@ module.exports = grammar({
 
     ident_expr: _ => /[A-Za-z_][A-Za-z_0-9]*/,
 
-    str_expr: _ => choice(
-      seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
-      seq("'", repeat(choice(/[^'\\]/, /\\./)), "'")
-    ),
+    str_expr: _ =>
+      choice(
+        seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
+        seq("'", repeat(choice(/[^'\\]/, /\\./)), "'"),
+      ),
 
     ternary_expr: $ =>
       prec.left(

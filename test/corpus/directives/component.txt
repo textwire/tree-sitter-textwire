@@ -1,7 +1,7 @@
 ==================
 Inline @component without text
 ==================
-@component('user')
+@component('user')@end
 ---
 
 (program
@@ -11,7 +11,7 @@ Inline @component without text
 ==================
 Inline @component with short object notation
 ==================
-@component('book', { title })
+@component('book', { title })@end
 ---
 
 (program
@@ -25,7 +25,7 @@ Inline @component with short object notation
 ==================
 Inline @component with full object notation
 ==================
-@component("user", { name: "John" })
+@component("user", { name: "John" })@end
 ---
 
 (program
@@ -55,9 +55,9 @@ Block @component no arguments
             (text))))
 
 ==================
-Block @component with arguments
+Block @component with argument
 ==================
-@component('book', { name })
+@component('book', { name })@end
 ---
 
 (program
@@ -257,5 +257,69 @@ Complex nested directives
                                     left: (ident_expr)
                                     key: (ident_expr)))
                             (text)))
+                    (text)))
+            (text))))
+
+==================
+Inline default pass in @component
+==================
+@component('character')Skirk@end
+---
+
+(program
+    (comp_dir
+        name: (str_expr)
+        block: (block
+            (text))))
+
+==================
+Multiple passes in @component
+==================
+@component('book')
+    @pass("header")
+        <h1>First</h1>
+    @end
+
+    @passif(true, "name")
+        <h2>Second</h2>
+    @end
+@end
+---
+
+(program
+    (comp_dir
+        name: (str_expr)
+        block: (block
+            (text)
+            (pass_dir
+                name: (str_expr)
+                block: (block (text)))
+            (text)
+            (passif_dir
+                cond: (bool_expr)
+                name: (str_expr)
+                block: (block (text)))
+            (text))))
+
+==================
+@slot inside @pass
+==================
+@component('book')
+    @pass("title")
+        @slot
+    @end
+@end
+---
+
+(program
+    (comp_dir
+        name: (str_expr)
+        block: (block
+            (text)
+            (pass_dir
+                name: (str_expr)
+                block: (block
+                    (text)
+                    (slot_dir)
                     (text)))
             (text))))

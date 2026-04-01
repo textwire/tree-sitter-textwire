@@ -19,8 +19,6 @@ static const char *directives[] = {
     "for",
     "use",
     "each",
-    "breakIf",
-    "continueIf",
     "breakif",
     "continueif",
     "insert",
@@ -29,8 +27,13 @@ static const char *directives[] = {
     "continue",
     "component",
     "slot",
-    "slotif",
+    "pass",
+    "passif",
     "dump",
+    // Legacy directives
+    "breakIf",
+    "continueIf",
+    "slotif",
     NULL,
 };
 
