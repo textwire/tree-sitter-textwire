@@ -39,9 +39,7 @@ module.exports = grammar({
 
   extras: $ => [/\s/, $.comment],
 
-  conflicts: $ => [
-    [$.slot_dir],
-  ],
+  conflicts: $ => [[$.slot_dir]],
 
   rules: {
     program: $ => repeat($._chunk),
