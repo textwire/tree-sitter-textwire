@@ -39,6 +39,10 @@ module.exports = grammar({
 
   extras: $ => [/\s/, $.comment],
 
+  conflicts: $ => [
+    [$.slot_dir],
+  ],
+
   rules: {
     program: $ => repeat($._chunk),
 
@@ -84,24 +88,22 @@ module.exports = grammar({
       ),
 
     slot_dir: $ =>
-      prec.right(
-        choice(
-          // Legacy directive. @slot('name')BLOCK@end
-          seq(
-            '@slot',
-            $._open_paren,
-            field('name', $.str_expr),
-            ')',
-            field('block', $.block),
-            '@end',
-          ),
-          // Legacy directive. @slotBLOCK@end
-          seq('@slot', field('block', $.block), '@end'),
-          // @slot('name')
-          seq('@slot', $._open_paren, field('name', $.str_expr), ')'),
-          // @slot
+      choice(
+        // @slot (standalone - check first)
+        '@slot',
+        // @slot('name')
+        seq('@slot', $._open_paren, field('name', $.str_expr), ')'),
+        // Legacy directive. @slot('name')BLOCK@end
+        seq(
           '@slot',
+          $._open_paren,
+          field('name', $.str_expr),
+          ')',
+          field('block', $.block),
+          '@end',
         ),
+        // Legacy directive. @slotBLOCK@end
+        seq('@slot', field('block', $.block), '@end'),
       ),
 
     passif_dir: $ =>
@@ -156,7 +158,7 @@ module.exports = grammar({
         field('name', $.str_expr),
         optional(seq(',', field('argument', $.obj_expr))),
         ')',
-        field('block', $.block),
+        optional(field('block', $.block)),
         '@end',
       ),
 
