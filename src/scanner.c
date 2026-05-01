@@ -138,7 +138,7 @@ static bool is_directive(TSLexer *lexer) {
 }
 
 static bool is_double_brace(char ch, TSLexer *lexer) {
-    return ch == '{' && lexer->lookahead == '{';
+    return (ch == '{' && lexer->lookahead == '{') || (ch == '{' && lexer->lookahead == '!');
 }
 
 // Returns boolean if the text was consumed or not
@@ -176,6 +176,15 @@ static bool read_text_token(TSLexer *lexer) {
 
             if (lexer->lookahead == '{') {
                 return handle_embedded(lexer, text_consumed);
+            }
+
+            if (lexer->lookahead == '!') {
+                lexer->advance(lexer, false);
+                if (lexer->lookahead == '!') {
+                    return handle_embedded(lexer, text_consumed);
+                }
+                // If not !!, we fell back to just {! which is not a special pattern
+                // Continue processing normally
             }
         }
 
