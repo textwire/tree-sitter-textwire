@@ -66,7 +66,11 @@ module.exports = grammar({
         $.slotif_dir, // Legacy directive
       ),
 
-    embedded: $ => seq('{{', $._segment, repeat(seq(';', $._segment)), '}}'),
+    embedded: $ =>
+      choice(
+        seq('{{', $._segment, repeat(seq(';', $._segment)), '}}'),
+        seq('{!!', $._segment, repeat(seq(';', $._segment)), '!!}'),
+      ),
 
     _segment: $ => choice($._statement, $._expression),
 

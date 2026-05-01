@@ -35,14 +35,14 @@
             <span>{{ true ? 1 : 2 }}</span>
             <span>{{ x++ }}</span>
             <span>{{ -1 + 2.23 }}</span>
-            <span>{{ --x }}</span>
+            <span>{{ x-- }}</span>
             <span>{{ obj.key }}</span>
             <span>{{ x < y }}</span>
             <div class="text-2xl py-4">{{ tech[0] }}</div>
             <div>This is @if(visible)is@end nice</div>
             <div>This is \@if(visible)is\@end nice</div>
             <div>{{ defined(one) && defined(two) ? "Is defined" : "Not defined" }}</div>
-            <div>{{ defined(one, two) ? "Is defined" : "Not defined" }}</div>
+            <div>{!! defined(one, two) ? "Is defined" : "Not defined" !!}</div>
         @elseif(false)
             <span>Nothing</span>
         @else
@@ -108,9 +108,7 @@
                     <div>nice</div>
                 @end
 
-                @passif(true)THIS@end
-
-                @passif(true, "name")
+                @passif(true, "nice")
                     <div>nice</div>
                 @end
             @end

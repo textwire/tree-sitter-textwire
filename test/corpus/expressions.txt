@@ -382,3 +382,13 @@ Global call function expression with multiple arguments
                 (int_expr)
                 (bool_expr)
                 (str_expr)))))
+
+==================
+Raw string output
+==================
+{!! "<h1>Some HTML is here</h1>" !!}
+---
+
+(program
+    (embedded
+        (str_expr)))
