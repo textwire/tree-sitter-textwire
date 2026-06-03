@@ -137,10 +137,6 @@ static bool is_directive(TSLexer *lexer) {
     return is_dir;
 }
 
-static bool is_double_brace(char ch, TSLexer *lexer) {
-    return (ch == '{' && lexer->lookahead == '{') || (ch == '{' && lexer->lookahead == '!');
-}
-
 // Returns boolean if the text was consumed or not
 static bool handle_directive(TSLexer *lexer, bool text_consumed) {
     if (text_consumed) {
