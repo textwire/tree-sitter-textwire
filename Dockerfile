@@ -1,4 +1,4 @@
-FROM gcc:15-bookworm
+FROM gcc:15-trixie
 
 RUN apt update && \
     curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && \
@@ -9,8 +9,7 @@ WORKDIR /app
 
 COPY package*.json .
 
-RUN npm install && \
-    npm cache clean --force
+RUN npm install && npm cache clean --force
 
 COPY . .
 
