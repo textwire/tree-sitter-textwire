@@ -1,4 +1,4 @@
-module github.com/textwire/textwire
+module codeberg.org/textwire/textwire
 
 go 1.22
 

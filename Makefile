@@ -3,9 +3,9 @@ $(error Windows is not supported)
 endif
 
 LANGUAGE_NAME := tree-sitter-textwire
-HOMEPAGE_URL := https://github.com/textwire/textwire
+HOMEPAGE_URL := https://codeberg.org/textwire/textwire
 DESCRIPTION := Tree sitter for Textwire language
-VERSION := 0.1.1
+VERSION := 0.1.2
 
 # repository
 SRC_DIR := src
