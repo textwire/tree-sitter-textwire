@@ -116,4 +116,4 @@ You'll be able to run [NPM commands](#npm-commands-available) inside of the cont
 
 ## License
 
-The Tree Sitter Textwire project is licensed under the [MIT License](https://codeberg.org/textwire/tree-sitter-textwire/src/branch/master/LICENSE)
+The Tree Sitter Textwire project is licensed under the [MIT License](https://github.com/textwire/tree-sitter-textwire/blob/master/LICENSE)

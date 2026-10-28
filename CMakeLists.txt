@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 project(tree-sitter-textwire
         VERSION "0.1.0"
         DESCRIPTION "Dynamic templating and scripting language for Go. Ideal for embedding dynamic content with Go applications"
-        HOMEPAGE_URL "https://codeberg.org/textwire/textwire"
+        HOMEPAGE_URL "https://github.com/textwire/textwire"
         LANGUAGES C)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)

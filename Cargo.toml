@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "textwire"]
 categories = ["parsing", "text-editors"]
-repository = "https://codeberg.org/textwire/textwire"
+repository = "https://github.com/textwire/textwire"
 edition = "2021"
 autoexamples = false
 

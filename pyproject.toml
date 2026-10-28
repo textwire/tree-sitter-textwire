@@ -19,7 +19,7 @@ license.text = "MIT"
 readme = "README.md"
 
 [project.urls]
-Homepage = "https://codeberg.org/textwire/textwire"
+Homepage = "https://github.com/textwire/textwire"
 
 [project.optional-dependencies]
 core = ["tree-sitter~=0.22"]
